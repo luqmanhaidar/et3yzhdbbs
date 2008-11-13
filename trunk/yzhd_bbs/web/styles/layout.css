@@ -194,7 +194,7 @@ div { word-wrap: break-word; }
  */
 .ibox {
 	margin:0px;
-	border-bottom: 1px solid silver;
+	/*border-bottom: 1px solid silver;*/
 	height:26px;
 	clear:both;
 	line-height:150%;

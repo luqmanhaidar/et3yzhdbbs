@@ -181,12 +181,14 @@
 					this.deleteButton = "<input type=\"button\"  name=\"deleteOption#key#\" value=\"删除\" onClick=\"poll.deleteOption(#key#);\"/>";
 				};
 				Poll.prototype.addOption = function(key) {
-					// 第一条记录增加删除按钮
-					document.getElementById("addButton"+(eval(key-1))).innerHTML = "";
-					document.getElementById("deleteButton"+(eval(key-1))).innerHTML = this.deleteButton.ReplaceAll("#key#",eval(key-1));
-					// 创建第二条记录
-					this.optionArray[this.optionArray.length] = this.optionHtml.replace("#addButton#",this.addButton).ReplaceAll("#key#",key);
-					this.appendPoll(key);
+					if(this.optionNum<${propertyMap["ballotOptionNum"]}){
+						// 第一条记录增加删除按钮
+						document.getElementById("addButton"+(eval(key-1))).innerHTML = "";
+						document.getElementById("deleteButton"+(eval(key-1))).innerHTML = this.deleteButton.ReplaceAll("#key#",eval(key-1));
+						// 创建第二条记录
+						this.optionArray[this.optionArray.length] = this.optionHtml.replace("#addButton#",this.addButton).ReplaceAll("#key#",key);
+						this.appendPoll(key);
+					}
 				};
 				Poll.prototype.deleteOption = function(key) {
 					if(this.optionArray.length<1){
