@@ -279,16 +279,16 @@ public class UserServiceImpl implements UserService{
 		User user = null;
 		try {
 			user = getUser(userId);
-			if(logger.isDebugEnabled()){
+			/*if(logger.isDebugEnabled()){
 				logger.debug("根据userId["+userId+"]取得用户信息");
-			}
+			}*/
 			if(user==null){
 				throw new UserException("用户不存在");
 			}
 			else {
-				if(logger.isDebugEnabled()){
+				/*if(logger.isDebugEnabled()){
 					logger.debug("密码提示问题答案 ["+answer+"] | 加密后的答案 ["+MD5.md5(answer)+"] | 用户原始答案　["+user.getAnswer()+"]");
-				}
+				}*/
 				if (!(MD5.md5(answer).equals(user.getAnswer()))){
 					throw new UserException("您输入的密码提示问题答案['"+answer+"']错误");
 				}

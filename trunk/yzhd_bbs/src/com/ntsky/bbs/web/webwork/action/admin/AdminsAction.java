@@ -38,9 +38,9 @@ public class AdminsAction extends AdminActionSupport implements Preparable{
 		/* ------------------------------- */		
 		
 		
-		if(logger.isDebugEnabled()){
+		/*if(logger.isDebugEnabled()){
 			logger.debug("列表论坛系统管理员信息");
-		}
+		}*/
 		return SUCCESS;
     }
 	

@@ -32,9 +32,9 @@ public class BeanUtil {
 		try {
 			// 过滤字符串
 			Field[] fileds = formObject.getClass().getDeclaredFields();
-			if (logger.isDebugEnabled()) {
+			/*if (logger.isDebugEnabled()) {
 				logger.debug("格式化Bean : " + formObject.getClass().getName());
-			}
+			}*/
 			
 			String newString = "";
 			for (int i = 0; i < fileds.length; i++) {
@@ -45,21 +45,21 @@ public class BeanUtil {
 						newString = StringUtil.formatEditorToHtml(ReflectUtil
 								.getGetter(formObject.getClass(),
 										fileds[i].getName()).get(formObject).toString());
-						if (logger.isDebugEnabled()) {
+						/*if (logger.isDebugEnabled()) {
 							logger.debug("filed 's name is : "
 									+ fileds[i].getName()
 									+ " and field's vlaue is " + newString);
-						}
+						}*/
 					} 
 					else {
 						newString = StringUtil.formatStringToHtml(ReflectUtil
 								.getGetter(formObject.getClass(),
 										fileds[i].getName()).get(formObject).toString());
-						if (logger.isDebugEnabled()) {
+					/*	if (logger.isDebugEnabled()) {
 							logger.debug("filed 's name is : "
 									+ fileds[i].getName()
 									+ " and field's vlaue is " + newString);
-						}					
+						}*/					
 					}
 					newString = ("".equals(newString)) ? " " : newString;
 					

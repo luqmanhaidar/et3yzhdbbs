@@ -50,9 +50,9 @@ public class XmlDataServiceImpl implements XmlDataService{
 	 */
 	public void editXml(String dataId,Map propertyMap) throws XMLException{
 
-		if (logger.isDebugEnabled()) {
+		/*if (logger.isDebugEnabled()) {
 			logger.debug("更新的数据类型 : " + dataId);
-		}
+		}*/
 		DOMData domData = DOMData.getInstance(Application.getInstance().getFilePath(Symbols.XML_SYSTEM_CONFIG));
 
 		this.updateNodeValue(domData,dataId,propertyMap);
@@ -82,20 +82,20 @@ public class XmlDataServiceImpl implements XmlDataService{
 		Set set = propertyMap.entrySet();
 		Iterator iterator = set.iterator();
 		Map.Entry entry = null;
-		if(logger.isDebugEnabled()){
+		/*if(logger.isDebugEnabled()){
 			logger.debug("被更新的节点信息如下 : ");
-		}
+		}*/
 		while (iterator.hasNext()) {
 			entry = (Map.Entry) iterator.next();
-			if(logger.isDebugEnabled()){
+			/*if(logger.isDebugEnabled()){
 				logger.debug(" key : "+(String) entry.getKey() +" | value : " + ((String[]) entry.getValue())[0]);
-			}
+			}*/
 			domData.updateNodeValue(dataNode, "property", "key", (String) entry
 					.getKey(), ((String[]) entry.getValue())[0]);
 		}
-		if (logger.isDebugEnabled()) {
+		/*if (logger.isDebugEnabled()) {
 			logger.debug("更新后的xml节点信息 : " + dataNode);
-		}		
+		}	*/	
 	}
 	
 	/**
@@ -113,10 +113,10 @@ public class XmlDataServiceImpl implements XmlDataService{
 	 */
 	public void editEmail(Email email) throws XMLException{
 		DOMData domData = DOMData.getInstance(Application.getInstance().getFilePath(Symbols.XML_EMAIL));
-		if(logger.isDebugEnabled()){
+		/*if(logger.isDebugEnabled()){
 			logger.debug("Email文件路径 : " + Application.getInstance().getFilePath(Symbols.XML_EMAIL));
-		}
-		logger.debug("root : " + domData.getRoot().toString());
+		}*/
+		//logger.debug("root : " + domData.getRoot().toString());
 		Node node = domData.getElements("smtp.host").item(0);
 		// smtp
 		domData.setNodeValue(node,email.getSmtpHost());
@@ -134,9 +134,9 @@ public class XmlDataServiceImpl implements XmlDataService{
 		this.updateEmailNodeValue(domData,"register",(Map)(email.getBodys().get("register")));
 		// error 
 		this.updateEmailNodeValue(domData,"error",(Map)(email.getBodys().get("error")));
-		if(logger.isDebugEnabled()){
+		/*if(logger.isDebugEnabled()){
 			logger.debug("Email xml 全部信息为 : \r\n" + domData.getDocument().toString());
-		}
+		}*/
 		FileUtil.writeXMLByString(domData.getDocument(), Application.getInstance()
 				.getFilePath(Symbols.XML_EMAIL));
 
@@ -159,20 +159,20 @@ public class XmlDataServiceImpl implements XmlDataService{
 		Set set = propertyMap.entrySet();
 		Iterator iterator = set.iterator();
 		Map.Entry entry = null;
-		if(logger.isDebugEnabled()){
+		/*if(logger.isDebugEnabled()){
 			logger.debug("被更新的节点信息如下 : ");
-		}
+		}*/
 		while (iterator.hasNext()) {
 			entry = (Map.Entry) iterator.next();
-			if(logger.isDebugEnabled()){
+			/*if(logger.isDebugEnabled()){
 				logger.debug(" key : "+(String) entry.getKey() +" | value : " + (entry.getValue()));
-			}
+			}*/
 			domData.updateNodeValue(dataNode, "property", "key", (String) entry
 					.getKey(), (String)entry.getValue());
 		}
-		if (logger.isDebugEnabled()) {
+		/*if (logger.isDebugEnabled()) {
 			logger.debug("更新后的xml节点信息 : " + dataNode);
-		}		
+		}	*/	
 	}
 	
 	/**
@@ -225,20 +225,20 @@ public class XmlDataServiceImpl implements XmlDataService{
 			String badwordPath = Application.getInstance().getFilePath(Symbols.XML_BADWORDS);
 			DOMData domData = DOMData.getInstance(badwordPath);
 			Node node = domData.getSelElement("badword", 1);
-			if(logger.isDebugEnabled())
-				logger.debug("选择的badword节点为 : " + node.toString());
+			/*if(logger.isDebugEnabled())
+				logger.debug("选择的badword节点为 : " + node.toString());*/
 			NodeList nodeList = node.getChildNodes();
 			for (int i = 0; i < nodeList.getLength(); i++) {
 				node = nodeList.item(i);
 				if("oldStr".equals(node.getNodeName())){
 					badword.setOldStr(node.getFirstChild().getNodeValue());
-					if(logger.isDebugEnabled())
-						logger.debug("oldStr = " + node.getFirstChild().getNodeValue());
+					/*if(logger.isDebugEnabled())
+						logger.debug("oldStr = " + node.getFirstChild().getNodeValue());*/
 				}
 				if("replaceStr".equals(node.getNodeName())){
 					badword.setReplaceStr(node.getFirstChild().getNodeValue());
-					if(logger.isDebugEnabled())
-						logger.debug("replaceStr = " + node.getFirstChild().getNodeValue());
+					/*if(logger.isDebugEnabled())
+						logger.debug("replaceStr = " + node.getFirstChild().getNodeValue());*/
 				}
 			}
 		}
@@ -263,11 +263,11 @@ public class XmlDataServiceImpl implements XmlDataService{
 				node = nodeList.item(i);
 				if("oldStr".equals(node.getNodeName())){
 					domData.setNodeValue(node, badword.getOldStr());
-					logger.debug("oldStr = " + node.getFirstChild().getNodeValue());
+					//logger.debug("oldStr = " + node.getFirstChild().getNodeValue());
 				}
 				if("replaceStr".equals(node.getNodeName())){
 					domData.setNodeValue(node, badword.getReplaceStr());
-					logger.debug("replaceStr = " + node.getFirstChild().getNodeValue());
+					//logger.debug("replaceStr = " + node.getFirstChild().getNodeValue());
 				}
 			}
 			FileUtil.writeXMLByDOM(domData.getDocument(), badwordPath);

@@ -80,9 +80,9 @@ public class UserFaceServiceImpl implements UserFaceService{
 		try{
 			allFaces = FaceDAO.findFaceTypes();
 			Object[] typesArray = allFaces.toArray();
-			if(logger.isDebugEnabled()){
+			/*if(logger.isDebugEnabled()){
 				logger.debug("检测到的头像类别数 : " + typesArray.length);
-			}
+			}*/
 			UserFace face = null;
 			for (int i = 0; i < typesArray.length; i++) {
 				face = (UserFace)typesArray[i];

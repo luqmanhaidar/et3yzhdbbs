@@ -155,9 +155,9 @@ public class ForumDAOHibernateImpl extends BaseDAOHibernateImpl implements Forum
 	public boolean isExistBranch(int branchId) throws DAOException{
 		List list = null;
 		try{
-			if(logger.isDebugEnabled()){
+			/*if(logger.isDebugEnabled()){
 				logger.debug("检索分支["+branchId+"]是否存在.");
-			}
+			}*/
 			list = super.find("from Forum as forum where forum.branchId=?",new Integer(branchId));
 			if(list!=null&&list.size()>0){
 				return true;
@@ -179,9 +179,9 @@ public class ForumDAOHibernateImpl extends BaseDAOHibernateImpl implements Forum
 	public List findForumsByParentEnum(String parentEnum) throws DAOException{
 		List list = null;
 		try{
-			if(logger.isDebugEnabled()){
+			/*if(logger.isDebugEnabled()){
 				logger.debug("检索条件parentEnum为 : "+parentEnum+".");
-			}
+			}*/
 			list = super.find("from Forum as forum where forum.parentEnum like '"+parentEnum+"%'");
 		}
 		catch(DAOException daoException){

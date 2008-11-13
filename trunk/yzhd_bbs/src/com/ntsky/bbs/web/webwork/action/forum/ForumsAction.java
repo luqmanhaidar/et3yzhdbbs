@@ -22,9 +22,9 @@ public class ForumsAction extends ForumActionSupport implements Preparable{
 	 * @return String success 
 	 */
 	public String execute() throws Exception {
-		if(logger.isDebugEnabled()){
+		/*if(logger.isDebugEnabled()){
 			//logger.debug("列表全部论坛信息");
-		}
+		}*/
 		return SUCCESS;
     }
 	

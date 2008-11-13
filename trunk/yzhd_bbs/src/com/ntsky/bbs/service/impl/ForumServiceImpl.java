@@ -84,9 +84,9 @@ public class ForumServiceImpl extends BaseServiceImpl implements ForumService{
 			catch(DAOException daoException){
 				throw new ServiceException(daoException.getMessage());
 			}
-			if(logger.isDebugEnabled()){
+			/*if(logger.isDebugEnabled()){
 				logger.debug("max branch no is " + maxBranchId);
-			}
+			}*/
 			forum.setBranchId(maxBranchId);
 			forum.setDisplayOrder(1);
 		}
@@ -118,9 +118,9 @@ public class ForumServiceImpl extends BaseServiceImpl implements ForumService{
 			if(displayOrder==0){
 				displayOrder = tempForum.getDisplayOrder();
 			}
-			if(logger.isDebugEnabled()){
+			/*if(logger.isDebugEnabled()){
 				logger.debug("父节点["+tempForum.getName()+"]下的最大子节点编号 : " + displayOrder);
-			}
+			}*/
 			// 所有比displayOrder大的排序编号都+1
 			forumDAO.batchUpdateDisplayOrder(forum.getBranchId(),displayOrder);
 			// 当前最大编号为父类下的子类的最大编号+1
@@ -406,9 +406,9 @@ public class ForumServiceImpl extends BaseServiceImpl implements ForumService{
 		try {
 			// 如果当前的分支存在
 			if(!forumDAO.isExistBranch(newbranchId)){
-				if(logger.isDebugEnabled()){
+				/*if(logger.isDebugEnabled()){
 					logger.debug("更新旧分支 ["+oldBranchId+"] 编号为 : " + newbranchId);
-				}
+				}*/
 				forumDAO.updateForumBranch(oldBranchId,newbranchId);
 				isUpdateSuccess = true;
 			}

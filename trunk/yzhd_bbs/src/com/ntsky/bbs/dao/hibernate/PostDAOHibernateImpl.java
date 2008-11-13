@@ -122,9 +122,9 @@ public class PostDAOHibernateImpl extends BaseDAOHibernateImpl implements PostDA
 					forumEnum = forumEnum + "p.forumId='"+forum.getId()+"' or ";
 				}
 			}
-			if(logger.isDebugEnabled()){
+			/*if(logger.isDebugEnabled()){
 				logger.debug("select count(p.id) from Post as p where ("+forumEnum+") and p.dateCreated between '"+beginTime+"' and '"+endTime+"'");
-			}
+			}*/
 			return (Integer)super.findByAggregate("select count(p.id) from Post as p , Topic as t where p.topicId=t.id and t.isDelete=0 and ("+forumEnum+") and p.dateCreated between '"+beginTime+"' and '"+endTime+"'");
 		}
  		catch(DAOException daoException){

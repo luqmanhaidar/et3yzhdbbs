@@ -139,9 +139,9 @@ public class AnnouncementServiceImpl extends BaseServiceImpl implements Announce
 	 * @param forumId
 	 */
 	public void makeAnnouncementJSData(int forumId){
-		if(logger.isDebugEnabled()){
+		/*if(logger.isDebugEnabled()){
 			logger.debug("生成["+forumId+"]对应的公告JS");
-		}
+		}*/
 		int num = forumId==0? 3 : 5 ;
 		try{
 			Object[] announcements = getAnnouncements(forumId,num).toArray();
@@ -152,9 +152,9 @@ public class AnnouncementServiceImpl extends BaseServiceImpl implements Announce
 				announcement = (Announcement) announcements[i];
 				super.makeJsData(announcement,announcementBuffer,"announcementClass.add",announcementTypeArray);
 			}
-			if(logger.isDebugEnabled()){
+			/*if(logger.isDebugEnabled()){
 				logger.debug("公告内容 ： " + announcementBuffer.toString());
-			}
+			}*/
 			FileUtil.writeFile(Application.getInstance().getJsDirectory()+"announcement_"+forumId+".js",announcementBuffer.toString());
 		}
 		catch(Exception ex){

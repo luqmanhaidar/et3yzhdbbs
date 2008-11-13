@@ -766,9 +766,9 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			con=jdbcManager.getConnection();
 			String sSql="";
 			String count="";
-			if(logger.isDebugEnabled()){
-				//logger.debug("检索的起始位置 : " + pagination.getStart());
-			}
+			/*if(logger.isDebugEnabled()){
+				logger.debug("检索的起始位置 : " + pagination.getStart());
+			}*/
 			st = con.createStatement();//这样就够了
 			stList = con.createStatement();//这样就够了
 			count="select count(*) as cnt from (SELECT b.*,(select count(*) from ntsky_t_post a where a.topic_id=b.id and a.user_id="+userId+") as cnt_post"+

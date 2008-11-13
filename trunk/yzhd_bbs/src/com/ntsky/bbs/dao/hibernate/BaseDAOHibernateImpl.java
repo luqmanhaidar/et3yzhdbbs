@@ -406,13 +406,13 @@ public class BaseDAOHibernateImpl extends HibernateDaoSupport implements BaseDAO
 				else{
 					criteria.addOrder(Order.desc("id"));
 				}
-				if(logger.isDebugEnabled()){
+				/*if(logger.isDebugEnabled()){
 					logger.debug("检索的起始位置 : " + pagination.getStart());
-				}
+				}*/
 				List items = criteria.setFirstResult(pagination.getStart()).setMaxResults(pagination.getRange()).list();
-				if(logger.isDebugEnabled()){
+				/*if(logger.isDebugEnabled()){
 					logger.debug("检索到的结果数 : " + items.size());
-				}
+				}*/
 				pagination.setTotalRecord(totalRecord);
 				return new QueryResult(pagination,items);
 			}

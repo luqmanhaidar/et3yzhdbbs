@@ -80,9 +80,9 @@ public class TopicServiceImpl extends BaseServiceImpl implements TopicService{
 			Date date = new Date();
 			// 创建主题
 			topic.setDateCreated(date);
-			if(logger.isDebugEnabled()){
+			/*if(logger.isDebugEnabled()){
 				logger.debug("新帖标题 : " + topic.getTitle());
-			}			
+			}*/			
 			topic.setLastPostUser(topic.getUsername());
 			topic.setReplies(0);
 			topic.setLastPostTime(date);

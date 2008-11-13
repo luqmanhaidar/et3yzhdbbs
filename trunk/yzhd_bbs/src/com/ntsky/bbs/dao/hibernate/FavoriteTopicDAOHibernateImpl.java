@@ -42,9 +42,9 @@ public class FavoriteTopicDAOHibernateImpl extends BaseDAOHibernateImpl implemen
 			con=jdbcManager.getConnection();
 			String sSql="";
 			String count="";
-			if(logger.isDebugEnabled()){
-				//logger.debug("检索的起始位置 : " + pagination.getStart());
-			}
+			/*if(logger.isDebugEnabled()){
+				logger.debug("检索的起始位置 : " + pagination.getStart());
+			}*/
 			st = con.createStatement();//这样就够了
 			stList = con.createStatement();//这样就够了
 			count="select count(*) as cnt from ntsky_t_topic a,ntsky_t_user b,ntsky_t_user_favorite_topic c where a.id=c.topic_id and b.id=c.user_id and c.user_id="+userId+" and a.is_delete=0 order by a.date_created";							

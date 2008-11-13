@@ -136,10 +136,10 @@ public class AdminServiceImpl implements AdminService{
 			throw new LoginException("用户名不存在!");
 		}
 		else{
-			if(logger.isDebugEnabled()){
+			/*if(logger.isDebugEnabled()){
 				logger.debug("输入的密码 ： " + password + " 加密后的值 : " + MD5.md5(password));
 				logger.debug("库中密码信息 : " + admin.getPassword());
-			}
+			}*/
 			if(!(MD5.md5(password).equals(admin.getPassword()))){
 				throw new LoginException("用户密码错误!");
 			}
@@ -164,9 +164,9 @@ public class AdminServiceImpl implements AdminService{
 				throw new UserException("该管理员不存在");
 			}
 			else{
-				if(logger.isDebugEnabled()){
+				/*if(logger.isDebugEnabled()){
 					logger.debug("管理员名称 ： " + admin.getUsername() + " | 密码 ： " + MD5.md5(oldPassword));
-				}
+				}*/
 				admin = adminDAO.findAdmin(admin.getUsername(),MD5.md5(oldPassword));
 				if(admin==null){
 					throw new UserException("您输入的旧密码错误,请重新输入");

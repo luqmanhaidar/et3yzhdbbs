@@ -35,9 +35,9 @@ public class AdminAnnoucesAction extends AnnouncementActionSupport {
 	 * @return String success 
 	 */
 	public String execute() throws Exception {
-		if(logger.isDebugEnabled()){
+		/*if(logger.isDebugEnabled()){
 			logger.debug("列表论坛对应的公告信息");
-		}
+		}*/
 		
 		// ---------- 权限 ------------
 		// 是否为论坛管理员

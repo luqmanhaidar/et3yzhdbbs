@@ -41,9 +41,9 @@ public class AnnoucementsAction extends AnnouncementActionSupport {
 		recordActLog("列表公告");
 		/* -------------------------------*/
 		
-		if(logger.isDebugEnabled()){
+		/*if(logger.isDebugEnabled()){
 			logger.debug("列表公告信息");
-		}
+		}*/
 		try{
 			// 公告信息
 			super.setAnnouncements(announcementService.getAnnouncements(-1,0));
