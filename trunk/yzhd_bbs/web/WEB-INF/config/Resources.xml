@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+	<resource id="1" name="常规管理">
+		<permission point="1_1" value="基本设置" />
+		<!--<permission point="1_2" value="搜索引擎优化设置" />-->
+		<permission point="1_3" value="注册设置" />
+		<permission point="1_4" value="系统设置" />
+		<!--<permission point="1_5" value="邮件设置" />-->
+		<permission point="1_6" value="每页记录数设置" />
+		<permission point="1_7" value="系统金钱设置" />
+		<permission point="1_8" value="修改管理员密码" />
+	</resource>
+	<resource id="2" name="论坛模块">
+		<permission point="2_1" value="添加论坛" />
+		<permission point="2_2" value="论坛管理" />
+		<permission point="2_3" value="顶层类别排序" />
+		<!--<permission point="2_4" value="合并论坛" />-->
+		<permission point="2_5" value="帖子类型管理" />
+	</resource>
+	<resource id="3" name="权限模块">
+		<permission point="3_1" value="添加用户" />
+		<permission point="3_2" value="用户管理" />
+		<permission point="3_3" value="用户(角色)管理" />
+		<permission point="3_4" value="后台管理员管理" />
+	</resource>
+	<resource id="4" name="帖子模块">
+		<permission point="4_1" value="帖子管理" />
+		<permission point="4_2" value="脏话过滤设置" />
+		<permission point="4_3" value="帖子控制" />
+	</resource>
+	<!--
+	<resource id="5" name="附件模块">
+		<permission point="5_1" value="附件功能设置" />
+		<permission point="5_2" value="附件管理" />
+	</resource>
+	-->
+	<resource id="6" name="其他模块">
+		<permission point="6_1" value="公告管理" />
+		<permission point="6_2" value="图片文字链接" />
+		<!--<permission point="6_3" value="短信管理" />
+		<permission point="6_4" value="帮助管理" />
+		<permission point="6_5" value="访问记录管理" />
+		<permission point="6_6" value="操作日志管理" />
+		<permission point="6_7" value="静态数据生成" />-->
+	</resource>
+
+</resources>

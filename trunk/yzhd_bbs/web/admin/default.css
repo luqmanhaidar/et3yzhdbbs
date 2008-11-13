@@ -1,0 +1,274 @@
+/*
+  Copyright 2001-2005 www.ntsky.com. All Rights Reserved.
+  Qq : 78815 
+  Msn :	skyyjl@hotmail.com	
+  Email :	yntsky@gmail.com
+  Author : ntsky
+  Http : www.ntsky.com
+*/
+@import url(layout.css);
+
+body {
+	font-family: Verdana, Arial, Sans-Serif;
+	font-size: 12px;
+	margin: 0px;
+	padding:0px;
+	background-color: #ffffff;
+	padding:12px;
+	/*background-color: #e5e5e5;
+	scrollbar-face-color: #DEE3E7;
+	scrollbar-highlight-color: #FFFFFF;
+	scrollbar-shadow-color: #DEE3E7;
+	scrollbar-3dlight-color: #D1D7DC;
+	scrollbar-arrow-color:  #006699;
+	scrollbar-track-color: #EFEFEF;
+	scrollbar-darkshadow-color: #98AAB1;*/
+}
+
+p {
+	padding:0px;
+	margin:0px;
+}
+
+h1,h2,h3,h4,h5,h6 { 
+	color:#333; 
+	margin:4px 0 2px; 
+} 
+
+h1{
+	font-size:16.8px;
+	font-weight:bold;
+}
+
+h2{
+	font-size:14px;
+	font-weight:bold;
+	margin-top:8px;
+	margin-left:8px;
+	text-align: center;
+}
+
+h3{
+	font-size:13px;
+}
+
+td {
+	font-size: 12px;
+	font-family: Verdana, Arial, Sans-Serif;
+}
+
+.bold {
+	font-weight : bold;
+}
+
+.red {
+	color: #ff0000;
+}
+
+a:link, a:visited{
+  color: #00c;
+  color: #0065C9;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  text-decoration: underline;
+}
+/*
+a:hover {
+  color: blue;
+  background-color: #eee;
+}
+a:active {
+  color: red;
+  background-color: yellow;
+}*/
+
+/*li p {
+	margin: .25em 0;
+}*/
+
+/* button */
+input.b {
+	margin-left: 6px; 
+	background-color: #e6e6e6; 
+	padding: 2px 4px 1px!important;
+	padding: 2px 4px 0px;
+	border-width: 1px;
+	border-style: solid;
+	border-color:#ccc #666 #666 #ccc;
+	cursor:pointer;
+	font-size:12px;
+}
+
+/* text button */
+/*input.tb {
+	background-color:#fff;
+	padding:1px;
+	border: 1px solid #d4d0c8;
+	height: 18px;
+	padding: 1px 1px 0px;
+	cursor:pointer;
+	font-size:12px;
+	color:red;
+	margin-right:4px;
+}*/
+input.tb {
+	margin: 0px;
+	margin-left: 4px; 
+	background-color: #f9f9f9; 
+	padding: 1px 1px !important;
+	/*padding: 2px 1px 0px;*/
+	padding:2px 1px 3px;
+	border-width: 1px;
+	border-style: solid;
+	border-color:#ccc #666 #666 #ccc;
+	cursor:pointer;
+	font-size:12px;
+	height:19px;
+}
+
+input.cb {
+	margin: 0px;
+	padding: 0px;
+	height: 19px;
+}
+
+input.t {
+	margin: 0px;
+	padding: 1px;
+	font-size: 13px;
+	border-width: 1px;
+	border-style: solid ;
+	border-color: #666 #ccc #ccc #666;
+}
+
+textarea {
+	margin: 0px;
+	padding: 2px;
+	font-size: 12px;
+	border-width: 1px;
+	border-style: solid ;
+	border-color: #666 #ccc #ccc #666;
+}
+
+select {
+	margin: 0px;
+	padding: 1px;
+	border-width: 1px;
+	border-style: solid ;
+	border-color: #666 #ccc #ccc #666;
+	font-size: 12px;
+}
+
+form {
+	padding:0px;
+	margin:0px;
+}
+
+img {
+	border:0px;
+}
+
+/* 
+	tl 文本左
+	tr 文本右
+*/
+.tl{
+	text-align: left;
+}
+.tr{
+	text-align: right;
+}
+
+a {
+	/*line-height: 120%;*/
+}
+
+.required{
+	color: red;
+}
+
+
+/* 
+    *********************************
+    * title1  * title2 * title3******
+	*********************************
+	*  list1  * list2 * list3 * ....*    
+	*********************************
+	*********************************
+ */
+.ltable {
+	border: 0px;
+	background-color:silver;
+	text-align:center;
+	width: 96%;
+	line-height: 150%;
+}
+/* list  tr title */
+.ltrt {
+	background-color:#f8f8f8;
+	height:26px;
+}
+.ltrv {
+	background-color:#FFFFFF;
+	height:26px;
+}
+
+/* 
+    **********************************
+	*         *  *****************   *      
+	*  title  *  *       content *   *
+	*         *  *****************   *
+	**********************************
+ */
+.mtable {
+	width: 96%;
+	border-bottom: 1px solid silver;
+	border-left: 1px solid silver;
+	line-height: 150%;
+}
+.mt{
+	background-color:#f8f8f8;
+	text-align:left;
+	padding-left:8px;
+	height:26px;
+	font-weight : bold;
+	font-size: 13px;
+	border-top: 1px solid silver;
+	border-right: 1px solid silver;
+	color: #0060bf;
+}
+/* model td title */
+.mtdt {
+	background-color:#FFFFFF;
+	width:20%;
+	text-align:left;
+	padding-left:8px;
+	border-top: 1px solid silver;
+	border-right: 1px solid silver;
+	height:26px;
+}
+
+/* model td value */
+.mtdv {
+	 background-color:#FFFFFF;
+	 text-align:left;
+	 border-top: 1px solid silver;
+	 border-right: 1px solid silver;
+	 padding-left:4px;
+}
+
+/* model td action */
+.mtda {
+	 background-color:#FFFFFF;
+	 text-align:center;
+	 margin:0px;
+	 background-color: #f9f9f9; 
+	 padding:4px;
+	 height:20px;
+	 line-height:150%;
+	 border-top: 1px solid silver;
+	 border-right: 1px solid silver;
+}

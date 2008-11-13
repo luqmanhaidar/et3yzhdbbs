@@ -1,0 +1,75 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+	
+	<package name="config.admin" extends="admin" namespace="/admin">
+		
+		<action name="basicConfig" class="com.ntsky.bbs.web.webwork.action.xml.BasicConfigAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/basicConfig.ftl</result>
+		</action>
+		
+		<action name="registerConfig" class="com.ntsky.bbs.web.webwork.action.xml.RegisterConfigAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/registerConfig.ftl</result>														
+		</action>	
+		
+		<action name="systemConfig" class="com.ntsky.bbs.web.webwork.action.xml.SystemConfigAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/systemConfig.ftl</result>														
+		</action>	
+		
+		<action name="emailConfig" class="com.ntsky.bbs.web.webwork.action.xml.EmailConfigAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/emailConfig.ftl</result>														
+		</action>		
+		
+		<action name="paginationConfig" class="com.ntsky.bbs.web.webwork.action.xml.PaginationConfigAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/paginationConfig.ftl</result>														
+		</action>		
+				
+		<action name="topicConfig" class="com.ntsky.bbs.web.webwork.action.xml.TopicConfigAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/topicConfig.ftl</result>														
+		</action>	
+		
+		<action name="moneyConfig" class="com.ntsky.bbs.web.webwork.action.xml.MoneyConfigAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/moneyConfig.ftl</result>														
+		</action>	
+		
+		<action name="experienceConfig" class="com.ntsky.bbs.web.webwork.action.xml.ExperienceConfigAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/experienceConfig.ftl</result>														
+		</action>	
+		
+		<action name="seoConfig" class="com.ntsky.bbs.web.webwork.action.xml.SeoConfigAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/seoConfig.ftl</result>														
+		</action>	
+
+
+		<action name="badwords" class="com.ntsky.bbs.web.webwork.action.xml.BadwordsAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/badwords.ftl</result>
+		</action>	
+		<action name="createBadword-page" class="com.ntsky.bbs.web.webwork.action.xml.CreateBadwordAction" method="default">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/createBadword.ftl</result>
+		</action>		
+		<action name="createBadword" class="com.ntsky.bbs.web.webwork.action.xml.CreateBadwordAction">
+			<interceptor-ref name="adminDefaultStack"/>
+			<result name="success" type="redirect">badwords.action</result>
+		</action>
+		<action name="badwordManage" class="com.ntsky.bbs.web.webwork.action.xml.BadwordManageAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">editBadword.ftl</result>
+		</action>				
+		<action name="updateBadword" class="com.ntsky.bbs.web.webwork.action.xml.EditBadwordAction">
+			<interceptor-ref name="adminDefaultStack"/>
+			<result name="success" type="redirect">badwords.action</result>
+		</action>			
+	</package>
+	
+</xwork>

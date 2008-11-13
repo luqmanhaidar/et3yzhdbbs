@@ -1,0 +1,13 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+    <field name="title">
+        <field-validator type="required">
+            <message>请输入帮助标题.</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">4</param>
+            <param name="maxLength">20</param>
+            <message>帮助标题长度为${minLength}~${maxLength}.</message>
+        </field-validator>
+    </field>
+</validators>

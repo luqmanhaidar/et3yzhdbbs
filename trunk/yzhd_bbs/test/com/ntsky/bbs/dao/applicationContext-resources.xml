@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:database.properties</value>
+            </list>
+        </property>
+    </bean>
+	 
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}"/>
+		<property name="url" value="${jdbc.url}"/>
+		<property name="username" value="${jdbc.username}"/>
+		<property name="password" value="${jdbc.password}"/>
+	</bean>
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="mappingResources">
+	      <list>
+	        <value>com/ntsky/bbs/domain/Help.hbm.xml</value>
+	        <value>com/ntsky/bbs/domain/Forum.hbm.xml</value>
+	        <value>com/ntsky/bbs/domain/Announcement.hbm.xml</value>
+	        <value>com/ntsky/bbs/domain/ActLog.hbm.xml</value>
+	        <value>com/ntsky/bbs/domain/Stat.hbm.xml</value>
+	        <value>com/ntsky/bbs/domain/Admin.hbm.xml</value>
+	        <value>com/ntsky/bbs/domain/Attachment.hbm.xml</value>
+	        <value>com/ntsky/bbs/domain/Link.hbm.xml</value>
+	      </list>
+		</property>
+		<property name="hibernateProperties">
+			  <props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.query.factory_class">org.hibernate.hql.ast.ASTQueryTranslatorFactory</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.jdbc.fetch_size">50</prop>
+				<prop key="hibernate.jdbc.batch_size">50</prop>
+				<prop key="hibernate.use_outer_join">true</prop> 				
+			</props> 
+		</property>
+	</bean>
+	
+	<!-- Transaction manager for a single Hibernate SessionFactory (alternative to JTA) -->
+
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!-- 
+    <bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+        <property name="transactionManager" ref="transactionManager"/>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+				<prop key="select*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+    </bean>
+
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames">
+            <value>*DAO</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>transactionInterceptor</value>
+            </list>
+        </property>
+    </bean>
+    -->
+    <!--  
+    <bean class="org.springframework.transaction.interceptor.TransactionAttributeSourceAdvisor">
+        <property name="transactionInterceptor" ref="transactionInterceptor"/>
+    </bean>
+	-->
+
+    <!--======================= Common =======================-->
+    <bean id="helpDAO" class="com.ntsky.bbs.dao.hibernate.HelpDAOHibernateImpl">
+    	<property name="sessionFactory"><ref local="sessionFactory"/></property>
+    </bean>
+    
+    <bean id="forumDAO" class="com.ntsky.bbs.dao.hibernate.ForumDAOHibernateImpl">
+    	<property name="sessionFactory"><ref local="sessionFactory"/></property>
+    </bean>   
+    
+     <bean id="announcementDAO" class="com.ntsky.bbs.dao.hibernate.AnnouncementDAOHibernateImpl">
+    	<property name="sessionFactory"><ref local="sessionFactory"/></property>
+     </bean>     
+   	  
+     <bean id="actLogDAO" class="com.ntsky.bbs.dao.hibernate.ActLogDAOHibernateImpl">
+    	<property name="sessionFactory"><ref local="sessionFactory"/></property>
+     </bean>   
+
+    <!-- <bean id="actLogDAO" 
+        class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref local="transactionManager"/></property>
+        <property name="target"><ref local="classServiceTarget"/></property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="save*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean> -->
+
+     <bean id="statDAO" class="com.ntsky.bbs.dao.hibernate.StatDAOHibernateImpl">
+    	<property name="sessionFactory"><ref local="sessionFactory"/></property>
+     </bean>  
+
+     <bean id="adminDAO" class="com.ntsky.bbs.dao.hibernate.AdminDAOHibernateImpl">
+    	<property name="sessionFactory"><ref local="sessionFactory"/></property>
+     </bean> 
+
+     <bean id="attachmentDAO" class="com.ntsky.bbs.dao.hibernate.AttachmentDAOHibernateImpl">
+    	<property name="sessionFactory"><ref local="sessionFactory"/></property>
+     </bean>      
+        
+     <bean id="linkDAO" class="com.ntsky.bbs.dao.hibernate.LinkDAOHibernateImpl">
+    	<property name="sessionFactory"><ref local="sessionFactory"/></property>
+     </bean>           
+        
+</beans>

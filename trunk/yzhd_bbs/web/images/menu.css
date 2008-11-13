@@ -1,0 +1,60 @@
+BODY {
+	FONT-SIZE: 12px
+}
+* + HTML .navhomemenu {
+	WIDTH: 310px
+}
+#homewindow {
+	BORDER-RIGHT: #b4c9e0 1px solid; BORDER-TOP: #b4c9e0 1px solid; BACKGROUND: #fbe5e7; BORDER-LEFT: #b4c9e0 1px solid; WIDTH: 300px; BORDER-BOTTOM: #b4c9e0 1px solid; TEXT-ALIGN: left
+}
+#homewindow {
+	OVERFLOW-X: hidden
+}
+#homewindow DL {
+	MARGIN: 5px
+}
+#homewindow DT {
+	CLEAR: both; MARGIN: 0px 1em; COLOR: #a9c1dc; LINE-HEIGHT: 28px
+}
+#homewindow DD {
+	FLOAT: left; MARGIN: 0em 1em; OVERFLOW: hidden; WIDTH: 4em; LINE-HEIGHT: 20px; HEIGHT: 20px
+}
+#homewindow DT A:link {
+	COLOR: #000; TEXT-DECORATION: none
+}
+#homewindow DT A:visited {
+	COLOR: #000; TEXT-DECORATION: none
+}
+#homewindow DT A:hover {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+#homewindow DT A:active {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+#homewindow DD A:hover {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+#homewindow DD A:active {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+#homewindow .dd2 {
+	WIDTH: 6em
+}
+* + HTML .navfavorite {
+	WIDTH: 14em
+}
+#navfavbody {
+	BACKGROUND: #fbe5e7; WIDTH: 14em
+}
+#navfavbody DL {
+	MARGIN: 5px 0px
+}
+#navfavbody DD {
+	MARGIN: 0em 2px; WIDTH: 14em; LINE-HEIGHT: 23px; HEIGHT: 23px; TEXT-ALIGN: left
+}
+#navfavbody DD A {
+	PADDING-RIGHT: 2px; BACKGROUND-POSITION: left 50%; DISPLAY: block; PADDING-LEFT: 16px; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; WIDTH: 13em; COLOR: #155da5; PADDING-TOP: 2px; HEIGHT: 23px; TEXT-DECORATION: none
+}
+#navfavbody DD A:hover {
+	COLOR: #000
+}

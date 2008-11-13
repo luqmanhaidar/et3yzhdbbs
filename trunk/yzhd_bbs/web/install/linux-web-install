@@ -1,0 +1,165 @@
+1、常用命令
+	a) rpm -e *.rpm
+	b) rpm -ivh *.rpm 安装RPM文件	
+	c) rpm -qa >/usr/local/rmp 将rpm包安装版本输出到文件
+	e) cp -r 拷贝目录以及下的文件
+	f) ps -aef 察看进程
+	g) chmod 777 /var/lib/mysql 设置全部权限
+	h) tar xzvf httpd-2.0.55.tar.gz 解包
+	i) passwd 用户名 修改密码
+
+2、Apache 安装
+	./configure --prefix=/usr/local/apache2 --enable-so --enable-auth-digest --enable-rewrite --enable-setenvif --enable-mime -enable-headers 
+	make 
+	make install 
+	ln -s /usr/local/apache2/bin/apachectl /usr/local/bin 
+	ln -s /usr/local/apache2/conf/httpd.conf /etc/httpd.conf
+	mv /usr/local/apache2/htdocs /var/www
+	# 修改文档根目录到 /var/www 
+	DocumentRoot "/var/www" 
+	# 默认首页添加 index.htm index.php 
+	DirectoryIndex index.html index.htm index.php 
+
+	apachectl start 启动apahce
+
+	http://ip/访问测试页面
+
+3、安装 MySQL 5 
+	cd /usr/src 
+	tar -xzvf mysql-max-5.0.19-linux-i686.tar.gz 
+	mv mysql-max-5.0.19-linux-i686 /usr/local/mysql 
+	cd /usr/local/mysql 
+	groupadd mysql 
+	useradd -g mysql mysql 
+	scripts/mysql_install_db --user=mysql 
+	chown -R root . 
+	chown -R mysql data 
+	chgrp -R mysql . 
+	ln -s /usr/local/mysql/bin/mysqld_safe /usr/local/bin 
+	ln -s /usr/local/mysql/bin/mysql /usr/local/bin 
+
+	测试: 
+	./support-files/mysql.server start | stop
+	cd support-files
+	mv my-medium.cnf my.cnf
+	修改my.cnf
+	在[mysqld]项目下，加入一句default-character-set=utf8	
+	mysql.server start
+
+	加载服务 : 
+	#cp /usr/local/mysql/support-files/mysql.server mysql
+	# /sbin/chkconfig --del mysql
+	# /sbin/chkconfig --add mysql
+
+	#mysqld_safe --user=mysql & 
+  
+	屏幕出现 mysql> 提示,说明MySQL安装成功 
+
+	grant all  on *.* to root@"%" Identified by "";
+	
+	// set connect and client 's character
+	SET NAMES 'utf8'; 
+	// 系统编码方式
+	SHOW VARIABLES LIKE 'character_set_%';
+	set character_set_database="utf8";
+	set character_set_server="utf8";
+
+4、JDK1.5安装
+	vi /etc/profile
+	export JAVA_HOME=/usr/local/jdk1.5.0_06
+	export CLASS_PATH=.:$JAVA_HOME/lib/dt.jar: $JAVA_HOME/lib/tools.jar: $JAVA_HOME/jre/lib/rt.jar:
+	export PATH=$PATH:$JAVA_HOME/bin
+
+5、TOMCAT安装
+	ln -s /usr/local/jakarta-tomcat-5.5.9/bin/shutdown.sh /usr/local/bin
+	ln -s /usr/local/jakarta-tomcat-5.5.9/bin/startup.sh /usr/local/bin
+
+6、Apache 连接Tomcat
+	# tar xzvf jakarta-tomcat-connectors-1.2.15-src.tar.gz
+	# cd jakarta-tomcat-connectors-1.2.15-src/jk/native
+	# ./configure --with-apxs=/usr/local/apache2/bin/apxs
+	# make
+	# cp ./apache-2.0/mod_jk.so /usr/local/apache2/modules/
+
+7、tomcat+apache连接设置
+	cd /usr/local/jakarta-tomcat-5.5.9/conf
+	mv workers.properties.minimal workers.properties
+
+	apache的httpd.conf配置如下 : 
+
+	NameVirtualHost 60.190.218.32:80
+
+	<VirtualHost 60.190.218.32:80>
+      	  	ServerName www.ntsky.com
+      	  	DocumentRoot /usr/local/jakarta-tomcat-5.5.9/webapps/ROOT
+       	  	ServerAdmin yntsky@gmail.com
+	</VirtualHost>
+	<VirtualHost 60.190.218.32:80>
+        	ServerName ntsky.com
+        	DocumentRoot /usr/local/jakarta-tomcat-5.5.9/webapps/ROOT
+        	ServerAdmin yntsky@gmail.com
+	</VirtualHost>
+
+	LoadModule jk_module modules/mod_jk.so
+	JkWorkersFile "/usr/local/jakarta-tomcat-5.5.9/conf/workers.properties"
+	JkLogFile "/usr/local/jakarta-tomcat-5.5.9/logs/jk2.log"
+	JkLogLevel info
+	JkMount /servlet/* ajp13w
+	JkMount /*.jsp ajp13w
+	JkMount /server/*.ntsky ajp13w
+	JkMount /client/*.ntsky ajp13w
+	JkMount /user/*.ntsky ajp13w
+重启tomcat和apache,访问http://ip/index.jsp,tomcat帽能正常显示.
+
+8、apache和php合成
+	cd /usr/local
+	tar -xzvf php-5.1.2.tar.gz 
+	cd php-5.1.2 
+	注意下面每一行的反斜杠前有个空格,反斜杠的后面紧根回车,斜杠后不能有空格 
+	./configure --prefix=/usr/local \
+	--with-config-file-path=/usr/local/apache2/conf \
+	--with-apxs2=/usr/local/apache2/bin/apxs \
+	--enable-ftp --enable-sockets \
+	--enable-mbstring \
+	--with-gettext \
+	--with-mysql=/usr/local/mysql \
+	--with-mysqli=/usr/local/mysql/bin/mysql_config \
+	--with-mysql-sock=/tmp/mysql.sock \
+	--enable-zend-multibyte
+	注意在编译PHP的时候有很多的参数要设置,在下面的附图中的象--with-png-dir等在上面的编译过程中没有列出的参数,php编绎时自动将其路径指向了/usr/local下的库,但是magiclinux并没有把这些库放在/usr/local下,一般放在了/usr下的lib文件夹中,故在编绎时把附图中的那些参数都加上,并将路径改为/usr,象这样--with-png-dir=/usr就行. 
+
+	make 
+	make install 
+	cp php.ini-dist /usr/local/apache2/conf/php.ini 
+	ln -s /usr/local/apache2/conf/php.ini /etc/php.ini 
+
+	打开 /usr/local/apache2/conf/httpd.conf , 
+	加入 
+	AddType application/x-httpd-php .php 
+	AddType application/x-httpd-php-source .phps 
+	注意前两行: 
+	.php前有个空格,.phps前也有个空格,这是APACHE的格式要求 
+	这是让APACHE将.php扩展名的文件解析成php文件. 
+	将 .phps 扩展名的文件设置成显示高亮的 PHP 源文件 
+
+9、安装 ZendOptimizer 
+	cd /usr/local
+	tar -xzvf ZendOptimizer-3.0.0Beta3-linux-glibc21-i386.tar.gz 
+	cd ZendOptimizer-3.0.0Beta3-linux-glibc21-i386 
+	./install.sh 
+	当屏幕提示输入 php.ini 的路径时,将屏幕上给出的路径/etc,换成php.ini文件所在的地方,即: 
+	/usr/local/apache2/conf/ 
+	安装程序会自动关闭 WebServer,安装完毕后会帮你再启动.
+
+
+
+
+
+
+
+
+
+
+	
+		
+

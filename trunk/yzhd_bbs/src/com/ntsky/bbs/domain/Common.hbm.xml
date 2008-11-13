@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ntsky.bbs.domain"> 
+	<class name="Common" table="ntsky_t_common" lazy="false">
+        <id name="id" column="id" unsaved-value="null">
+			<generator class="increment"/>
+        </id>
+        <!-- <composite-id name="key" class="CommonKey">
+			<key-property name="id" column="id" />
+			<key-property name="type" column="type" />
+		</composite-id>-->
+		
+		<property name="name" not-null="true" column="name"/>
+		<property name="type" not-null="true" column="type"/>
+		<property name="ordering" column="ordering"/>
+		
+		<!--
+		<set name="faces" table="ntsky_t_user_face" order-by="id asc" lazy="false" inverse="true"> 
+            <key column="type"/> 
+            <one-to-many class="UserFace"/> 
+        </set>
+	
+		<set name="helps" table="ntsky_t_help" order-by="id asc" lazy="false" inverse="true"> 
+            <key column="type"/> 
+            <one-to-many class="Help"/> 
+        </set> 
+		-->
+		  
+	</class>
+</hibernate-mapping>

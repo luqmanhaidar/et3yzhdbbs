@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ntsky.bbs.domain">
+	<class name="Topic" table="ntsky_t_topic" lazy="false">
+        <id name="id" column="id">
+			<generator class="increment"/>
+        </id>
+        
+        <property name="forumId" column="forum_id" not-null="true"/>
+        <property name="categoryId" column="category_id" />
+		<property name="mood" column="mood" not-null="true"/>
+		<property name="title" column="title" not-null="true"/>
+		<property name="views" column="views" />
+		<property name="status" column="status" />
+		<property name="username" column="username" />
+		<property name="isTop" column="is_top" />
+		<property name="isVote" column="is_vote" />
+		<property name="dateCreated" column="date_created" not-null="true"/>
+		<!-- <property name="lastPostId" column="last_post_id" /> -->
+		<property name="lastPostUser" column="last_post_user" />
+		<property name="replies" column="replies" />
+		<property name="isDelete" column="is_delete" />
+		<property name="lastPostTime" column="last_post_time" />
+		
+		<many-to-one name="category"
+	  	      insert="false" 
+               update="false" 
+               column="category_id" 
+               class="Category"/>
+		
+	
+		<!-- <set name="posts" table="ntsky_post" order-by="id asc" lazy="false" inverse="true"> 
+            <key column="topic_id"/> 
+            <one-to-many class="Post"/> 
+        </set> -->
+		
+		<!-- <one-to-one name="firstPost" class="Post" constrained="true" property-ref="firstPostId"/> -->
+		
+	</class>
+</hibernate-mapping>

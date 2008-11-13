@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<project name="yzhd_bbs" default="war" basedir=".">
+
+	<!-- set global properties for this build -->
+    
+    <property name="product"	 value="ntsky's bbs system"/>
+    <property name="version" value="1.0"/>
+    <property name="year"	 value="2006"/>
+	<property name="author"	 value="ntsky"/>
+    <echo message="----------- ${product} ${version} [${year}] [${author}] ------------"/>
+	
+	<property name="name"			  value="yzhd_bbs" />		
+	<property name="app.dir"          value="." />
+	<property name="web.dir"          value="${app.dir}/web" />
+	
+    <property name="src.dir"          value="${app.dir}/src"/>
+    <property name="lib.dir"          value="${app.dir}/web/WEB-INF/lib"/>
+	<property name="war.dir"		  value="${app.dir}/war"/>
+	<property name="build.dir"		  value="${app.dir}/web/WEB-INF/classes"/>
+
+	<echo message=""/>
+	<echo message="ntsky build file"/>
+	<echo message="------------------------------------------------------"/>
+	<echo message=""/>
+	<echo message="Available targets are:"/>
+	<echo message=""/>
+	<echo message="clean    --> Clean output dirs"/>
+	<echo message="build    --> Compile main Java sources and copy libraries"/>
+	<echo message="war	    --> Build the web application archive"/>
+	<echo message="all      --> Clean, build, docs, warfile, tests"/>
+	<echo message=""/>
+
+	<!-- JAVA CLASSPATH -->
+    <path id="classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+	
+	<target name="clean" description="Clean all build products">
+        <delete dir="${build.dir}" quiet="true"/>
+		<delete file="${war.dir}/${name}.war"/>
+    </target>
+	
+	<target name="compile" depends="clean" description="Compile application">
+		<echo>Compiled the source.</echo>
+		<mkdir dir="${build.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${build.dir}" debug="on" encoding="UTF-8">
+			<include name="**/*.java" />
+			<classpath refid="classpath"/>
+		</javac>
+    </target>
+
+	<target name="war" depends="compile" description="Build the web application archive">
+
+		  <copy todir="${build.dir}">
+			<fileset dir="${src.dir}">
+			  <include name="**/*.properties"/>
+			  <include name="**/*.xml"/>
+			  <include name="**/*.ftl"/>
+			</fileset>
+		  </copy>
+		<mkdir dir="${war.dir}"/>
+		<war warfile="${war.dir}/${name}.war" webxml="${web.dir}/WEB-INF/web.xml">	
+			<fileset dir="${web.dir}"/>
+		</war>
+	</target>
+</project>

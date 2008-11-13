@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ntsky.bbs.domain">
+	<class name="Help" table="ntsky_t_help">
+        <id name="id" column="id">
+			<generator class="increment"/>
+        </id>
+		<property name="title" column="title" not-null="true"/>
+		<property name="content" column="content" not-null="true"/>
+		<property name="type" column="type" not-null="true"/>
+		<property name="dateCreated" column="date_created" not-null="true"/>
+		<property name="isHand" column="is_hand" not-null="true"/>
+		
+		<many-to-one name="common" 
+               insert="false" 
+               update="false" 
+               column="type" 
+               class="Common"/>
+		
+	</class>
+</hibernate-mapping>

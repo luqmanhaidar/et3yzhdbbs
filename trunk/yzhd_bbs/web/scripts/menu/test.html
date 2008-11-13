@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE> New Document </TITLE>
+<META NAME="Generator" CONTENT="EditPlus">
+<META NAME="Author" CONTENT="">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Description" CONTENT="">
+<link rel="stylesheet" href="menu.css" type="text/css" media="all"/>
+<script type="text/javascript" src="menu.js"></script>
+
+<script type="text/javascript">
+	//Contents for menu 1
+	var menu1=new Array()
+	menu1[0]='<a href="http://www.javascriptkit.com">JavaScript Kit</a>'
+	menu1[1]='<a href="http://www.freewarejava.com">Freewarejava.com</a>'
+	menu1[2]='<a href="http://codingforums.com">Coding Forums</a>'
+	menu1[3]='<a href="http://www.cssdrive.com">CSS Drive</a>'
+
+	//Contents for menu 2, and so on
+	var menu2=new Array()
+	menu2[0]='<a href="http://cnn.com">CNN</a>'
+	menu2[1]='<a href="http://msnbc.com">MSNBC</a>'
+	menu2[2]='<a href="http://news.bbc.co.uk">BBC News</a>'
+</script>
+</HEAD>
+
+<BODY>
+<a href="default.htm" onClick="return clickreturnvalue()" onMouseover="dropdownmenu(this, event, menu1, '150px')" onMouseout="delayhidemenu()">Web Design</a> |
+
+<a href="default2.htm" onClick="return dropdownmenu(this, event, menu2, '200px')" onMouseout="delayhidemenu()">News Sites</a> (onclick)
+</BODY>
+</HTML>

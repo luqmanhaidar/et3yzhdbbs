@@ -1,0 +1,51 @@
+<script language="javascript">
+  var _width = element.width;
+  var _hieght = element.height;
+  var _maxpixel = _width;
+  var _which = "w";
+  var maxwidth = 680;
+  var maxheight = 680;
+  
+  //element.onmousewheel = test;
+  if (element.width > maxwidth) {
+    element.width = maxwidth;
+    element.removeAttribute("height");
+    
+    if (element.parentElement.tagName != "A"){    
+      var _html = "";
+      _html += "<a href=\""+element.src+"\" target=\"_blank\">";
+      _html += element.outerHTML;
+      _html += "</a>";
+      element.outerHTML = _html;
+    }
+  }
+  /*
+  if (height > _width) {
+    _maxpixel = _hieght;
+    _which = "h";
+  }
+  if (_which == "w") {
+    if (element.width > maxwidth) {
+      element.width = maxwidth;
+      element.removeAttribute("height");
+    }
+  }
+  else {
+    if (element.height > maxheight) {
+      element.height = maxheight;
+      element.removeAttribute("width");
+    }
+  }*/
+
+  function test() {
+    return zoomimg(element)
+  }
+
+function zoomimg(pic){
+  var zoom=parseInt(pic.style.zoom,10)||100;
+  zoom+=event.wheelDelta/12;
+  if (zoom>0) pic.style.zoom=zoom+'%';
+  return false;
+}
+
+</script>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="yzhd_bbs"
+  id="myeclipse.1143640495001"
+  context-root="/yzhd_bbs"
+  j2ee-spec="1.4"
+  archive="yzhd_bbs.war">
+  <attributes>
+    <attribute name="webrootdir" value="/web" />
+  </attributes>
+</project-module>
+

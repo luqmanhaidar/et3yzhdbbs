@@ -1,0 +1,183 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+	
+	<package name="manage.default" extends="default" namespace="/">
+		
+		<!-- /++++++++++ controlPanel +++++++++ -->
+		<action name="controlPanel" class="com.ntsky.bbs.web.webwork.action.view.ControlPanelAction">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success">/controlPanel.ftl</result>
+		</action>		
+		<!-- ++++++++++ controlPanel +++++++++/ -->	
+		
+		<!-- /++++++++++ topic +++++++++ -->
+		<action name="myTopics"
+				class="com.ntsky.bbs.web.webwork.action.topic.UserTopicsAction">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success">/myTopics_new.ftl</result>
+		</action>
+		
+		<action name="myRef"
+				class="com.ntsky.bbs.web.webwork.action.topic.MyRefTopicActon">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success">/myRef.ftl</result>
+		</action>
+		<!-- ++++++++++ topic +++++++++/ -->	
+		
+		<!-- /++++++++++ favorite +++++++++ -->					
+		<action name="myFavorites" class="com.ntsky.bbs.web.webwork.action.favoriteTopic.FavoriteTopicAction">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success">/myFavorites_new.ftl</result>
+		</action>
+		<action name="deleteFavorite" class="com.ntsky.bbs.web.webwork.action.favorite.DeleteFavoriteAction" method="deleteOne">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success" type="redirect">/myFavorites.action</result>
+		</action>		
+		<action name="clearUserFavorite" class="com.ntsky.bbs.web.webwork.action.favorite.DeleteFavoriteAction" method="clearUserFavorite">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success" type="redirect">/myFavorites.action</result>
+		</action>
+		<action name="deleteMoreFavorite" class="com.ntsky.bbs.web.webwork.action.favorite.DeleteFavoriteAction" method="deleteMore">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success" type="redirect">/myFavorites.action</result>
+		</action>	
+		<action name="createFavorite" class="com.ntsky.bbs.web.webwork.action.favoriteTopic.CreateFavoriteTopicAction">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="defaultStack"/>
+			<result name="success">/hiddenFavorite.ftl</result>
+			<result name="input" type="redirect">/topic.action?topicId=${favId}</result>
+		</action>	
+		<!-- ++++++++++ favorite +++++++++/ -->			
+		
+		<!-- /++++++++++ attachement +++++++++ -->	
+		<action name="userAttachments" class="com.ntsky.bbs.web.webwork.action.attachment.UserAttachmentManageAction">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success">/userAttachments.ftl</result>
+		</action>	
+		<action name="deleteAttachment" class="com.ntsky.bbs.web.webwork.action.attachment.DeleteAttachmentAction">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success" type="redirect">/userAttachments.action</result>
+		</action>
+		<action name="deleteMoreAttachment" class="com.ntsky.bbs.web.webwork.action.attachment.DeleteAttachmentAction" method="deleteMore">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success" type="redirect">/userAttachments.action</result>
+		</action>		
+		<action name="attachment" class="com.ntsky.bbs.web.webwork.action.attachment.ViewAttachmentAction">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success">/attachment.ftl</result>
+		</action>	
+		<!-- ++++++++++ attachement +++++++++/ -->
+	
+		<!-- /++++++++++ message +++++++++ -->
+		<action name="myMessages" class="com.ntsky.bbs.web.webwork.action.message.MessageListAction">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success">/myMessages_new.ftl</result>
+		</action>	
+		<action name="deleteMessage" class="com.ntsky.bbs.web.webwork.action.message.DeleteMessageAction" method="deleteOne">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success" type="redirect">/draftMessages.action</result>
+		</action>			
+		<action name="deleteMessage-receiver" class="com.ntsky.bbs.web.webwork.action.message.DeleteMessageAction" method="deleteOne_receiver">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success" type="redirect">/myMessages.action</result>
+		</action>	
+		<action name="deleteMessage-sender" class="com.ntsky.bbs.web.webwork.action.message.DeleteMessageAction" method="deleteOne_sender">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success" type="redirect">/sendedMessages.action</result>
+		</action>			
+		<action name="deleteMoreMessage" class="com.ntsky.bbs.web.webwork.action.message.DeleteMessageAction" method="deleteMore">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success" type="redirect">/draftMessages.action</result>
+		</action>			
+		<action name="deleteMoreMessage-receiver" class="com.ntsky.bbs.web.webwork.action.message.DeleteMessageAction" method="deleteMore_receiver">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success" type="redirect">/myMessages.action</result>
+		</action>	
+		<action name="deleteMoreMessage-sender" class="com.ntsky.bbs.web.webwork.action.message.DeleteMessageAction" method="deleteMore_sender">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success" type="redirect">/sendedMessages.action</result>
+		</action>						
+		<action name="writeMessage-page" class="com.ntsky.bbs.web.webwork.action.message.CreateMessageAction" method="default">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success">/writeMessage_new.ftl</result>
+		</action>	
+		<action name="writeMessage" class="com.ntsky.bbs.web.webwork.action.message.CreateMessageAction">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="defaultStack"/>
+			<result name="success" type="redirect">/myMessages.action</result>
+		</action>	
+		<action name="replyMessage" class="com.ntsky.bbs.web.webwork.action.message.EditMessageAction" method="reply">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success">/replyMessage_new.ftl</result>
+		</action>					
+		<action name="message" class="com.ntsky.bbs.web.webwork.action.message.ViewMessageAction">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success">/message_new.ftl</result>
+		</action>		
+		<action name="draftMessages" class="com.ntsky.bbs.web.webwork.action.message.MessageListAction" method="draft">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success">/draftMessages.ftl</result>
+		</action>	
+		<action name="sendedMessages" class="com.ntsky.bbs.web.webwork.action.message.MessageListAction" method="sended">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success">/sendedMessages_new.ftl</result>
+		</action>		
+		<!-- ++++++++++ message +++++++++/ -->		
+		
+	</package>
+	
+	
+    <package name="manage.admin" extends="admin" namespace="/admin">
+			
+	</package>
+	
+</xwork>

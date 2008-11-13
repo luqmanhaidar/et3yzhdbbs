@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Email>
+	<server>
+		<smtp.host><![CDATA[smtp.163.com]]></smtp.host>
+		<username>ntsky</username>
+		<password>qaz8459yjl</password>
+		<systemMail>ntsky@163.com</systemMail>
+	</server>
+	<data id="register">
+		<property key="subject"><![CDATA[婴知岛欢迎您!]]></property>
+		<property key="text"><![CDATA[
+			<p>亲爱的$username, 您好!</p>
+			<p>恭喜! 您已经成功地注册了您的资料, 非常感谢您使用婴知岛论坛系统!</p>
+			<p>* 您的帐号是:$username　密码是:$password</p>
+			<p>* 密码提示问题:$question　答案是:$answer</p>
+			<p>网络天空官方论坛(<a href="http://bbs.ntsky.com/index.action" target="_blank">http://bbs.ntsky.com/index.action</a>)</p>
+		]]></property>
+	</data>
+	<data id="error">
+		<property key="subject"><![CDATA[error1]]></property>
+		<property key="text"><![CDATA[error1]]></property>
+	</data>
+	<data id="recoverPassword">
+		<property key="subject"><![CDATA[register1]]></property>
+		<property key="text"><![CDATA[register1]]></property>
+	</data>
+</Email>

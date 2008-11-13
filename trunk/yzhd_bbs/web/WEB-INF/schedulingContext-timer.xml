@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!-- actlog job -->
+	<bean name="actlogJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+	  <property name="jobClass">
+		<value>com.ntsky.bbs.web.schedule.ActlogTask</value>
+	  </property>
+	</bean>
+	<bean id="actlogTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	  <property name="jobDetail">
+		<ref bean="actlogJob"/>
+	  </property>
+	  <property name="cronExpression">
+		<value>0 10 * * * ?</value> 
+	  </property>
+	</bean>
+	
+	<!-- stat job -->
+	<bean name="statJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+	  <property name="jobClass">
+		<value>com.ntsky.bbs.web.schedule.StatTask</value>
+	  </property>
+	</bean>
+	<bean id="statTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	  <property name="jobDetail">
+		<ref bean="statJob"/>
+	  </property>
+	  <property name="cronExpression">
+		<value>0 10 * * * ?</value> 
+	  </property>
+	</bean>	
+
+	<!-- forum job -->
+	<bean name="forumJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+	  <property name="jobClass">
+		<value>com.ntsky.bbs.web.schedule.IndexTask</value>
+	  </property>
+	</bean>
+	<bean id="forumTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	  <property name="jobDetail">
+		<ref bean="forumJob"/>
+	  </property>
+	  <property name="cronExpression">
+		<value>0/30 2 * * * ?</value> 
+	  </property>
+	</bean>	
+
+	<!-- RSS task -->
+	<!-- 
+	<bean name="rssJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+	  <property name="jobClass">
+		<value>com.ntsky.bbs.web.schedule.RssTask</value>
+	  </property>
+	</bean>
+	<bean id="rssTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	  <property name="jobDetail">
+		<ref bean="rssJob"/>
+	  </property>
+	  <property name="cronExpression">
+		<value>0 30 * * * ?</value> 
+	  </property>
+	</bean>	
+	 -->
+	 
+	<!-- start timer -->
+	<!-- 
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+	  <property name="triggers">
+		<list>
+		 -->
+		  <!--<ref local="actlogTrigger"/>
+		  <ref local="statTrigger"/>
+		  <ref local="forumTrigger"/> -->
+		  <!-- 
+		  <ref local="rssTrigger"/>
+		</list>
+	  </property>
+	  <property name="applicationContextSchedulerContextKey"><value>applicationContext</value></property>
+	</bean>
+	 -->
+	   
+</beans>

@@ -1,0 +1,135 @@
+h1 {
+	font-weight: bold;
+	font-size: 140%;
+	color: #333;
+	padding-bottom: 2px;
+	border-bottom: 1px dotted #CCC;
+	margin: 0;
+}
+
+.note {
+	background: #EEE;
+	padding: 4px;
+	font-family: tahoma,verdana,sans-serif;
+	font-size: 85%;
+	line-height: 130%;
+}
+
+#tabmain {
+	text-align: left;
+	border: 1px solid silver;
+	clear: both;
+	padding:0px;
+	margin:-1px 2% 16px;
+}
+
+#tabmainbox {
+	padding: 20px;
+	min-height: 300px;
+}
+
+/*///////////// Tabs Code ////////////*/
+
+#tabs {
+	font-family: tahoma,verdana,sans-serif;
+	clear: both;
+	text-align: center;
+	margin:0px 2%;
+	padding:0px;
+}
+
+#tabs ul {
+	display: inline;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#tabs li { float: left; }
+
+#tabs span {
+	position: relative;
+	top: 0;
+	margin: 0 2px 0 0;
+	float: left;
+	background: #555;
+	border-right: 1px solid silver;
+	border-top: 1px solid silver;
+	border-left: 1px solid silver;
+	padding: 6px 10px 6px 10px;
+	text-decoration: none;
+	color: #fff;
+	font-weight:bold;
+}
+
+#tabs a {
+	position: relative;
+	top: 0;
+	margin: 1px 2px 0 0;
+	float: left;
+	background: #666;
+	border-right: 1px solid silver;
+	border-top: 1px solid silver;
+	border-left: 1px solid silver;
+	padding: 5px 10px 5px 10px;
+	text-decoration: none;
+	color: #fff;
+}
+
+#tabs a:hover {
+	background: #555;
+	position: relative;
+	top: 0;
+	padding: 5px 10px 6px 10px;
+	margin-top: 0px;
+}
+
+#tabs a.active {
+	position: relative;
+	top: 0;
+	margin: 0 2px 0 0;
+	float: left;
+	background: #333;
+	border-right: 1px solid silver;
+	border-top: 1px solid silver;
+	border-left: 1px solid silver;
+	padding: 6px 10px 6px 10px;
+	text-decoration: none;
+	color: #fff;
+}
+
+#tabs a.active:hover {
+	position: relative;
+	top: 0;
+	margin: 0 2px 0 0;
+	float: left;
+	background: #333;
+	border-right: 1px solid silver;
+	border-top: 1px solid silver;
+	border-left: 1px solid silver;
+	padding: 6px 10px 6px 10px;
+	text-decoration: none;
+	color: #fff;
+}
+
+#subtabs ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#subtabs li {
+	float: left;
+	padding: 0 8px 0 8px;
+	border-left: 1px solid #CCC;
+	white-space: nowrap;
+}
+
+#subtabs li:first-child { border-left: none; }
+
+#subtabs {
+	font-family: tahoma,verdana,sans-serif;
+	background: #f6f6f6;
+	color: #666;
+	padding: 5px 7px 7px 7px; /* for All other Browsers */
+}

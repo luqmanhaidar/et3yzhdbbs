@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.ntsky.bbs.domain">
+	<class name="Favorite" table="ntsky_t_favorite" lazy="true">
+        <id name="id" column="id">
+			<generator class="increment"/>
+        </id>
+		<property name="name" column="name" not-null="true"/>
+		<property name="url" column="url" not-null="true"/>
+		<property name="userId" column="user_id" not-null="true"/>
+		<!-- <property name="description" column="description"/> -->
+		<property name="dateCreated" column="date_created" not-null="true"/>
+	</class>
+</hibernate-mapping>

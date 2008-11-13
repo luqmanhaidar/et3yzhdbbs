@@ -1,0 +1,147 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+ 
+    <package name="common.default" extends="default" namespace="/">
+    
+		<!-- /++++++++++ Help +++++++++ -->
+		<action name="help" class="com.ntsky.bbs.web.webwork.action.help.ViewHelpAction">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success">/help.ftl</result>
+		</action>		
+		<!-- ++++++++++ Help +++++++++/ -->
+		
+		<!-- ++++++++++ Search ++++++++++ -->
+		<action name="search-page"
+				class="com.ntsky.bbs.web.webwork.action.view.SearchAction" method="default">
+			<interceptor-ref name="commonStack"/>
+			<interceptor-ref name="userSession"/>
+			<interceptor-ref name="basicStack"/>
+			<result name="success">/search.ftl</result>
+		</action>
+		<action name="search"
+				class="com.ntsky.bbs.web.webwork.action.view.SearchAction">
+			<interceptor-ref name="commonStack"/>
+			<!-- <interceptor-ref name="userSession"/> -->
+			<interceptor-ref name="defaultStack"/>
+			<result name="success">/searchTopic.ftl</result>
+		</action>		
+		<!-- ++++++++++ Search ++++++++++/ -->
+		
+	</package>
+	
+	<package name="common.admin" extends="admin" namespace="/admin">
+		
+		<!-- /++++++++++ init +++++++++ -->
+		<action name="makeStatic-page" class="com.ntsky.bbs.web.webwork.action.common.MakeStaticAction" method="default">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/make.ftl</result>														
+		</action>	
+		<action name="makeStatic" class="com.ntsky.bbs.web.webwork.action.common.MakeStaticAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/make.ftl</result>														
+		</action>		
+		<!-- ++++++++++ init +++++++++/ -->
+		
+		<!-- /++++++++++ Announcement +++++++++ -->
+		<action name="announcements" class="com.ntsky.bbs.web.webwork.action.annoucement.AnnoucementsAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/announcements.ftl</result>														
+		</action>
+		<action name="announcementManage" class="com.ntsky.bbs.web.webwork.action.annoucement.AnnoucementManageAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="edit">/admin/editAnnouncement.ftl</result>	
+			<result name="delete">/admin/announcements.ftl</result>													
+		</action>	
+		<action name="createAnnouncement" class="com.ntsky.bbs.web.webwork.action.annoucement.CreateAnnoucementAction">
+			<interceptor-ref name="adminDefaultStack"/>	
+			<result name="success" type="redirect">/admin/announcements.action</result>														
+		</action>	
+		<action name="updateAnnouncement" class="com.ntsky.bbs.web.webwork.action.annoucement.EditAnnoucementAction">
+			<interceptor-ref name="adminDefaultStack"/>
+			<result name="success" type="redirect">/admin/announcements.action</result>														
+		</action>
+		<!-- ++++++++++ Announcement +++++++++/ -->
+
+		<!-- /++++++++++ Link +++++++++ -->
+		<action name="links" class="com.ntsky.bbs.web.webwork.action.link.LinksAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/links.ftl</result>
+		</action>
+		<action name="createLink" class="com.ntsky.bbs.web.webwork.action.link.CreateLinkAction">
+			<interceptor-ref name="adminDefaultStack"/>		
+			<result name="success">/admin/linkHidden.ftl</result>
+			<result name="input">/admin/warn.ftl</result>
+		</action>
+		<action name="deleteLink" class="com.ntsky.bbs.web.webwork.action.link.DeleteLinkAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/linkHidden.ftl</result>														
+		</action>
+		<action name="editLink" class="com.ntsky.bbs.web.webwork.action.link.EditLinkAction" method="select">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="select">/admin/editLink.ftl</result>
+		</action>
+		<action name="updateLink" class="com.ntsky.bbs.web.webwork.action.link.EditLinkAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success" type="redirect">/admin/links.action</result>
+			<result name="input">/admin/warn.ftl</result>
+		</action>
+		<!-- /++++++++++ Link +++++++++ -->	
+
+		<!-- /++++++++++ help +++++++++ -->
+		<action name="helps" class="com.ntsky.bbs.web.webwork.action.help.HelpsAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/helps.ftl</result>
+		</action>
+		<action name="createHelp" class="com.ntsky.bbs.web.webwork.action.help.CreateHelpAction">
+			<interceptor-ref name="adminDefaultStack"/>
+			<result name="success">/admin/success.ftl</result>
+			<result name="input">/admin/warn.ftl</result>
+		</action>
+		<action name="deleteHelp" class="com.ntsky.bbs.web.webwork.action.help.DeleteHelpAction">
+			<interceptor-ref name="adminBasicStack"/>		
+			<result name="success" type="redirect">/admin/helps.action</result>														
+		</action>
+		<action name="editHelp" class="com.ntsky.bbs.web.webwork.action.help.EditHelpAction" method="edit">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="select">/admin/editHelp.ftl</result>
+		</action>
+		<action name="updateHelp" class="com.ntsky.bbs.web.webwork.action.help.EditHelpAction">
+			<interceptor-ref name="adminDefaultStack"/>
+			<result name="success" type="redirect">/admin/helps.action</result>
+			<result name="input">/admin/warn.ftl</result>
+		</action>
+		<!-- ++++++++++ help +++++++++/ -->
+		
+		<!-- /++++++++++ Stat +++++++++ -->
+		<action name="stats" class="com.ntsky.bbs.web.webwork.action.stat.StatsAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/stats.ftl</result>
+		</action>
+		<action name="createStat" class="com.ntsky.bbs.web.webwork.action.stat.CreateStatAction">
+		</action>
+		<action name="statManage" class="com.ntsky.bbs.web.webwork.action.stat.StatManageAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success" type="redirect">/admin/stats.action?start=${start}</result>														
+		</action>		
+		<action name="searchStat" class="com.ntsky.bbs.web.webwork.action.stat.SearchStatAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/stats.ftl</result>														
+		</action>		
+		<!-- /++++++++++ Stat +++++++++ -->				
+		
+		<!-- /++++++++++ ActLog +++++++++ -->
+		<action name="actLogs" class="com.ntsky.bbs.web.webwork.action.actlog.ActLogsAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/actLogs.ftl</result>
+		</action>
+		<action name="deleteActLog" class="com.ntsky.bbs.web.webwork.action.actlog.DeleteActLogAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/actLogs.ftl</result>														
+		</action>
+		<!-- /++++++++++ ActLog +++++++++ -->
+
+	</package>
+	
+</xwork>

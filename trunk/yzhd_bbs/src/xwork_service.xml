@@ -1,0 +1,23 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+
+<xwork>
+	
+	<package name="service" extends="default" namespace="/service">
+
+		<action name="topicService" class="com.ntsky.bbs.web.webwork.action.service.TopicServiceAction">
+			<interceptor-ref name="basicStack"/>
+			<result name="success">/service/topics.ftl</result>														
+		</action>
+		
+		<action name="login"
+				class="com.ntsky.bbs.web.webwork.action.service.LoginServiceAction">
+			<interceptor-ref name="basicStack"/>
+			<result name="success">/common/location.ftl</result>
+			<result name="reLocation">/common/reLocation.ftl</result>
+			<result name="login">/service/login.ftl</result>
+			<result name="input">/service/login.ftl</result>
+		</action>
+		
+	</package>
+	
+</xwork>
