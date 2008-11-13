@@ -65,5 +65,9 @@ public interface XmlDataService {
 	 * 更新xml节点
 	 * @throws XMLException
 	 */
-	public void editBadword(Badword badword) throws XMLException ;	
+	public void editBadword(Badword badword) throws XMLException ;
+	
+	public void removeBadword(Badword badword) throws XMLException;
+	
+	public Badword getBadwordById(int id) throws XMLException ;
 }

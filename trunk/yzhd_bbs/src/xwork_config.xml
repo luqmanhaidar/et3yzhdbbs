@@ -69,6 +69,10 @@
 		<action name="updateBadword" class="com.ntsky.bbs.web.webwork.action.xml.EditBadwordAction">
 			<interceptor-ref name="adminDefaultStack"/>
 			<result name="success" type="redirect">badwords.action</result>
+		</action>
+		<action name="deleteBadword" class="com.ntsky.bbs.web.webwork.action.xml.DeleteBadwordAction">
+			<interceptor-ref name="adminDefaultStack"/>
+			<result name="success" type="redirect">badwords.action</result>
 		</action>			
 	</package>
 	

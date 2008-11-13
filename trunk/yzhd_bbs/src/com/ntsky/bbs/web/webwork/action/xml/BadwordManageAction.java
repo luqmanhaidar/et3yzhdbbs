@@ -26,7 +26,7 @@ import freemarker.template.TemplateHashModel;
  * @author ntsky
  * @link www.ntsky.com
  * 
- * @version $Revision: 1.1 $ $Date: 2008/10/19 13:31:28 $
+ * @version $Revision: 1.2 $ $Date: 2008/11/10 17:16:01 $
  */
 public class BadwordManageAction extends XmlActionSupport {
 	
@@ -67,7 +67,7 @@ public class BadwordManageAction extends XmlActionSupport {
 		/* ---------- 权限判断 ------------ */
 		//　查找脏话过滤
 		if(!isPermisson("4_2")){
-			setWarnMessage("您没有查找脏话过滤的权限.");
+			setWarnMessage("您没有查看脏话过滤的权限.");
 			return NO_PERMISSION;
 		}
 		/* ------------------------------ */		
@@ -77,12 +77,14 @@ public class BadwordManageAction extends XmlActionSupport {
 		/* -------------------------------*/			
 		
 		try{
-			badword = xmlDataService.getBadword(id);
+			badword = xmlDataService.getBadwordById(id);
 		}
 		catch(XMLException xe){
 			throw new ActionException(xe);
 		}
 		return SUCCESS;
 	}
+	
+	
 	
 }

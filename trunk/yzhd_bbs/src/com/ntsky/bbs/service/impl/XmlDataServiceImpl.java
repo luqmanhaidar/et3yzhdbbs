@@ -287,5 +287,51 @@ public class XmlDataServiceImpl implements XmlDataService{
 			throw new XMLException(ex);
 		}	
 	}
+
+	public void removeBadword(Badword badword) throws XMLException {
+		try{
+			String badwordPath = Application.getInstance().getFilePath(Symbols.XML_BADWORDS);
+			DOMData domData = DOMData.getInstance(badwordPath);
+			domData.removeNodeByAttribute("badword", "id", badword.getId()+"");
+			FileUtil.writeXMLByDOM(domData.getDocument(), badwordPath);
+		}
+		catch(Exception ex){
+			logger.error("删除badword.xml发生错误",ex);
+			throw new XMLException(ex);
+		}
+	}
+
+	/**
+	 * 通过id获得Badword
+	 * @author Edison
+	 * @param id
+	 * @return Badword
+	 */
+	public Badword getBadwordById(int id) throws XMLException{
+		Badword badword = new Badword();
+		try{
+			String badwordPath = Application.getInstance().getFilePath(Symbols.XML_BADWORDS);
+			DOMData domData = DOMData.getInstance(badwordPath);
+			Node node = domData.getSelElement("badword", id);
+			
+			badword.setId(id);
+			NodeList nodeList = node.getChildNodes();
+			
+			for (int i = 0; i < nodeList.getLength(); i++) {
+				node = nodeList.item(i);
+				if("oldStr".equals(node.getNodeName())){
+					badword.setOldStr(node.getFirstChild().getNodeValue());
+				}
+				if("replaceStr".equals(node.getNodeName())){
+					badword.setReplaceStr(node.getFirstChild().getNodeValue());					
+				}
+			}
+		}
+		catch(Exception ex){
+			logger.error(ex);
+			throw new XMLException("根据ID从badwords.xml中取得过滤信息发生错误!");
+		}		
+		return badword;
+	}
 	
 }
