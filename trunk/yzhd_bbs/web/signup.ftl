@@ -110,6 +110,7 @@ src="images/dl-p10.gif" width=190> </DIV></DIV></DIV>
 <form id="checkUserForm" method="post" action="#" target="SignupHidden">
   	<input type="hidden" name="username" value=""/>
   </form>
+  <iframe frameborder="0" id="SignupHidden" name="SignupHidden" src="about:blank" width="0" height="0"> </iframe>
 <!--底部开始-->
 <#include "includes/bottom.ftl">
 <!--底部结束-->

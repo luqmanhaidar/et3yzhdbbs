@@ -33,7 +33,7 @@
       	暂无版主
       <#else>
 	      <#list forum.masters?split(",") as x>
-			<a href="user.action?username=${URLEncoder.encode(x)}" title="查看${x}的资料" target="_blank"/>${x}</a>
+			<a href="../user.action?username=${URLEncoder.encode(x)}" title="查看${x}的资料" target="_blank"/>${x}</a>
 		  </#list>
 	  </#if>
       </div>
@@ -65,7 +65,7 @@
         <input type="button" name="" class="tb" value="删除" onClick="Util.del('确认删除 [${forum.name}] 吗?\r\n删除栏目会删除其子栏目以及栏目下对应的帖子','deleteForum.action?forumId=${forum.id}');"/>
      </div>
     </div>
-    <div class="llbox" style="text-align:left;border-right:0px;"><a href="#" onMouseOver="ddrivetip('${forum.description?replace("\"","")?js_string}',300,'${base}/scripts/tooltip/arrow.gif');" onMouseOut="hideddrivetip();">${""?left_pad((forum.depth-1)*2,"—")}${forum.name}</a></div>
+    <div class="llbox" style="text-align:left;border-right:0px;"><a href="forumManage!edit.action?forumId=${forum.id}" onMouseOver="ddrivetip('${forum.description?replace("\"","")?js_string}',300,'${base}/scripts/tooltip/arrow.gif');" onMouseOut="hideddrivetip();">${""?left_pad((forum.depth-1)*2,"—")}${forum.name}</a></div>
   </div>
   </#list>
 </div>
