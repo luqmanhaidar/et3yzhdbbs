@@ -16,6 +16,23 @@
 	window.onload = function(){
 		replaceMyTextarea("content","Default",".","400");
 	};
+		function onCheck(){
+	    var obj1=document.getElementById("content")
+	    var content= document.getElementById("content").value; 
+		var oEditor = FCKeditorAPI.GetInstance("content"); 
+
+   		 var text=oEditor.GetXHTML(true); 
+
+		if(text.length<2){ 
+		alert("内容不能小于${propertyMap["minWord"]}个字符！"); 
+			return false; 
+		} 
+		if(text.length>${propertyMap["maxWord"]}){ 
+			alert("内容不能大于${propertyMap["maxWord"]}个字符！"); 
+			return false; 
+		} 
+
+	}
 	//]]>
 </script>
 </head>
@@ -25,7 +42,7 @@
   <!-- register info begin -->
   <div class="box1 mtq">
     <div class="title"> 修改贴子 </div>
-    <form action="updatePost.action" method="post" id="post" onSubmit="return Validator.validate(this);">
+    <form action="updatePost.action" method="post" id="post" onSubmit="return onCheck();">
     <div class="content">
       <!--<div class="ibox">
         <div class="it" style="width:20%;">标题: * </strong> </div>

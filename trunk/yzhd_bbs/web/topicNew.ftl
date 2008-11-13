@@ -41,7 +41,23 @@ xmlns="http://www.w3.org/1999/xhtml">
 		window.external.AddFavorite(window.location,document.title);
 	}
 	
+	function onCheck(){
+	    var obj1=document.getElementById("content")
+	    var content= document.getElementById("content").value; 
+		var oEditor = FCKeditorAPI.GetInstance("content"); 
 
+   		 var text=oEditor.GetXHTML(true); 
+
+		if(text.length<2){ 
+		alert("内容不能小于${propertyMap["minWord"]}个字符！"); 
+			return false; 
+		} 
+		if(text.length>${propertyMap["maxWord"]}){ 
+			alert("内容不能大于${propertyMap["maxWord"]}个字符！"); 
+			return false; 
+		} 
+
+	}
 	//]]>
 	
 </script>
@@ -316,7 +332,7 @@ xmlns="http://www.w3.org/1999/xhtml">
     <!--回复03-->
    
     <!--我要回复-->
-    <form action="createPost.action" method="post" id="post" onSubmit="return Validator.validate(this);">
+    <form action="createPost.action" method="post" id="post" onSubmit="return onCheck();">
     <h3 class="re01">我有话要说</h3>
     <div class="retext">
       <textarea name="content" id="content" style="height:200px;width:90%;"></textarea>

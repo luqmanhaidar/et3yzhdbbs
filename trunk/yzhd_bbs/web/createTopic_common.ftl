@@ -21,6 +21,11 @@
 	function onCheck(){
 	    var obj=document.getElementById("title")
 	    var obj1=document.getElementById("content")
+	    var content= document.getElementById("content").value; 
+		var oEditor = FCKeditorAPI.GetInstance("content"); 
+
+   		 var text=oEditor.GetXHTML(true); 
+
 		if(obj.value.length>50)
 		{
 				alert("标题不能超过50个字符！");
@@ -33,16 +38,14 @@
 				obj.focus();
 				return false;
 		}
-		if(obj1.value.length<${propertyMap["minWord"]})
-		{
-				alert("内容不能小于${propertyMap["minWord"]}个字符！");
-				return false;
-		}
-		if(obj1.value.length>${propertyMap["maxWord"]})
-		{
-				alert("内容不能大于${propertyMap["maxWord"]}个字符！");
-				return false;
-		}
+		if(text.length<2){ 
+		alert("内容不能小于${propertyMap["minWord"]}个字符！"); 
+			return false; 
+		} 
+		if(text.length>${propertyMap["maxWord"]}){ 
+			alert("内容不能大于${propertyMap["maxWord"]}个字符！"); 
+			return false; 
+		} 
 
 	}
 	

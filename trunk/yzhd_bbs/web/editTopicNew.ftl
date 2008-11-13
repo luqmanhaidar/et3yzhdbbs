@@ -23,7 +23,10 @@
 		function onCheck(){
 	    var obj=document.getElementById("title")
 	    var obj1=document.getElementById("content")
-	    alert('${propertyMap["minWord"]}');
+	    var content= document.getElementById("content").value; 
+		var oEditor = FCKeditorAPI.GetInstance("content"); 
+
+   		 var text=trim(oEditor.GetXHTML(true)); 
 		if(obj.value.length>50)
 		{
 				alert("标题不能超过50个字符！");
@@ -36,30 +39,27 @@
 				obj.focus();
 				return false;
 		}
-		alert(obj1.value.length);
-		if(obj1.value.length<${propertyMap["minWord"]})
-		{
-				alert("内容不能小于${propertyMap["minWord"]}个字符！");
-				return false;
-		}
-		if(obj1.value.length>${propertyMap["maxWord"]})
-		{
-				alert("内容不能大于${propertyMap["maxWord"]}个字符！");
-				return false;
-		}
-//去左空格
+		if(text.length<2){ 
+		alert("内容不能小于${propertyMap["minWord"]}个字符！"); 
+			return false; 
+		} 
+		if(text.length>${propertyMap["maxWord"]}){ 
+			alert("内容不能大于${propertyMap["maxWord"]}个字符！"); 
+			return false; 
+		} 
+	}
+	//去左空格
 		function ltrim(s){ 
-			return s.replace( /^\s*/, ""); 
+			return s.replace("&nbsp;", ""); 
 		} 
 //去右空格; 
 		function rtrim(s){ 
-			return s.replace( /\s*$/, ""); 
+			return s.replace("&nbsp;", ""); 
 		} 
 //去左右空格; 
 		function trim(s){ 
 			return rtrim(ltrim(s)); 
 }
-	}
 	//]]>
 </script>
 </head>
