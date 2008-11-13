@@ -35,7 +35,7 @@ public class RoleDAOHibernateImpl extends BaseDAOHibernateImpl implements RoleDA
 				return super.find("from Role as role");
 			}
 			else{
-				return super.find("from Role as role where role.type=?",new Integer(type));
+				return super.find("from Role as role where role.type=? and role.id!=2",new Integer(type));
 			}
 		}
 		catch(DAOException daoException){
@@ -50,7 +50,7 @@ public class RoleDAOHibernateImpl extends BaseDAOHibernateImpl implements RoleDA
 	 */
 	public List findRoles() throws DAOException {
 		try{
-			return super.find("from Role as role");
+			return super.find("from Role as role where id!=2");
 		}
 		catch(DAOException daoException){
 			throw new DAOException("查找全部的角色信息发生错误");
