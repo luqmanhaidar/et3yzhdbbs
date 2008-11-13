@@ -63,7 +63,7 @@ public class UserDAOHibernateImpl extends BaseDAOHibernateImpl implements UserDA
 			}
 		}
 		catch(DAOException de){
-			throw new DAOException("根据用户['"+username+"']查找用户信息失败");
+			throw new DAOException("根据用户 "+username+" 查找用户信息失败");
 		}
 	}
 	
@@ -79,7 +79,7 @@ public class UserDAOHibernateImpl extends BaseDAOHibernateImpl implements UserDA
 			}
 		}
 		catch(DAOException de){
-			throw new DAOException("根据用户['"+username+"']查找用户信息失败");
+			throw new DAOException("根据用户 "+username+" 查找用户信息失败");
 		}
 	}
 

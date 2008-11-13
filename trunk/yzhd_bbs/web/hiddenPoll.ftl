@@ -18,6 +18,7 @@
 </script>
 </head>
 <body>
+<#if poll?exists>
    <div id="poll"> 
    <table cellspacing="0" cellpadding="3" border="0" id="vote">
        <tbody>   
@@ -49,5 +50,6 @@
 	</tbody>
 </table>
 </div>
+</#if>
 </body>
 </html>

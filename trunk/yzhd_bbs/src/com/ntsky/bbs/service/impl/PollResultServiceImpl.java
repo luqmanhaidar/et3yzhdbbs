@@ -37,7 +37,7 @@ public class PollResultServiceImpl implements PollResultService{
 	public void vote(PollVoter pollVoter) throws PollException,ServiceException {
 		try{
 			if(pollVoterDAO.isExistVoter(pollVoter.getPollUser(),pollVoter.getPollId())){
-				throw new PollException("用户['"+pollVoter.getPollUser()+"']已投过票,不能重复投票");
+				throw new PollException("用户 "+pollVoter.getPollUser()+" 已投过票,不能重复投票");
 			}
 			else{
 				// 添加投票用户

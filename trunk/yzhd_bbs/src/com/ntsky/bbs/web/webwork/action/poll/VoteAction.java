@@ -69,10 +69,11 @@ public class VoteAction extends PollActionSupport {
 			}		
 		}
 		catch(PollException pe){
+			//System.out.println(pe.getMessage()+" ==============================");
 			super.setWarnMessage(pe.getMessage());
 		}
 		catch(ServiceException se){
-			throw new ActionException(se);
+			//throw new ActionException(se);
 		}
 		return SUCCESS;
 	}
