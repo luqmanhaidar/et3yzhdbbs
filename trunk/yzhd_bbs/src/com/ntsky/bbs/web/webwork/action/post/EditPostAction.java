@@ -20,6 +20,7 @@ import com.ntsky.bbs.domain.Post;
 import com.ntsky.bbs.domain.Topic;
 import com.ntsky.bbs.exception.ActionException;
 import com.ntsky.bbs.exception.ServiceException;
+import com.ntsky.bbs.service.XmlDataService;
 import com.ntsky.bbs.util.BeanUtil;
 import com.ntsky.bbs.util.WebworkUtil;
 import com.ntsky.bbs.util.memory.ForumSingleton;
@@ -35,7 +36,24 @@ import com.ntsky.bbs.util.memory.ForumSingleton;
 public class EditPostAction extends PostActionSupport implements ModelDriven {
 
 	private Post post = new Post();
-	
+	private Map propertyMap;
+	private XmlDataService xmlDataService;
+	public XmlDataService getXmlDataService() {
+		return xmlDataService;
+	}
+
+	public void setXmlDataService(XmlDataService xmlDataService) {
+		this.xmlDataService = xmlDataService;
+	}
+
+	public Map getPropertyMap() {
+		return propertyMap;
+	}
+
+	public void setPropertyMap(Map propertyMap) {
+		this.propertyMap = propertyMap;
+	}
+
 	public Object getModel() {
 		return post;
 	}
@@ -76,6 +94,7 @@ public class EditPostAction extends PostActionSupport implements ModelDriven {
 		}
 		// ---------------------------
 		try{
+
 			postService.editPost((Post)BeanUtil.format(post));
 		}
 		catch(ServiceException se){
@@ -139,7 +158,7 @@ public class EditPostAction extends PostActionSupport implements ModelDriven {
 					}
 				}
 			}
-			
+			propertyMap = xmlDataService.select(Symbols.CONFIG_TOPIC);
 			// 制定论坛数据
 			forum = ForumSingleton.getInstance().getForum(post.getForumId());
 			// 主题信息
