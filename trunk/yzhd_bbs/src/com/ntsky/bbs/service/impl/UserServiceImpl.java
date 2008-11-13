@@ -1,35 +1,42 @@
 package com.ntsky.bbs.service.impl;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import com.ntsky.framework.mail.HtmlMail;
-import com.ntsky.framework.mail.Mail;
-import com.ntsky.framework.mail.MailException;
-import com.ntsky.framework.mail.Sender;
-import com.ntsky.framework.util.security.MD5;
-import com.ntsky.framework.util.StringUtil;
-
-import com.ntsky.bbs.Symbols;
-import com.ntsky.bbs.domain.User;
+import com.ntsky.bbs.dao.ForumDAO;
 import com.ntsky.bbs.dao.UserDAO;
+import com.ntsky.bbs.domain.Forum;
+import com.ntsky.bbs.domain.User;
 import com.ntsky.bbs.exception.DAOException;
 import com.ntsky.bbs.exception.LoginException;
-import com.ntsky.bbs.exception.MailSenderException;
-import com.ntsky.bbs.exception.ObjectNotExistException;
 import com.ntsky.bbs.exception.ServiceException;
 import com.ntsky.bbs.exception.UserException;
 import com.ntsky.bbs.service.UserService;
-import com.ntsky.bbs.util.config.EmailConfig;
 import com.ntsky.bbs.util.page.Pagination;
 import com.ntsky.bbs.util.page.QueryResult;
+import com.ntsky.framework.util.StringUtil;
+import com.ntsky.framework.util.security.MD5;
 
 public class UserServiceImpl implements UserService{
 
 	private UserDAO userDAO;
+	private ForumDAO forumDAO;
 	
+	public ForumDAO getForumDAO() {
+		return forumDAO;
+	}
+
+	public void setForumDAO(ForumDAO forumDAO) {
+		this.forumDAO = forumDAO;
+	}
+
+	public UserDAO getUserDAO() {
+		return userDAO;
+	}
+
 	public void setUserDAO(UserDAO userDAO){
 		this.userDAO = userDAO;
 	}
@@ -103,7 +110,25 @@ public class UserServiceImpl implements UserService{
 	 */
 	public void deleteUser(long userId) throws ServiceException {
 		try{
-			userDAO.delete(getUser(userId));
+			User thisUser=getUser(userId);
+			List list=forumDAO.findForums();
+			Iterator it=list.iterator();
+			while(it.hasNext()){
+				Forum forum=(Forum)it.next();
+				String masters=forum.getMasters();
+				String[] oldMasters=StringUtil.splitStringToArray(masters, ",");
+				String newMasters="";
+				for(int i=0;i<oldMasters.length;i++){
+					if(!oldMasters[i].equals(thisUser.getUsername())){
+						newMasters=newMasters+","+oldMasters[i];					}
+				}
+				if(newMasters.length()>0){
+					newMasters=newMasters.substring(1,newMasters.length());
+				}
+				forum.setMasters(newMasters);
+				forumDAO.update(forum);
+			}
+			userDAO.delete(thisUser);
 		}
 		catch(DAOException daoException){
 			throw new ServiceException("删除用户["+userId+"]发生错误.");

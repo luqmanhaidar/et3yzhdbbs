@@ -66,7 +66,7 @@
       <div class="d" style="width:30px;">性别</div>
 	  <div class="d" style="width:60px;">发帖数</div>
 	  <div class="d" style="width:60px;">登陆次数</div>
-	  <div class="d" style="width:50px;">金钱</div>
+	  <div class="d" style="width:50px;">积分</div>
       <div class="d" style="width:90px;">最后登陆时间</div>
       <div class="d" style="width:40px;">禁用</div>
       <div class="d" style="width:60px;">论坛之星</div>

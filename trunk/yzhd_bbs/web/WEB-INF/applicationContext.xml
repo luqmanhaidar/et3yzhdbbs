@@ -231,6 +231,7 @@
     
     <bean id="userService"  class="com.ntsky.bbs.service.impl.UserServiceImpl">
         <property name="userDAO"><ref local="userDAO"/></property>
+        <property name="forumDAO"><ref local="forumDAO"/></property>
     </bean>		
 	<!--  User	-->
 
