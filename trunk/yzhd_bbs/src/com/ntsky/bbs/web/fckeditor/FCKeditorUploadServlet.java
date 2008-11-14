@@ -257,6 +257,7 @@ public class FCKeditorUploadServlet extends HttpServlet {
 			}
 			else{
 				retVal = "204";
+				errorMessage="上传附件不能超过."+(String)role.getPermissionMap().get("uploadAttachmentSize")+"KB.";
 			}
 		}
 		else
