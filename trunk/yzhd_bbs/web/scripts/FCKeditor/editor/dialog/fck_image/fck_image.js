@@ -439,7 +439,7 @@ function OnUploadCompleted( errorNumber, fileUrl, fileName, customMsg )
 			alert( ' 错误 : 系统不支持您上传的文件格式. ' ) ;
 			return ;
 		case 204 :
-			alert( ' 错误 : 系统允许的最大文件大小<10M. ' ) ;
+			alert( ' 错误 : 上传附件超过大小限制. ' ) ;
 			return ;
 		case 203 :
 			alert( "Security error. You probably don't have enough permissions to upload. Please check your server." ) ;
