@@ -442,7 +442,7 @@ function OnUploadCompleted( errorNumber, fileUrl, fileName, customMsg )
 			alert( ' 错误 : '+customMsg ) ;
 			return ;
 		case 203 :
-			alert( "Security error. You probably don't have enough permissions to upload. Please check your server." ) ;
+			alert( " 错误 ：您没有上传附件的权限。" ) ;
 			return ;
 		default :
 			alert( 'Error on file upload. Error number: ' + errorNumber ) ;

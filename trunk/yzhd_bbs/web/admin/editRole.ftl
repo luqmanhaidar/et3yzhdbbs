@@ -40,7 +40,7 @@
         <div class="ibox">
           <div class="it">角色名称: *</div>
           <div class="iv">
-            <input name="name" type="text" class="t" value="${role.name}" size="40"/></div>
+            <input name="name" type="text" class="t" value="${role.name}" size="40" readonly="readonly"/></div>
         </div>
         <div class="ibox" style="height:120px;">
           <div class="it">角色描述: </div>
