@@ -4,12 +4,12 @@
 	<resource id="1" name="常规管理">
 		<permission point="1_1" value="基本设置" />
 		<!--<permission point="1_2" value="搜索引擎优化设置" />-->
-		<permission point="1_3" value="注册设置" />
+		<!--<permission point="1_3" value="注册设置" />
 		<permission point="1_4" value="系统设置" />
-		<!--<permission point="1_5" value="邮件设置" />-->
+		<permission point="1_5" value="邮件设置" />-->
 		<permission point="1_6" value="每页记录数设置" />
-		<permission point="1_7" value="系统金钱设置" />
-		<permission point="1_8" value="修改管理员密码" />
+		<permission point="1_7" value="系统积分设置" />
+		<permission point="1_8" value="修改密码" />
 	</resource>
 	<resource id="2" name="论坛模块">
 		<permission point="2_1" value="添加论坛" />
