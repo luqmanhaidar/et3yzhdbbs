@@ -31,7 +31,7 @@
 	//-->
   </script>
 </div>
-<div style="font-size:12px;"><a href="mailto: yntsky@gmail.com">www.ntsky.com</a></div>
+<div style="font-size:12px;"></div>
 </body>
 </html>
 

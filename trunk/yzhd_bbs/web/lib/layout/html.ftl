@@ -6,8 +6,7 @@
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
 <meta name="Robots" content="all" />
-<meta name="author" content="yntsky@gmail.com" />
-<meta name="Copyright" content="www.ntsky.com" />
+
 <meta http-equiv="Content-Language" content="UTF-8"/>
 <meta name="description" content="open source j2ee bbs" />
 <meta name="MSSmartTagsPreventParsing" content="true"/>

@@ -5,8 +5,6 @@
 <title>社区服务 : 用户登陆</title>
 <meta name="Robots" content="all" />
 <meta http-equiv="Pragma" content="no-cache" />
-<meta name="author" content="yntsky@gmail.com" />
-<meta name="Copyright" content="www.ntsky.com" />
 <meta http-equiv="Content-Language" content="UTF-8"/>
 <meta name="description" content="open source j2ee bbs" />
 <meta name="MSSmartTagsPreventParsing" content="true"/>

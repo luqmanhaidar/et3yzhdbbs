@@ -5,8 +5,7 @@
 <head>
 <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
 <title>BBS管理--欢迎</title>
-<meta name="author" content="yntsky@gmail.com"/>
-<meta name="Copyright" content="www.ntsky.com"/>
+
 <meta name="keywords" content="xml,xslt,xhtml,webwork,hibernate,spring,java,jsp,j2ee,sax,dom,mysql,linux,css2" />
 <meta name="description" content="News,Java技术,xml技术,XHTML+CSS2网站布局,xml,mysql" />
 <link rel="stylesheet" href="default.css" type="text/css" media="all"/>

@@ -4,8 +4,7 @@
 <meta http-equiv="expires" content="0">
 -->
 <meta name="Robots" content="all" />
-<meta name="author" content="yntsky@gmail.com" />
-<meta name="Copyright" content="www.ntsky.com" />
+
 <meta name="description" content="${SystemConfig.getInstance().getPropertyValue("seo","description")}" />
 <meta name="keywords" content="${SystemConfig.getInstance().getPropertyValue("seo","keywords")}" />
 <meta name="MSSmartTagsPreventParsing" content="true"/>
