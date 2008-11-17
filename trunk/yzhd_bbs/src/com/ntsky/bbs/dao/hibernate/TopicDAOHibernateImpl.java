@@ -125,10 +125,11 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 					detachedCriteria.add(Restrictions.lt("dateCreated",timePoint));
 				}
 			}
-			if(status==0)
-			{
-				detachedCriteria.add(Restrictions.eq("status",new Integer(0)));
-			}
+			System.out.println(status);
+			//if(status==0)
+			//{
+			//	detachedCriteria.add(Restrictions.eq("status",new Integer(0)));
+			//}
 			if(status==1)
 			{
 				detachedCriteria.add(Restrictions.eq("status",new Integer(1)));
