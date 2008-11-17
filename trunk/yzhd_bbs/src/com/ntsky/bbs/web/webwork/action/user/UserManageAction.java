@@ -78,7 +78,7 @@ public class UserManageAction extends UserActionSupport {
 		catch(ServiceException se){
 			throw new ActionException(se);
 		}
-		return super.MANAGE;
+		return "manage";
 	}
 	/**
 	 * 封号和解封
@@ -90,7 +90,7 @@ public class UserManageAction extends UserActionSupport {
 		catch(ServiceException se){
 			throw new ActionException(se);
 		}
-		return super.MANAGE;
+		return "manage";
 	}
 	
 	private RoleService roleService;

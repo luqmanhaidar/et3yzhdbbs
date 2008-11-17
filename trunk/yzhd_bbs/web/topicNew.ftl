@@ -182,10 +182,15 @@ xmlns="http://www.w3.org/1999/xhtml">
 		      </#switch>
           ${topic.title} </div>
         <span>阅读[${topic.views?int}] 回复[${topic.replies?int}]</span> </h2>
+        <#if start!=0>
+  			</div>
+  		</#if>
       <#assign count=0>
       <#list posts as post>
       <#assign user = post.user>
   <#assign role = RoleSingleton.getInstance().getRole(RoleSingleton.getInstance().getRoleIdByName(post.user.username))>
+  		
+  
       <#if start+post_index==0>
       <div class="uin">
         <div class="uinL">
@@ -285,12 +290,13 @@ xmlns="http://www.w3.org/1999/xhtml">
       </div>
       <p class="tab"><span class="nbg01">我的美丽签名</span></p>
       <p class="tabtext">${user.signature?if_exists}</p>
-      <div class="bin"><span class="red">${user.username}</span> 发表于 ${post.dateCreated?string("yyyy年MM月dd日 HH:mm:ss")}</div>
+      <div style="PADDING-RIGHT: 10px; FONT-SIZE: 12px; WIDTH: 746px; LINE-HEIGHT: 40px; HEIGHT: 40px; BACKGROUND-COLOR: #d8edf8; TEXT-ALIGN: right"><span class="red">${user.username}</span> 发表于 ${post.dateCreated?string("yyyy年MM月dd日 HH:mm:ss")}</div>
     </div>
     <!---->
      <#include "includes/adDetail.ftl">
     <h3>回复</h3>    
     <#else>
+    
     <!--回复01-->
     
     <div class="contener3 conbg">
