@@ -26,10 +26,12 @@
 	        用户角色:
 	       <select name="roles">
 	        <option value="-1">全部角色</option>
-			<optgroup label="系统用户组">
+			<!--<optgroup label="系统用户组">-->
 			<#list managerRoles as role>
 	        <option value="${role.id}"<#if role.id?string==roles>selected</#if>>${role.name}</option>
 	        </#list>
+	        
+	        <!--
 			<optgroup label="注册用户组">
 	        <#list userRoles as role>
 	        <option value="${role.id}"<#if role.id?string==roles>selected</#if>>${role.name}</option>
@@ -37,7 +39,8 @@
 			<optgroup label="特殊用户组">
 	        <#list specialRoles as role>
 	        <option value="${role.id}"<#if role.id?string==roles>selected</#if>>${role.name}</option>
-	        </#list>	        
+	        </#list>
+	        -->	        
           </select> 
 	        用户名: *   
           <input name="username" type="text" class="t" size="40" value="${req.getParameter("username")?if_exists}"/>

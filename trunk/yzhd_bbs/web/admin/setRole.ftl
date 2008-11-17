@@ -30,16 +30,18 @@
         <div class="iv">
             <select name="roles" id="roles">
               <option value="">选择用户角色</option>
-              <optgroup label="管理角色"></optgroup>
+              <!--<optgroup label="管理角色"></optgroup>-->
               <#list managerRoles as role>
               <#if role.id!=0>
               <option value="${role.id}"<#if user.roles=role.id?string> selected</#if>> —— ${role.name}</option>
               </#if>
               </#list>
+              <!--
               <optgroup label="用户角色"></optgroup>
               <#list userRoles as role>
               <option value="${role.id}"<#if user.roles=role.id?string> selected</#if>> —— ${role.name}</option>
               </#list>              
+              -->
             </select>
         </div>
       </div>      	
