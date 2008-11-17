@@ -99,8 +99,7 @@
 					</option>
 				</select>
 				&nbsp;&nbsp;
-				<input name="keyword" value="" size="16" "
-					type="text">
+				<input name="keyword" value="${keyword?if_exists}" size="16" type="text">a
 				<input id="Butt" name="Butt" value="搜索" 
 					type="submit">
 			</form>

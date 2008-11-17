@@ -113,5 +113,29 @@ public class SearchAction extends ViewActionSupport {
 	public void setStatus(int status) {
 		this.status = status;
 	}
+	public int getForumId() {
+		return forumId;
+	}
+	public String getKeyword() {
+		return keyword;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public int getTime() {
+		return time;
+	}
+	public String getType() {
+		return type;
+	}
+	public String getWay() {
+		return way;
+	}
+	public void setForums(List forums) {
+		this.forums = forums;
+	}
+	public void setTopics(List topics) {
+		this.topics = topics;
+	}
 	
 }
