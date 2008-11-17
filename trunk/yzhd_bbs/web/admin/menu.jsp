@@ -21,8 +21,8 @@
 		d.add(101,0,'常规管理');
 		d.add(102,101,'基本设置','basicConfig!open.action');
 		/*d.add(105,101,'搜索引擎优化设置','seoConfig!open.action');*/		
-		d.add(103,101,'注册设置','registerConfig!open.action');
-		d.add(104,101,'系统设置','systemConfig!open.action');
+		/*d.add(103,101,'注册设置','registerConfig!open.action');*/
+		/*d.add(104,101,'系统设置','systemConfig!open.action');*/
 		/*d.add(105,101,'邮件设置','emailConfig!open.action');*/
 		d.add(106,101,'每页记录数设置','paginationConfig!open.action');
 		d.add(108,101,'系统积分设置','moneyConfig!open.action');
@@ -38,7 +38,7 @@
 		d.add(300,0,'权限模块');
 		d.add(301,300,'添加系统用户','createUser-page.action');
 		d.add(302,300,'用户管理','users.action');
-		d.add(303,300,'用户(角色)管理','roles.action');
+		d.add(303,300,'系统角色管理','roles.action');
 		d.add(304,300,'后台管理员管理','admins.action');
 		d.add(400,0,'帖子模块');
 		d.add(401,400,'帖子管理','topics.action?forumId=0&sort=dateCreated&order=desc&time=0&type=title&keyword=');

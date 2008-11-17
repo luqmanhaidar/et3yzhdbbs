@@ -33,9 +33,11 @@
 </script>
 <div id="wrap">
   <br/>
+  <!--
   <div class="box4">
 	  <span class="bold">操作 :</span> <input type="button" value="添加角色" name="" id="btn_createRole" class="tb" onClick="action_btn('createRole','添加角色');"/><input type="button" value="角色管理" name="agree" class="tb" onClick="location.href='#manage'"/>
   </div>
+  -->
   <table cellspacing="0" align="center" class="mtable" id="createRole" style="display:none;margin-top:16px;">
     <tr>
       <td colspan="2" class="mt">添加角色</td>
@@ -263,7 +265,7 @@
   <a name="manage"></a>
   <div class="tab-pane" id="tabPane2" style="margin:8px 2%;">
      <div class="tab-page" id="tabPage21">
-     	<h2 class="tab">系统用户</h2>
+     	<h2 class="tab">系统角色</h2>
 	   <table align="center" cellpadding="0" class="ltable" cellspacing="1">
 	    <tr class="ltrt">
 	      <td width="20%">角色名</td>
@@ -282,6 +284,8 @@
 	    </#list>
 	  </table>    
      </div>
+     
+     <!-- 1.1
      <div class="tab-page" id="tabPage22">
      	<h2 class="tab">注册用户</h2>
 	   <table align="center" cellpadding="0" class="ltable" cellspacing="1">
@@ -296,7 +300,10 @@
 	      <td width="20%">${role.name}</td>
 	      <td width="16%">${role.minTopic}</td>
 	      <td width="34%"><img src="${base}/skins/default/level/${role.icon}" alt="新手上路"/></td>
-	      <td width="30%"><!-- <input type="button" name="" class="tb" value="列表此角色用户" onClick="window.location.href='users.html';"/> -->
+	      <td width="30%">
+	      1.1-->
+	      <!-- <input type="button" name="" class="tb" value="列表此角色用户" onClick="window.location.href='users.html';"/> -->
+	        <!--1.1
 	        <input type="button" name="" class="tb" value="修改" onClick="window.location.href='editRole_common.action?roleId=${role.id}';"/>
 	        <input type="button" name="" class="tb" value="删除" onClick="Util.del('删除角色需要更新部分用户等级,确认删除 [${role.name}] 吗?','deleteRole.action?roleId=${role.id}');"/></td>
 	    </tr>
@@ -317,13 +324,18 @@
 	      <td width="20%">${role.name}</td>
 	      <td width="16%">${role.minTopic}</td>
 	      <td width="34%"><img src="${base}/skins/default/level/${role.icon}" alt="新手上路"/></td>
-	      <td width="30%"><!-- <input type="button" name="" class="tb" value="列表此角色用户" onClick="window.location.href='users.html';"/> -->
+	      <td width="30%">
+	      1.1-->
+	      <!-- <input type="button" name="" class="tb" value="列表此角色用户" onClick="window.location.href='users.html';"/> -->
+	        <!--1.1
 	        <input type="button" name="" class="tb" value="修改" onClick="window.location.href='editRole.action?roleId=${role.id}';"/>
 	        <input type="button" name="" class="tb" value="删除" onClick="Util.del('删除角色需要更新部分用户等级,确认删除 [${role.name}] 吗?','deleteRole.action?roleId=${role.id}');"/></td>
 	    </tr>
 	    </#list>
 	  </table>
-     </div>           
+     </div> 
+     1.1-->
+               
   </div>
 </div>
 <script type="text/javascript">
