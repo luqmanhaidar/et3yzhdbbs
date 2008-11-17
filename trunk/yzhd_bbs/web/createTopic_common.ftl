@@ -66,6 +66,16 @@
 		alert("内容不能大于${propertyMap["maxWord"]}个字符！");
 		return false;
 	}
+	
+	<#if isVote>
+		var pollContent= document.getElementById("pollContent").value;
+		if(pollContent.length<1){
+			alert("投票信息不能为空");
+			return false;
+		}
+		
+	</#if>
+	
 	}
 	
 	//]]>
@@ -194,7 +204,7 @@
 				// 投票选项script
 				function Poll() {
 					this.optionArray = [];
-					this.optionHtml = "<div class=\"ibox\" id=\"option#key#\" style=\"display:block;\"><div class=\"it\" style=\"width:20%;\">选项: * </div><div class=\"iv\"><input type=\"hidden\" name=\"optionId#key#\" value=\"#key#\"/><input type=\"text\" name=\"optionText#key#\" class=\"t\" size=\"40\"/><span id=\"addButton#key#\">#addButton#</span><span id=\"deleteButton#key#\"></span></div></div>";
+					this.optionHtml = "<div class=\"ibox\" id=\"option#key#\" style=\"display:block;\"><div class=\"it\" style=\"width:20%;\">选项:  </div><div class=\"iv\"><input type=\"hidden\" name=\"optionId#key#\" value=\"#key#\"/><input type=\"text\" name=\"optionText#key#\" class=\"t\" size=\"40\"/><span id=\"addButton#key#\">#addButton#</span><span id=\"deleteButton#key#\"></span></div></div>";
 					this.optionNum = 0;
 					this.addButton = "<input type=\"button\"  name=\"option#key#\" value=\"建立选项\" onClick=\"poll.addOption(eval(#key#+1));\"/>";
 					this.deleteButton = "<input type=\"button\"  name=\"deleteOption#key#\" value=\"删除\" onClick=\"poll.deleteOption(#key#);\"/>";

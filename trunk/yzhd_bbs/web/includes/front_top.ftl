@@ -84,22 +84,33 @@
 	        			<#list application["frontTop"]["forums"] as forum>
 	        				<#if forum.depth==1>
 							<optgroup label="${forum.name}"> 
-							<#else>
-							<option value="${forum.id}">${forum.name}</option>
+							<#else>								
+								<option value="${forum.id}" <#if forumId?exists && forumId==forum.id>selected</#if>>${forum.name}</option>															
 							</#if>	
 	        			</#list>
                </select>
 				&nbsp;&nbsp;
-				<select name="type">
-					<option value="title">
-						主题搜索
-					</option>
-					<option value="username">
-						作 者
-					</option>
-				</select>
+				<#if type?exists>
+					<select name="type">
+						<option value="title" <#if type=='title'>selected</#if>>
+							主题搜索
+						</option>
+						<option value="username" <#if type=='username'>selected</#if>>
+							作 者
+						</option>
+					</select>
+				<#else>
+					<select name="type">
+						<option value="title">
+							主题搜索
+						</option>
+						<option value="username">
+							作 者
+						</option>
+					</select>
+				</#if>
 				&nbsp;&nbsp;
-				<input name="keyword" value="${keyword?if_exists}" size="16" type="text">a
+				<input name="keyword" value="${keyword?if_exists}" size="16" type="text">
 				<input id="Butt" name="Butt" value="搜索" 
 					type="submit">
 			</form>
