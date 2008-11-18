@@ -225,6 +225,20 @@
 	          <input name="canUseSignature" type="hidden" value="1"/>
 	          <input name="canCustomFace" type="hidden" value="1"/>	
 	          
+	          <#if role.id=4>
+	          <input name="canDelete" type="hidden" value="0"/>
+	           <input name="canTopTopic" type="hidden" value="0"/>
+	           <input name="canEditOther" type="hidden" value="0"/>
+	           <input name="canBestTopic" type="hidden" value="0"/>
+	          <input name="canUseSignature" type="hidden" value="0"/>
+	          <input name="canCustomFace" type="hidden" value="0"/>	
+	          <input name="canMove" type="hidden" value="0"/>
+	          <input name="canLockTopic" type="hidden" value="0"/>
+	          <input name="canAnnounce" type="hidden" value="0"/>
+	          <input name="canEditForum" type="hidden" value="0"/>
+	          <input name="canCategory" type="hidden" value="0"/>
+	          <input name="canBatchDelete" type="hidden" value="0"/> 
+		      <#else>
 	          <div class="tab-page" id="tabPage6">
 	            <h2 class="tab">管理权限</h2>
 	            <table cellspacing="0" align="center" class="mtable">
@@ -276,7 +290,7 @@
 				    <input name="canBatchDelete" type="hidden" value="1"/>    			    			    		    				       			    			    		    		    
 				</table>
 	          </div>   
-	          	  
+	          </#if>	  
 	          <!--<div class="tab-page" id="tabPage7">
 	            <h2 class="tab">短消息权限</h2>
 	            <table cellspacing="0" align="center" class="mtable">
