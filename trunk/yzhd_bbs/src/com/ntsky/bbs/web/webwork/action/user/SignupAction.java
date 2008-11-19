@@ -77,6 +77,8 @@ public class SignupAction extends UserActionSupport implements ModelDriven,Sessi
 				// 注册后就设置Fckeditor的cookie(原因 ： IE不同版本的情况下，Fckediotr中Session传值有问题)
 				HttpUtil.addCookie(ServletActionContext.getResponse(),Symbols.COOKIE_FCKEDITOR,user.getId().toString(),-1);
 				
+				messageService.deleteReceiverMessage(user.getUsername());
+				messageService.deleteSendMessage(user.getUsername());
 				// 判断是否需要发送欢迎信息
 				if((Symbols.TRUE).equals(RegisterConfig.getPropertyValue("isWelcome"))){
 					// 发送欢迎信息

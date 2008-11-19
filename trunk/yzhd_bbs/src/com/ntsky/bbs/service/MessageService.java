@@ -76,6 +76,8 @@ public interface MessageService extends BaseService{
 	 */	
 	public void deleteSendMessage(String sender) throws ServiceException ;
 	
+	public void deleteReceiverMessage(String receiver) throws ServiceException;
+	
 	/**
 	 * 清除垃圾箱
 	 * @param username 发送或接收者名称

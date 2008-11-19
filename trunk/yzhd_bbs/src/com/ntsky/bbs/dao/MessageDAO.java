@@ -112,6 +112,11 @@ public interface MessageDAO extends BaseDAO{
 	public void deleteSendMessage(String sender) throws DAOException;
 	
 	/**
+	 * 删除全部的已接收邮件
+	 * @param sender 接收者
+	 */
+	public void deleteReceiverMessage(String receiver) throws DAOException;
+	/**
 	 * 设置某条消息为垃圾
 	 * 
 	 * @param messageId 消息编号

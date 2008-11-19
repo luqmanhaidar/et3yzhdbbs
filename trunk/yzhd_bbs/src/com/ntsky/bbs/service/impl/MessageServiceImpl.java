@@ -309,6 +309,20 @@ public class MessageServiceImpl implements MessageService{
 			throw new ServiceException(de.getMessage());
 		}
 	}
+	
+	/**
+	 * 删除全部的已接收邮件
+	 * @param sender 接收者
+	 */	
+	public void deleteReceiverMessage(String receiver) throws ServiceException{
+		try{
+			messageDAO.deleteReceiverMessage(receiver);
+		}
+		catch(DAOException de){
+			throw new ServiceException(de.getMessage());
+		}
+	}
+
 
 	
 	/**

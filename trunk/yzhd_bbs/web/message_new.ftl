@@ -101,7 +101,8 @@ width=4></TD>
     </#if>
     <TD width=6 height=31><IMG height=31 src="images/zx-j3.gif" 
 width=6></TD>
-    <TD class=tit2>写信息</TD>
+    <TD class=tit2><A 
+      href="writeMessage-page.action">写信息</a></TD>
     <TD width=3 height=31><IMG height=31 src="images/zx-j4.gif" 
   width=3></TD></TR></TBODY></TABLE>
  <input type="hidden" name="status" value="1"/>

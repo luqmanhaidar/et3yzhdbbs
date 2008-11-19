@@ -64,6 +64,8 @@ public class CreateUserAction extends UserActionSupport implements ModelDriven {
 				userService.createUser(user);
 				
 				// 判断是否需要发送欢迎信息
+				messageService.deleteReceiverMessage(user.getUsername());
+				messageService.deleteSendMessage(user.getUsername());
 				if((Symbols.TRUE).equals(RegisterConfig.getPropertyValue("isWelcome"))){
 					// 发送欢迎信息
 					Message message = new Message();

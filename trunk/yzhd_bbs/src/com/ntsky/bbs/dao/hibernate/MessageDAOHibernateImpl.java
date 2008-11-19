@@ -207,6 +207,19 @@ public class MessageDAOHibernateImpl extends BaseDAOHibernateImpl implements Mes
 	 * 删除全部的已发送邮件
 	 * @param sender 发送者
 	 */
+	public void deleteReceiverMessage(String receiver) throws DAOException{
+		try{
+			super.executeHsql("delete from Message where receiver='"+receiver+"'");
+		}
+		catch(DAOException de){
+			throw new DAOException("删除全部的短消息失败");
+		}
+	}
+	
+	/**
+	 * 删除全部的已接收邮件
+	 * @param sender 接收者
+	 */
 	public void deleteSendMessage(String sender) throws DAOException{
 		try{
 			super.executeHsql("delete from Message where sender='"+sender+"'");
