@@ -238,12 +238,12 @@ xmlns="http://www.w3.org/1999/xhtml">
   <LI class=u02><A title=给该用户发送消息 
   href="writeMessage-page.action?receiver=${user.username}" 
   target=_blank>留言</A> </LI>
-  <#if adminRole.permissionMap["canEditOther"]=="1" || topic.username==sessionUser.username>
+  <#if (adminRole.permissionMap["canEditOther"]=="1" && isThisForum==1) || topic.username==sessionUser.username>
   <LI class=u03><A title=修改贴子 
   href="editTopic.action?topicId=${topic.id}&amp;forumId=${forum.id}">修改</A> 
   </#if>
   </LI>
-  <#if adminRole.permissionMap["canDelete"]=="1" || topic.username==sessionUser.username>
+  <#if (adminRole.permissionMap["canDelete"]=="1" && isThisForum==1) || topic.username==sessionUser.username>
   <LI class=u05><A title=删除 
   href="admin-trashTopic.action?topicId=${topic.id}&amp;forumId=${topic.forumId}">删除</A> 
   </LI>
@@ -252,7 +252,7 @@ xmlns="http://www.w3.org/1999/xhtml">
   href="writeMessage-page.action?receiver=admin" 
   target=_blank>举报</A> </LI>
   <!--修改部分-->
-  <#if adminRole.permissionMap["canTopTopic"]=="1">
+  <#if adminRole.permissionMap["canTopTopic"]=="1" && isThisForum==1 >
   <#if topic.isTop==0>
   <LI class=u07><A title=置顶 class=heng2
   href="admin-manageTopic!isTop.action?forumId=${topic.forumId}&amp;topicId=${topic.id}&amp;is=1" 
@@ -266,7 +266,7 @@ xmlns="http://www.w3.org/1999/xhtml">
   href="admin-manageTopic!isTop.action?forumId=${topic.forumId}&amp;topicId=${topic.id}&amp;is=0" 
   >取消置顶</A> </LI></#if>
   </#if>
-  <#if adminRole.permissionMap["canBestTopic"]=="1">
+  <#if adminRole.permissionMap["canBestTopic"]=="1" && isThisForum==1>
   <#if topic.status==0><LI class=u08><A title=加精 
   href="admin-manageTopic!status.action?forumId=${topic.forumId}&amp;topicId=${topic.id}&amp;status=1" 
   >加精</A> </LI><#else><LI class=u08><A title=取消加精 
@@ -322,10 +322,10 @@ xmlns="http://www.w3.org/1999/xhtml">
           <#assign adminRole = RoleSingleton.getInstance().getRole(RoleSingleton.getInstance().getRoleIdByName(sessionUser.username))>
           <li class="u01"><a title="回复该帖" href="replyTopic-page.action?forumId=${forum.id}&amp;topicId=${topic.id}">回复</a></li>
           <li class="u02"><a target="_blank" title="给该用户发送消息" style="" href="writeMessage-page.action?receiver=${user.username}">留言</a></li>
-           <#if adminRole.permissionMap["canEditPost"]=="1" || post.username==sessionUser.username>
+           <#if (adminRole.permissionMap["canEditPost"]=="1" && isThisForum==1)|| post.username==sessionUser.username>
           <li class="u03"><a title="修改贴子" href="editPost.action?postId=${post.id}">修改</a></li>
          	</#if>
-         	<#if adminRole.permissionMap["canDelete"]=="1">
+         	<#if (adminRole.permissionMap["canDelete"]=="1" && isThisForum==1)>
             <li class="u05"> <a title="删除" href="deletePost.action?postId=${post.id}&amp;forumId=${post.forumId}&amp;topicId=${topic.id}">删除</a> </li>
             <#else>
             <#if adminRole.permissionMap["canDeleteOwnPost"]=="1" >

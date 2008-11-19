@@ -4,6 +4,7 @@ import com.opensymphony.xwork.ModelDriven;
 import com.opensymphony.xwork.Preparable;
 
 import com.ntsky.bbs.domain.Admin;
+import com.ntsky.bbs.domain.User;
 import com.ntsky.bbs.exception.ActionException;
 import com.ntsky.bbs.exception.ServiceException;
 import com.ntsky.bbs.util.config.ResourceConfig;
@@ -21,7 +22,7 @@ public class CreateAdminAction extends AdminActionSupport implements Preparable,
 	private Admin admin = new Admin();
 	private String username;
 	private String password;
-	
+
 	/**
 	 * 创建管理员
 	 * <pre>
@@ -30,7 +31,7 @@ public class CreateAdminAction extends AdminActionSupport implements Preparable,
 	 * @return String success 
 	 */
 	public String execute() throws Exception {
-		
+
 		/* ---------- 权限判断 ------------ */
 		//　创建管理员
 		if(!isPermisson("3_4")){
@@ -38,7 +39,7 @@ public class CreateAdminAction extends AdminActionSupport implements Preparable,
 			return NO_PERMISSION;
 		}
 		/* ------------------------------ */
-		
+
 		String[] permissionsArr = HttpUtil.getParameterValues(super.getRequest(),"permission");
 		try{
 			String permissions = "";
@@ -52,20 +53,27 @@ public class CreateAdminAction extends AdminActionSupport implements Preparable,
 			if(logger.isInfoEnabled()){
 				//logger.info("管理员 [' "+admin.getUsername()+" '] 的权限 : " + permissions);
 			}
-			admin.setUsername(username);
-			admin.setPassword(password);
-			admin.setPermissions(permissions);
-			// 创建管理员
-			adminService.createAdmin(admin);
-			setActionMessage("创建管理员['"+admin.getUsername()+"']成功.");			
-			super.admins = adminService.getAdmins();
+			Admin tempAdmin = super.adminService.getAdmin(username);
+			if(tempAdmin == null){
+				admin.setUsername(username);
+				admin.setPassword(password);
+				admin.setPermissions(permissions);
+				// 创建管理员
+				adminService.createAdmin(admin);
+				setActionMessage("创建管理员['"+admin.getUsername()+"']成功.");			
+				super.admins = adminService.getAdmins();
+				return SUCCESS;
+			}
+			else{
+				setActionMessage("用户["+username+"]已存在,请选择其它用户名");
+				return INPUT;
+			}
 		}
 		catch(ServiceException se){
 			throw new ActionException(se);
 		}
-		return SUCCESS;
-    }
-	
+	}
+
 	/**
 	 * 执行此ManageAction的准备信息
 	 * <ul>

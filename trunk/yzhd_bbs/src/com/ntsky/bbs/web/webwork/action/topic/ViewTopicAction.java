@@ -66,10 +66,20 @@ public class ViewTopicAction extends TopicActionSupport {
 	private String pic2=null;//推荐
 	private String pic3=null;//相关
 	private String pic4=null;//正在
-	
+
 	private Map propertyMap;
 
+	private int isThisForum = 0;
 
+
+
+	public int getIsThisForum() {
+		return isThisForum;
+	}
+
+	public void setIsThisForum(int isThisForum) {
+		this.isThisForum = isThisForum;
+	}
 
 	public Map getPropertyMap() {
 		return propertyMap;
@@ -159,7 +169,7 @@ public class ViewTopicAction extends TopicActionSupport {
 			setPagination(queryResult.getPagination());
 			// 主题
 			topic = topicService.getTopic(topicId);
-			
+
 
 
 			if(topic.getIsDelete()!=1)
@@ -188,10 +198,18 @@ public class ViewTopicAction extends TopicActionSupport {
 						}
 					}
 				}
+
+				if(getSessionUser()!=null || !getSessionUser().getUsername().equals("guest"))
+				{
+					if(super.isForumManage(topic.getForumId())){
+
+						isThisForum=1;
+					}		
+				}
 				//脏话和帖子属性
 				propertyMap = xmlDataService.select(Symbols.CONFIG_TOPIC);
 
-				
+
 				userNewlyTopic=topicService.getNewlyTopicsByUser(topic.getUsername(), 5);
 
 				interfixTopics=topicService.getInterfixTopics(topic.getTitle(), 10);
