@@ -29,17 +29,17 @@ public class MoneyConfigAction extends XmlActionSupport {
 		/* ---------- 权限判断 ------------ */
 		//　金钱设置　
 		if(!isPermisson("1_7")){
-			setWarnMessage("您没有金钱设置的权限.");
+			setWarnMessage("您没有积分设置的权限.");
 			return NO_PERMISSION;
 		}
 		/* ------------------------------ */		
 		
 		/* ------------ 记录日志 -----------*/
-		recordActLog("金钱设置");
+		recordActLog("积分设置");
 		/* -------------------------------*/	
 		
 		if(logger.isInfoEnabled()){
-			logger.info("设置金钱配置信息");
+			logger.info("设置积分配置信息");
 		}
 		// 修改金钱数据
 		super.xmlDataService.editXml(Symbols.CONFIG_MONEY,super.getRequest().getParameterMap());
@@ -70,11 +70,11 @@ public class MoneyConfigAction extends XmlActionSupport {
 		/* ------------------------------ */		
 		
 		/* ------------ 记录日志 -----------*/
-		recordActLog("金钱设置");
+		recordActLog("积分设置");
 		/* -------------------------------*/			
 		
 		if(logger.isDebugEnabled()){
-			logger.debug("检索金钱配置信息");		
+			logger.debug("检索积分配置信息");		
 		}
 		this.setMoneyConfigMap();	
 		return SUCCESS;

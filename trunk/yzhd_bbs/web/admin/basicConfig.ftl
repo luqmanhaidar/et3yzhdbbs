@@ -43,7 +43,7 @@ ${statics["java.lang.System"].currentTimeMillis()}
         <div class="iv">
           <input type="text" id="logo" name="logo" class="t" value="${propertyMap["logo"]}" readonly="readonly" />
 	          <input type="button" name="" value="上传Logo" class="tb" onClick="javascript:Util.openWindow('../common/system-uploadImage.jsp?action=uploadLogo&element=logo&preview=false',480,240);"/>
-	          <input type="button" name="" value="预览" class="tb" onClick="javascript:Util.openWindow('../common/viewImage.jsp?element=logo',1,1);"/>  
+	          <!--<input type="button" name="" value="预览" class="tb" onClick="javascript:Util.openWindow('../common/viewImage.jsp?element=logo',1,1);"/>  -->
 	          <input type="button" name="" value="删除" class="tb" onClick="javascript:Util.openWindow('../common/deleteImage.jsp?element=logo&imagePath='+$('logo').value,360,140);"/> 
           <span class="red">网站 Logo</span> 
         </div>

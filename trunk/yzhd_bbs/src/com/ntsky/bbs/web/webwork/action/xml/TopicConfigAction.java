@@ -50,6 +50,10 @@ public class TopicConfigAction extends XmlActionSupport {
 	 * </ul>
 	 */
 	public String doOpen() throws Exception {
+		if(!isPermisson("4_3")){
+			setWarnMessage("您没有帖子控制的权限.");
+			return NO_PERMISSION;
+		}
 		if(logger.isInfoEnabled()){
 			logger.info("检索帖子配置信息");		
 		}

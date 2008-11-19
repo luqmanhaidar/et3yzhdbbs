@@ -73,6 +73,10 @@ public class EditAdminPasswordAction extends AdminActionSupport{
 	 * 打开修改密码页面
 	 */
 	public String doDefault() throws Exception {
+		if(!isPermisson("1_8")){
+			setWarnMessage("您没有修改管理员密码的权限.");
+			return NO_PERMISSION;
+		}
 		if(logger.isInfoEnabled()){
 			logger.info("打开修改密码页面......");
 		}

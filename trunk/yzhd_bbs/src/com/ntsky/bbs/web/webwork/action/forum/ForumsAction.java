@@ -25,6 +25,10 @@ public class ForumsAction extends ForumActionSupport implements Preparable{
 		/*if(logger.isDebugEnabled()){
 			//logger.debug("列表全部论坛信息");
 		}*/
+		if(!isPermisson("2_2")){
+			setWarnMessage("您没有论坛管理的权限.");
+			return NO_PERMISSION;
+		}
 		return SUCCESS;
     }
 	
