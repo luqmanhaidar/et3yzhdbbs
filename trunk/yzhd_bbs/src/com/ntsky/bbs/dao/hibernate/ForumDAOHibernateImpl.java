@@ -220,7 +220,7 @@ public class ForumDAOHibernateImpl extends BaseDAOHibernateImpl implements Forum
 	public List findForumsIsTop() throws DAOException {
 		List forums=null; 
 		try{
-			forums=super.find("from Forum where isTop=1");
+			forums=super.find("from Forum where isTop=1 order by display_order asc");
 			for(int i=0;i<forums.size();i++){
 				//把数据放在forum
 				Forum forum=(Forum)forums.get(i);
