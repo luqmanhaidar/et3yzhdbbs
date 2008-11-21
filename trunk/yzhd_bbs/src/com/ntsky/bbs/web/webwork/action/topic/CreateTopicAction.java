@@ -71,10 +71,18 @@ public class CreateTopicAction extends TopicActionSupport implements ModelDriven
 		if(forumId!=null&&!(forumId.equals(""))){
 			forum = ForumSingleton.getInstance().getForum(Integer.parseInt(forumId));
 			//System.out.println(forum.getIsAdmin());
+			String roles=RoleSingleton.getInstance().getRoleIdByName(super.getSessionUser().getUsername());
 			if(forum.getIsAdmin()==1){
-				String roles=RoleSingleton.getInstance().getRoleIdByName(super.getSessionUser().getUsername());
 				//System.out.println(roles);
 				if(roles.equals("1")){
+					
+				}else{
+					return NO_PERMISSION;
+				}
+			}
+			if(forum.getIsMasters()==1){
+				//System.out.println(roles);
+				if(roles.equals("1") || roles.equals("2") || roles.equals("3")){
 					
 				}else{
 					return NO_PERMISSION;
