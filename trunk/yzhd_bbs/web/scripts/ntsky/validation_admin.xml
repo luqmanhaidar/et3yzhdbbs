@@ -8,7 +8,7 @@
 		<item name="webName" dataType="Require" msg="网站名称不为空" />
 		<item name="webDomain" dataType="Require" msg="网站URL不为空" />
 		<!-- <item name="webDomain" dataType="Url" msg="网站URL格式错误,请参考'http://www.domain.com'" /> -->
-		<!-- <item name="logo" dataType="Require" msg="网站Logo不为空" /> -->
+		<item name="logo" dataType="Require" msg="网站Logo不为空" />
 		<!-- <item name="bannerUrl" dataType="Url" msg="网站Banner格式错误,请参考'http://www.domain.com'" />-->
 		<item name="masterEmail" dataType="Require" msg="管理员邮箱不为空" />
 		<item name="masterEmail" dataType="Email" msg="管理员邮箱格式错误，请参考'edison@gmail.com'" />
