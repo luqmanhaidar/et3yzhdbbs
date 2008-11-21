@@ -65,9 +65,7 @@ public class CreateTopicAction extends TopicActionSupport implements ModelDriven
 		}
 		// ---------------------------		
 		
-		if(logger.isInfoEnabled()){
-			//logger.info("创建主题信息 : " + topic.getTitle());
-		}
+	
 		
 		String forumId=super.getRequest().getParameter("forumId");
 		if(forumId!=null&&!(forumId.equals(""))){
