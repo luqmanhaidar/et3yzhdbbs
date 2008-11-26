@@ -141,6 +141,13 @@
 			<result name="success">/admin/actLogs.ftl</result>														
 		</action>
 		<!-- /++++++++++ ActLog +++++++++ -->
+		
+		<!-- /++++++++++ Level +++++++++++++ -->
+		<action name="levels" class="">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/levels.ftl</result>
+		</action>
+		<!-- /++++++++++ Level +++++++++++++ -->
 
 	</package>
 	

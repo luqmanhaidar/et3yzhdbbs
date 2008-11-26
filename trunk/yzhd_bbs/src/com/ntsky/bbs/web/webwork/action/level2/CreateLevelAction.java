@@ -1,4 +1,4 @@
-package com.ntsky.bbs.web.webwork.action.Level;
+package com.ntsky.bbs.web.webwork.action.level2;
 
 import com.ntsky.bbs.domain.Level;
 import com.opensymphony.xwork.ModelDriven;

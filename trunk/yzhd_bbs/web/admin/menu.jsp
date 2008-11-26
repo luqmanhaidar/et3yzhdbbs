@@ -46,6 +46,7 @@
 		d.add(4001,402,'添加过滤脏话','createBadword-page.action');
 		d.add(4002,402,'所有过滤脏话','badwords.action');
 		d.add(403,400,'帖子控制','topicConfig!open.action');
+		d.add(404,400,'等级设置','levels.action');
 		/*
 		d.add(5,0,'附件模块');
 		d.add(51,5,'附件功能设置','attSetting.html');

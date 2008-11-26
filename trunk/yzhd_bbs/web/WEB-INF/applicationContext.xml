@@ -39,7 +39,9 @@
 	        <value>com/ntsky/bbs/domain/PollVoter.hbm.xml</value>
 	        <value>com/ntsky/bbs/domain/Common.hbm.xml</value>
 	        <value>com/ntsky/bbs/domain/FavoriteTopic.hbm.xml</value>
+	       
 	        <value>com/ntsky/bbs/domain/Level.hbm.xml</value>
+	       
 	      </list>
 		</property>
 		<property name="hibernateProperties">
