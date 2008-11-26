@@ -11,7 +11,7 @@
 	//]]>
 </script>
 <div class="box4">
-	操作 : <input type="button" value="添加公告" id="btn_createAnnoucement" name="btn_createAnnoucement" class="tb" onClick="action_btn('createAnnoucement','添加公告');"/>
+	操作 : <input type="button" value="新增等级" id="btn_createAnnoucement" name="btn_createAnnoucement" class="tb" onClick="window.location.href='createLevel.action'"/>
 </div>
 <!-- basic info begin -->
 <div class="box1" id="createAnnoucement" style="display:none">
@@ -29,13 +29,7 @@
         <div class="iv">
           <select name="forumId">
 			<option value="0">论坛首页</option>         
-	        <#list forums as forum>
-	        	<#if forum.depth==1>
-				<optgroup label="${forum.name}"> 
-				<#else>
-					<option value="${forum.id}"><#list 1..(forum.depth-1) as i> —— </#list>${forum.name}</option>
-				</#if>	
-	        </#list>
+	       
           </select>
           <span class="red"></span> </div>
       </div>
@@ -68,17 +62,17 @@
     </div>
     <div class="llbox" style="border-right:0px;overflow :hidden;">标题</div>
   </div>
-  <#list announcements as announcement>
+ 
   <div class="lbox1" style="padding:0px;">
     <div class="lrbox" style="width:294px;">
-      <div class="d" style="width:150px;"><#if announcement.forumId=0>论坛首页<#else>${forumService.getForum(announcement.forumId).name}</#if></div>
+      <div class="d" style="width:150px;"></div>
 	  <div class="d" style="width:140px;">
-        <input type="button" name="" class="tb" value="修改" onClick="window.location.href='announcementManage!edit.action?id=${announcement.id}';"/>
-        <input type="button" name="" class="tb" value="删除" onClick="window.location.href='announcementManage!delete.action?id=${announcement.id}';"/>
+        <input type="button" name="" class="tb" value="修改" onClick="window.location.href='announcementManage!edit.action?id=';"/>
+        <input type="button" name="" class="tb" value="删除" onClick="window.location.href='announcementManage!delete.action?id=';"/>
       </div>
     </div>
-    <div class="llbox" style="border-right:0px;"><a href="${announcement.link?if_exists}" >${announcement.title}</a></div>
+    <div class="llbox" style="border-right:0px;"><a href="" >xxx</a></div>
   </div>
-  </#list>
+
 </div>
 </@layout.html>

@@ -33,28 +33,28 @@
 <link id="luna-tab-style-sheet" type="text/css" rel="stylesheet" href="../scripts/tabpane/css/luna/tab.css" />
 <script type="text/javascript" src="../scripts/tabpane/js/tabpane.js"></script>
   <div class="box1">
-    <div class="title"> 修改角色</div>
+    <div class="title"> 新增等级</div>
     <form action="updateRole.action" method="post">
       <input name="id" type="hidden" class="t" value=""/>
       <div class="content">
         <div class="ibox">
-          <div class="it">角色名称: *</div>
+          <div class="it">等级名称: *</div>
           <div class="iv">
-            <input name="name" type="text" class="t" value="" size="40" readonly="readonly"/></div>
+            <input name="name" type="text" class="t" value="" size="40"/></div>
         </div>
         <div class="ibox" style="height:120px;">
-          <div class="it">角色描述: </div>
+          <div class="it">等级描述: </div>
           <div class="iv" style="height:112px; width:68%">
 			<textarea name="description" cols="50" rows="7" id="copyright_d"></textarea>            
 		  </div>
         </div>         
         <div class="ibox">
-          <div class="it">发贴数: * </div>
+          <div class="it">最少积分数: * </div>
           <div class="iv">
             <input id="minTopic" name="minTopic" type="text" class="t" value=""/></div>
         </div>
         <div class="ibox">
-          <div class="it">角色图片: * </div>
+          <div class="it">等级图片: * </div>
           <div class="iv">
 			<input name="icon" type="hidden" class="t" value="" id="icon"/>
 	       	<img src="${base}/skins/default/level/" id="viewicon" name="viewicon"/>
@@ -80,7 +80,7 @@
       <!-- end #content -->
       <div class="box3" style="text-align:center; clear:both">
         <div>
-          <input type="submit" value="更新角色" name="submit" class="b"/>
+          <input type="submit" value="提交" name="submit" class="b"/>
         </div>
       </div>
     </form>

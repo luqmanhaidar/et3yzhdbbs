@@ -319,6 +319,15 @@
     </bean>		
 	<!--  Post	-->	
 	
+	<!-- Level -->
+	<bean id="levelDAO" class="com.ntsky.bbs.dao.hibernate.LevelDAOHibernateImpl">
+		<property name="sessionFactory"><ref local="sessionFactory"/></property>
+	</bean>
+	<bean id="levelService"  class="com.ntsky.bbs.service.impl.LevelServiceImpl">
+		<property name="levelDAO"><ref local="levelDAO"/></property>
+	</bean>
+	<!-- Level -->
+	
 	<bean id="xmlDataService"  class="com.ntsky.bbs.service.impl.XmlDataServiceImpl"/>	
 		
 	<!-- 

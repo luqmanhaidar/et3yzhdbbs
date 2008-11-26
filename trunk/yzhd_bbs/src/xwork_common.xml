@@ -143,10 +143,15 @@
 		<!-- /++++++++++ ActLog +++++++++ -->
 		
 		<!-- /++++++++++ Level +++++++++++++ -->
-		<action name="levels" class="">
+		<action name="levels" class="com.ntsky.bbs.web.webwork.action.level.LevelsAction">
 			<interceptor-ref name="adminBasicStack"/>
 			<result name="success">/admin/levels.ftl</result>
 		</action>
+		<action name="createLevel" class="com.ntsky.bbs.web.webwork.action.level.CreateLevelAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/createLevel.ftl</result>
+		</action>
+		
 		<!-- /++++++++++ Level +++++++++++++ -->
 
 	</package>
