@@ -11,7 +11,7 @@
 	//]]>
 </script>
 <div class="box4">
-	操作 : <input type="button" value="新增等级" id="btn_createAnnoucement" name="btn_createAnnoucement" class="tb" onClick="window.location.href='createLevel.action'"/>
+	操作 : <input type="button" value="新增等级" id="btn_createAnnoucement" name="btn_createAnnoucement" class="tb" onClick="window.location.href='createLevel-page.action'"/>
 </div>
 <!-- basic info begin -->
 <div class="box1" id="createAnnoucement" style="display:none">

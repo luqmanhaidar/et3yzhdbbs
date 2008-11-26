@@ -95,6 +95,7 @@ public class CreateUserAction extends UserActionSupport implements ModelDriven {
 	}
 
 	public Object getModel() {
+		System.out.println("haha createuser ======================");
 		return user;
 	}
 	

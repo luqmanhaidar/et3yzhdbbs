@@ -20,8 +20,7 @@ public class LevelDAOHibernateImpl extends BaseDAOHibernateImpl implements
 	}
 
 	public void saveLevel(Level level) throws DAOException {
-		// TODO Auto-generated method stub
-
+		this.getHibernateTemplate().save(level);
 	}
 
 }

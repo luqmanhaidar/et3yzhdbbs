@@ -1,6 +1,8 @@
 package com.ntsky.bbs.domain;
 
-public class Level {
+import java.io.Serializable;
+
+public class Level implements Serializable{
 	private Long id;
 
 	private String name;
@@ -9,7 +11,7 @@ public class Level {
 
 	private int money;
 
-	private String pic;
+	private String icon;
 
 	public String getDescription() {
 		return description;
@@ -43,11 +45,13 @@ public class Level {
 		this.name = name;
 	}
 
-	public String getPic() {
-		return pic;
+	public String getIcon() {
+		return icon;
 	}
 
-	public void setPic(String pic) {
-		this.pic = pic;
+	public void setIcon(String icon) {
+		this.icon = icon;
 	}
+
+
 }

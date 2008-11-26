@@ -147,10 +147,15 @@
 			<interceptor-ref name="adminBasicStack"/>
 			<result name="success">/admin/levels.ftl</result>
 		</action>
+		<action name="createLevel-page" class="com.ntsky.bbs.web.webwork.action.level.CreateLevelAction" method="default">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="success">/admin/createLevel.ftl</result>
+		</action>
 		<action name="createLevel" class="com.ntsky.bbs.web.webwork.action.level.CreateLevelAction">
 			<interceptor-ref name="adminBasicStack"/>
 			<result name="success">/admin/createLevel.ftl</result>
 		</action>
+		
 		
 		<!-- /++++++++++ Level +++++++++++++ -->
 

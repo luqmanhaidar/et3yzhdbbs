@@ -8,7 +8,7 @@
         </id>
 		<property name="name" column="name" not-null="true"/>
 		<property name="description" column="description"></property>
-		<property name="pic" column="pic"></property>
+		<property name="icon" column="icon"></property>
 		<property name="money" column="money" type="int"></property>
 		
 	</class>

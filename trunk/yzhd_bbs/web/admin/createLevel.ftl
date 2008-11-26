@@ -34,7 +34,7 @@
 <script type="text/javascript" src="../scripts/tabpane/js/tabpane.js"></script>
   <div class="box1">
     <div class="title"> 新增等级</div>
-    <form action="updateRole.action" method="post">
+    <form action="createLevel.action" id="level" method="post" onSubmit="return Validator.validate(this,'admin');">
       <input name="id" type="hidden" class="t" value=""/>
       <div class="content">
         <div class="ibox">
@@ -51,13 +51,13 @@
         <div class="ibox">
           <div class="it">最少积分数: * </div>
           <div class="iv">
-            <input id="minTopic" name="minTopic" type="text" class="t" value=""/></div>
+            <input id="money" name="money" type="text" class="t" value=""/></div>
         </div>
         <div class="ibox">
           <div class="it">等级图片: * </div>
           <div class="iv">
-			<input name="icon" type="hidden" class="t" value="" id="icon"/>
-	       	<img src="${base}/skins/default/level/" id="viewicon" name="viewicon"/>
+			<input name="icon" type="hidden" class="t" value="level1.gif" id="icon"/>
+	       	<img src="${base}/skins/default/level/level1.gif" id="viewicon" name="viewicon"/>
 	       	<select name="selectIcon" onChange="doSelectIcon();">
 	            <option value="level1.gif">level1.gif</option>
 	            <option value="level2.gif">level2.gif</option>

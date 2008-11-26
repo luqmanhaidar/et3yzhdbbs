@@ -28,8 +28,7 @@ public class LevelServiceImpl extends BaseServiceImpl implements LevelService {
 	}
 
 	public void saveLevel(Level level) throws DAOException {
-		// TODO Auto-generated method stub
-
+		levelDAO.saveLevel(level);
 	}
 
 }
