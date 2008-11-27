@@ -22,7 +22,9 @@
 	    var obj=document.getElementById("title")
 	    var obj1=document.getElementById("content")
 	    var content= document.getElementById("content").value; 
-
+		var forumIdSelect = document.getElementById("forumIdSelect");
+		alert(forumIdSelect.value);
+		document.all.myform.action="createTopic.action?forumId="+forumIdSelect.value;
   		if(obj.value.length>50)
 		{
 				alert("标题不能超过50个字符！");
@@ -96,7 +98,7 @@
 
  <!-- 模版 -->
   <!-- register info begin -->
-  <form action="createTopic.action" method="post" id="createTopic" onSubmit="return onCheck();">
+  <form name="myform" action="createTopic.action" method="post" id="createTopic" onSubmit="return onCheck();">
  <DIV id=page>
   <div id="bbs_main">
     <ul class="theme_ul">
@@ -107,7 +109,7 @@
           <#assign forums = application["frontTop"]["forums"]?if_exists>
           
           <#if forums.size()!=0>
-			   <select name="forumId" id="forumId">
+			   <select name="forumId" id="forumIdSelect">
 			   		<#if req.getParameter("forumId")?exists>
 			   			<#assign fid=req.getParameter("forumId")>
 			   			<#list application["frontTop"]["forums"] as forum>
