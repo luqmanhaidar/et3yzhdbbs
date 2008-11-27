@@ -11,4 +11,5 @@ public interface LevelService extends BaseService {
 	public Level getLevel(String id) throws DAOException ;
 	
 	public void saveLevel(Level level) throws DAOException ;
+	public void removeLevel(Level level) throws DAOException ;
 }

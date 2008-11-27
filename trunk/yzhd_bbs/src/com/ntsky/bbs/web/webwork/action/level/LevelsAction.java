@@ -14,7 +14,15 @@ public class LevelsAction extends LevelActionSupport implements Preparable {
 			setWarnMessage("您没有论坛管理的权限.");
 			return NO_PERMISSION;
 		}*/
+		//this.setLevels(levelService.findLevels());
 		return SUCCESS;
     }
+	
+	public String doDelete() throws Exception {
+		//this.getParameters(id);
+		String id=this.getParameter("id");
+		levelService.removeLevel(levelService.getLevel(id));
+		return DELETE;
+	}
 
 }

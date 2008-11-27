@@ -146,6 +146,7 @@
 		<action name="levels" class="com.ntsky.bbs.web.webwork.action.level.LevelsAction">
 			<interceptor-ref name="adminBasicStack"/>
 			<result name="success">/admin/levels.ftl</result>
+			<result name="delete" type="redirect">levels.action</result>
 		</action>
 		<action name="createLevel-page" class="com.ntsky.bbs.web.webwork.action.level.CreateLevelAction" method="default">
 			<interceptor-ref name="adminBasicStack"/>
@@ -153,7 +154,7 @@
 		</action>
 		<action name="createLevel" class="com.ntsky.bbs.web.webwork.action.level.CreateLevelAction">
 			<interceptor-ref name="adminBasicStack"/>
-			<result name="success">/admin/createLevel.ftl</result>
+			<result name="success" type="redirect">levels.action</result>
 		</action>
 		
 		

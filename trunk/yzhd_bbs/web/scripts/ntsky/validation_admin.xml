@@ -151,6 +151,6 @@
 		<item name="description" dataType="Limit" max="1000" msg="等级描述不能超过1000字"></item>
 		<item name="icon" dataType="Require" msg="等级图片不能为空"></item>
 		<item name="money" dataType="Require" msg="最少积分数不能为空"></item>
-		<item name="money" dataType="Integer" msg="最少积分数只能为整数"></item>
+		<item name="money" dataType="Number" msg="最少积分数只能为整数"></item>
 	</form>
 </forms>

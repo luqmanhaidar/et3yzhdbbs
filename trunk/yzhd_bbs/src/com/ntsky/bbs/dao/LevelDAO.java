@@ -13,4 +13,5 @@ public interface LevelDAO extends BaseDAO {
 	
 	public void saveLevel(Level level) throws DAOException ;
 
+	public void removeLevel(Level level) throws DAOException ;
 }

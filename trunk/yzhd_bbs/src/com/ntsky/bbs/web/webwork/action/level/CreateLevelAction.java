@@ -11,7 +11,6 @@ public class CreateLevelAction extends LevelActionSupport implements
 	private Level level=new Level();
 	
 	public String execute() throws Exception {
-		System.out.println(level.getName()+" --------------------");
 		try{
 			// 创建论坛
 			
@@ -35,7 +34,6 @@ public class CreateLevelAction extends LevelActionSupport implements
 	}
 	
 	public Object getModel() {
-		System.out.println("asf create level=========================");
 		return level;
 	}
 

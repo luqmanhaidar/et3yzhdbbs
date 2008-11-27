@@ -31,4 +31,10 @@ public class LevelServiceImpl extends BaseServiceImpl implements LevelService {
 		levelDAO.saveLevel(level);
 	}
 
+	public void removeLevel(Level level) throws DAOException {
+		levelDAO.removeLevel(level);
+	}
+	
+	
+
 }
