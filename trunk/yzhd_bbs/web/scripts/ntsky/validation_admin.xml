@@ -63,14 +63,14 @@
 		<item name="name" dataType="Require" msg="论坛版块名称不为空" />
 		<item name="name" dataType="Limit" max="100"  msg="论坛版块名称小于100个字符"/>
 		<item name="descriptionEditor" dataType="Fckeditor" msg="论坛版块描述信息不为空" />
+		<item name="displayOrder" dataType="Require" msg="二级论坛排序编号不为空" /> 
+		<item name="displayOrder" dataType="Number" msg="二级论坛排序编号只能为整数" /> 
 	</form>
 	
 	<form id="createForum">
 		<item name="name" dataType="Require" msg="论坛版块名称不为空" />
 		<item name="name" dataType="Limit" max="100"  msg="论坛版块名称小于100个字符"/>
 		<item name="descriptionEditor" dataType="Fckeditor" msg="论坛版块描述信息不为空" />
-		<item name="displayOrder" dataType="Require" msg="二级论坛排序编号不为空" /> 
-		<item name="displayOrder" dataType="Number" msg="二级论坛排序编号只能为整数" /> 
 	</form>
 	
 	<form id="orderTopForum">

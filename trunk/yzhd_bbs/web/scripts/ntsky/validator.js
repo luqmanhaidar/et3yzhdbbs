@@ -208,6 +208,7 @@ Validator = {
 		xmlHttp.loadXML(xmlFile,false);
 		// var xPath = "//page[@name='" + location.pathname.toLowerCase().substring(location.pathname.toLowerCase().lastIndexOf("/")+1) + "']/form[@id='" + obj.id + "']/item";
 		var formId = (document.all) ? this.obj.getAttributeNode("id").value : this.obj.getAttribute("id");
+		//alert(formId);
 		var xPath = "//form[@id='"+formId+"']/item";
 		var items = xmlHttp.selectNodes(xPath);
 		// alert("xPath = " + xPath );

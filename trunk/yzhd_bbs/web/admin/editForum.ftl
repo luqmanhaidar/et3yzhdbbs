@@ -48,6 +48,8 @@
           <input name="displayOrder" type="text" class="t" value="${forum.displayOrder}"/>
           <span class="red">二级论坛在首页显示的顺序，请填入数字</span> </div>
       </div>	
+      <#else>
+      <input name="displayOrder" type="hidden" class="t" value="${forum.displayOrder}"/>
       </#if>
 	  <div class="ibox">
         <div class="it">版块标识图片:   </div>

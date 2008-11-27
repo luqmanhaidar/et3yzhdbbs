@@ -69,7 +69,6 @@
 	      </div>
 	    </div>
 	  </form>
-	</div>
 </div>
 <!-- end #create forum -->
 <script type="text/javascript" src="../scripts/FCKeditor/fckeditor.js"></script>
