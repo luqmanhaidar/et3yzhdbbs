@@ -9,7 +9,7 @@
 </script>	
 <div class="box1">
 	<div class="title"> 添加论坛 </div>
-	  <form action="createForum.action" method="post" id="forum" onSubmit="return Validator.validate(this,'admin');">
+	  <form action="createForum.action" method="post" id="createForum" onSubmit="return Validator.validate(this,'admin');">
 	    <div class="content">
 	      <div class="ibox">
 	        <div class="it">论坛名称: *</div>
