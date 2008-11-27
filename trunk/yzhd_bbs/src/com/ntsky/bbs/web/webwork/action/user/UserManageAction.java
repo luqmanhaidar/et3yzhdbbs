@@ -37,6 +37,8 @@ public class UserManageAction extends UserActionSupport {
 		return this.users;
 	}
 	
+	
+	
 	private int isLock;
 	private int isStar;
 	public void setIsLock(int isLock){
@@ -154,11 +156,33 @@ public class UserManageAction extends UserActionSupport {
 		}		
 		return "updateRole";
 	}
+	
+	private String username;
+	
+	public String doView()throws Exception {
+		
+		if(logger.isInfoEnabled()){
+			logger.info("查找用户名 : " + username + "的信息.") ;
+		}
+
+		user = userService.getUser(userId);
+		System.out.println(user.getUsername()+"  ========================");
+		return SUCCESS;
+	}
 	public int getIsStar() {
 		return isStar;
 	}
 	public void setIsStar(int isStar) {
 		this.isStar = isStar;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 }
