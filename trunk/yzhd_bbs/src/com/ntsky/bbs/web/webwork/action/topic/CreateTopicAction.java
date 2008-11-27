@@ -48,6 +48,11 @@ public class CreateTopicAction extends TopicActionSupport implements ModelDriven
 	private XmlDataService xmlDataService;
 	private Map propertyMap;
 	private int topicId;
+	private int forumId;
+
+	public void setForumId(int forumId) {
+		this.forumId = forumId;
+	}
 	public int getTopicId(){
 		return this.topicId;
 	}
@@ -67,9 +72,9 @@ public class CreateTopicAction extends TopicActionSupport implements ModelDriven
 		
 	
 		
-		String forumId=super.getRequest().getParameter("forumId");
-		if(forumId!=null&&!(forumId.equals(""))){
-			forum = ForumSingleton.getInstance().getForum(Integer.parseInt(forumId));
+		//String forumId=super.getRequest().getParameter("forumId");
+		//if(forumId!=null&&!(forumId.equals(""))){
+			forum = ForumSingleton.getInstance().getForum(super.getIntParameter(Symbols.PARA_FORUM_ID));
 			//System.out.println(forum.getIsAdmin());
 			String roles=RoleSingleton.getInstance().getRoleIdByName(super.getSessionUser().getUsername());
 			if(forum.getIsAdmin()==1){
@@ -87,7 +92,7 @@ public class CreateTopicAction extends TopicActionSupport implements ModelDriven
 				}else{
 					return NO_PERMISSION;
 				}
-			}
+		//	}
 		}
 
 		
