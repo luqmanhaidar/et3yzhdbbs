@@ -53,13 +53,13 @@
               <LI>QQ： <SPAN class=b>0</SPAN> </LI></UL>
             <DIV class=clear></DIV>
             <UL class=info1>
-              <LI>魅力值：<SPAN class=b>3229</SPAN> </LI>
-              <LI>总积分：<SPAN class=b>${user.money?if_exists}</SPAN> </LI>
+              <!--<LI>魅力值：<SPAN class=b>3229</SPAN> </LI>-->
+              <LI>积分：<SPAN class=b>${user.money?if_exists}</SPAN> </LI>
               <LI>发表主题帖数：<SPAN class=b>${user.totalTopic?if_exists}</SPAN> </LI>
-              <LI>已使用积分：<SPAN class=b>0</SPAN> </LI>
+              <!--<LI>已使用积分：<SPAN class=b>0</SPAN> </LI>-->
               <LI>回复帖数：<SPAN class=b>${user.totalPost?if_exists}</SPAN> </LI>
-              <LI>剩余积分：<SPAN class=b>${user.integral?if_exists}</SPAN> </LI>
-              <LI>冻结积分：<SPAN class=b>0</SPAN> </LI></UL>
+             <!-- <LI>剩余积分：<SPAN class=b>${user.integral?if_exists}</SPAN> </LI>
+              <LI>冻结积分：<SPAN class=b>0</SPAN> </LI>--></UL>
             <DIV class=qt>
             <UL>
               <LI>主页：<SPAN class=b><A title=http:// 

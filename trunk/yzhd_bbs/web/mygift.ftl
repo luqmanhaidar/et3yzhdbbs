@@ -68,13 +68,13 @@ return true;
         <div class="wellcome"> 欢迎您： <span class="f-red2">${user.username}</span></div>
         <div class="">
         <ul>
-        <li>总积分：<span class="f-red2">${user.money}</span> 分</li>
+        <li>积分：<span class="f-red2">${user.money}</span> 分</li>
         <li>发表主题：<span class="f-red2">${user.totalTopic}</span> 篇</li>
         <li>等级：<span class="f-red2">${RoleSingleton.getInstance().getRole(user.roles).name}</span></li>
-        <li>已用积分：<span class="f-red2">50</span> 分</li>
+         <!--<li>已用积分：<span class="f-red2">50</span> 分</li>
         <li>冻结积分：<span class="f-red2">0</span> 分</li>
-        <li>魅力值：<span class="f-red2">0</span> 分</li>
-        <li>剩余积分：<span class="f-red2">${user.money}</span> 分</li>
+       <li>魅力值：<span class="f-red2">0</span> 分</li>
+        <li>剩余积分：<span class="f-red2">${user.money}</span> 分</li>-->
         <li>回复：<span class="f-red2">${user.totalPost}</span> 篇</li>
         </ul>
         </div>
