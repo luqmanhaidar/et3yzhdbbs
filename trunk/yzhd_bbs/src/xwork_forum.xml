@@ -37,6 +37,7 @@
 			<interceptor-ref name="commonStack"/>
 			<interceptor-ref name="defaultStack"/>
 			<result name="success">/response.ftl</result>
+			<result name="input">/common/noRoles.ftl</result>
 		</action>			
 		<action name="editTopic"
 				class="com.ntsky.bbs.web.webwork.action.topic.EditTopicAction" method="edit">
@@ -93,6 +94,7 @@
 			<interceptor-ref name="userSession"/>
 			<interceptor-ref name="defaultStack"/>
 			<result name="success">/response.ftl</result>
+			<result name="input">/common/noRoles.ftl</result>
 		</action>	
 		<action name="editPost"
 				class="com.ntsky.bbs.web.webwork.action.post.EditPostAction" method="edit">

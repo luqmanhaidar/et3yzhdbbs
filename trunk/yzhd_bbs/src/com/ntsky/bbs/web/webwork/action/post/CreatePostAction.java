@@ -44,7 +44,7 @@ public class CreatePostAction extends PostActionSupport implements ModelDriven,P
 	public String execute() throws Exception {
 		// ---------- 权限 ------------
 		if(super.isAccess("canReplyPost")==0){
-			return NO_PERMISSION;
+			return INPUT;
 		}		
 		// ---------------------------
 		

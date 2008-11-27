@@ -23,7 +23,7 @@
 	    var obj1=document.getElementById("content")
 	    var content= document.getElementById("content").value; 
 		var forumIdSelect = document.getElementById("forumIdSelect");
-		alert(forumIdSelect.value);
+		//alert(forumIdSelect.value);
 		document.all.myform.action="createTopic.action?forumId="+forumIdSelect.value;
   		if(obj.value.length>50)
 		{

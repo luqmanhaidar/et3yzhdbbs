@@ -66,7 +66,7 @@ public class CreateTopicAction extends TopicActionSupport implements ModelDriven
 		// ---------- 权限 ------------
 		if(super.isAccess("canPostNew")==0){
 			setWarnMessage("您没有发表帖子的权限.");
-			return super.NO_PERMISSION;
+			return super.INPUT;
 		}
 		// ---------------------------		
 		
@@ -82,7 +82,7 @@ public class CreateTopicAction extends TopicActionSupport implements ModelDriven
 				if(roles.equals("1")){
 					
 				}else{
-					return NO_PERMISSION;
+					return INPUT;
 				}
 			}
 			if(forum.getIsMasters()==1){
@@ -90,7 +90,7 @@ public class CreateTopicAction extends TopicActionSupport implements ModelDriven
 				if(roles.equals("1") || roles.equals("2") || roles.equals("3")){
 					
 				}else{
-					return NO_PERMISSION;
+					return INPUT;
 				}
 		//	}
 		}
