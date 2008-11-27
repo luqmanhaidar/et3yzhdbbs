@@ -166,8 +166,8 @@ public class UserManageAction extends UserActionSupport {
 		}
 
 		user = userService.getUser(userId);
-		System.out.println(user.getUsername()+"  ========================");
-		return SUCCESS;
+		
+		return "view";
 	}
 	public int getIsStar() {
 		return isStar;

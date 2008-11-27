@@ -95,7 +95,7 @@
       </div>
     </div>
     <div class="llbox" style="width:40px;"><input type="checkbox" name="id" value="${user.id}" class="cb"></div>
-    <div class="llbox" style="text-align:left;border-right:0px;"><a href="userManage!view.action?userId=${user.id}" title="查看${user.username}的资料" target="_blank">${user.username}</a></div>
+    <div class="llbox" style="text-align:left;border-right:0px;"><a href="userManage!view.action?userId=${user.id}" title="查看${user.username}的资料">${user.username}</a></div>
   </div>
   </#list>
   </form>  

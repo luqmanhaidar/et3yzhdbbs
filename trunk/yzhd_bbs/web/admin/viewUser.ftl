@@ -4,57 +4,59 @@
 <!-- basic info begin -->
 <div class="box1">
   <div class="title"> 查看系统用户 </div>
-  <form action="createUser.action" method="post" id="createUser" onSubmit="return Validator.validate(this,'admin');">
+
     <div class="content">	
       <div class="ibox">
         <div class="it">用户名:  </div>
         <div class="iv">
-          <input name="username" type="text" class="t" value="" style="width:160px;"/>
-          <span class="required">用户名称不为空,长度为2~12</span> </div>
+          ${user.username}
+          </div>
       </div>
       <div class="ibox">
-        <div class="it">用户密码:   </div>
-        <div class="iv"><input name="password" type="password" class="t" value="" style="width:160px;"/>
-          <span class="required">用户密码不为空,长度为6~20</span> </div>
+        <div class="it">昵 称:   </div>
+        <div class="iv">${user.alias?if_exists}</div>
+      </div>
+      <div class="ibox">
+        <div class="it">性 别:  </div>
+        <div class="iv"><#if user.sex=1><IMG src="images/zl-f.gif">男<#elseif user.sex=2>女<#else>保密</#if></div>
+      </div>
+      <div class="ibox">
+        <div class="it">最近登录:  </div>
+        <div class="iv">${user.lastLoginTime}</div>
+      </div>
+      <div class="ibox">
+        <div class="it">注册日期:  </div>
+        <div class="iv">${user.registerTime}</div>
       </div>
       <div class="ibox">
         <div class="it">用户Email:  </div>
-        <div class="iv">
-          <input name="email" type="text" class="t" value="" size="40"/></div>
+        <div class="iv">${user.email?if_exists}</div>
       </div>
-      <div class="ibox">
-        <div class="it">安全提问:    </div>
-        <div class="iv">
-          <input type="text" name="question" class="t" size="40"/>
-          <span class="required">提示问题不为空</span>
-        </div>
-      </div>
-      <div class="ibox">
-        <div class="it">问题答案:    </div>
-        <div class="iv">
-          <input type="text" name="answer" class="t" size="40"/>
-          <span class="required">问题答案用于取回密码</span>
-        </div>
-      </div>	
+      
+      	<#assign role = RoleSingleton.getInstance().getRole(user.roles)>
       <div class="ibox">
         <div class="it">用户所在系统组:    </div>
-        <div class="iv">
-            <select name="roles">
-              <#list managerRoles as role>
-              <#if role.id!=0>
-              <option value="${role.id}">${role.name}</option>
-              </#if>
-              </#list>
-            </select>
-        </div>
-      </div>      	
+        <div class="iv">${role.name}</div>
+      </div> 
+      <div class="ibox">
+        <div class="it">积 分:  </div>
+        <div class="iv">${user.money?if_exists}</div>
+      </div>
+      <div class="ibox">
+        <div class="it">发表主题帖数：  </div>
+        <div class="iv">${user.totalTopic?if_exists}</div>
+      </div>
+	  <div class="ibox">
+        <div class="it">回复帖数  </div>
+        <div class="iv">${user.totalPost?if_exists}</div>
+      </div>    	
     </div>
     <!-- end #content -->
     <div class="box3" style="text-align:center; clear:both">
       <div>
-        <input type="submit" value="添加用户" name="agree" class="b"/>
+        <input type="submit" value="返回" name="agree" class="b" onClick="history.back(-1);"/>
       </div>
     </div>
-  </form>
+
 </div>
 </@layout.html>

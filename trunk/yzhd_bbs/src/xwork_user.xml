@@ -158,6 +158,7 @@
 		<action name="userManage" class="com.ntsky.bbs.web.webwork.action.user.UserManageAction">
 			<interceptor-ref name="adminBasicStack"/>
 			<result name="manage" type="redirect">/admin/users.action?start=${start}</result>
+			<result name="view">/admin/viewUser.ftl</result>
 			<result name="setRole">/admin/setRole.ftl</result>
 			<result name="updateRole">/admin/setRole.ftl</result>
 		</action>		
