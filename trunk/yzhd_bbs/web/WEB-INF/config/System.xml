@@ -68,7 +68,7 @@ This BBS version 1.0. Connect Author : <a href="mailto:noside@126.com">noside@12
 
 	<!-- 分页记录数设置 -->
 	<data id="pagination">
-		<property key="topic">20</property>
+		<property key="topic">10</property>
 		<property key="post">10</property>
 		<property key="user">20</property>
 	</data>
