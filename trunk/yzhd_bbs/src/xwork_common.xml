@@ -156,7 +156,11 @@
 			<interceptor-ref name="adminBasicStack"/>
 			<result name="success" type="redirect">levels.action</result>
 		</action>
-		
+		<action name="editLevel" class="com.ntsky.bbs.web.webwork.action.level.EditLevelAction">
+			<interceptor-ref name="adminBasicStack"/>
+			<result name="edit">/admin/editLevel.ftl</result>
+			<result name="success" type="redirect">levels.action</result>
+		</action>
 		
 		<!-- /++++++++++ Level +++++++++++++ -->
 

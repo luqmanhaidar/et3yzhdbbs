@@ -29,7 +29,7 @@
     <div class="lrbox" style="width:294px;">
       <div class="d" style="width:150px;">${level.money}</div>
 	  <div class="d" style="width:140px;">
-        <input type="button" name="" class="tb" value="修改" onClick="window.location.href='announcementManage!edit.action?id=';"/>
+        <input type="button" name="" class="tb" value="修改" onClick="window.location.href='editLevel!edit.action?id=${level.id}';"/>
         <input type="button" name="" class="tb" value="删除" onClick="Util.del('确认删除 ','levels!delete.action?id=${level.id}');"/>
       </div>
     </div>

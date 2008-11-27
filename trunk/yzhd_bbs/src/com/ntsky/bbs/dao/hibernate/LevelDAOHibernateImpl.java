@@ -25,7 +25,7 @@ public class LevelDAOHibernateImpl extends BaseDAOHibernateImpl implements
 	}
 
 	public void saveLevel(Level level) throws DAOException {
-		this.getHibernateTemplate().save(level);
+		this.getHibernateTemplate().saveOrUpdate(level);
 	}
 
 	public void removeLevel(Level level) throws DAOException {
