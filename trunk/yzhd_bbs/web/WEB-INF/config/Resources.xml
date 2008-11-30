@@ -28,6 +28,7 @@
 		<permission point="4_1" value="帖子管理" />
 		<permission point="4_2" value="脏话过滤设置" />
 		<permission point="4_3" value="帖子控制" />
+		<permission point="4_4" value="等级设置" />
 	</resource>
 	<!--
 	<resource id="5" name="附件模块">

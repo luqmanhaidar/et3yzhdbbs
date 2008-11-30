@@ -3,6 +3,7 @@ package com.ntsky.bbs.web.webwork.action.level;
 import com.ntsky.bbs.domain.Level;
 import com.ntsky.bbs.exception.ActionException;
 import com.ntsky.bbs.exception.ServiceException;
+import com.ntsky.bbs.util.memory.LevelSingleton;
 import com.opensymphony.xwork.ModelDriven;
 
 public class CreateLevelAction extends LevelActionSupport implements
@@ -19,8 +20,10 @@ public class CreateLevelAction extends LevelActionSupport implements
 			level.setIcon(this.getParameter("icon"));
 			level.setMoney(Integer.parseInt(this.getParameter("money")));
 			levelService.saveLevel(level);
-			// 初始化论坛列表
+			
+			LevelSingleton.getInstance().setLevels(levelService.findLevels());
 			setActionMessage("添加等级 ['"+level.getName()+"'] 成功");
+			
 		}
 		catch(ServiceException se){
 			throw new ActionException(se);

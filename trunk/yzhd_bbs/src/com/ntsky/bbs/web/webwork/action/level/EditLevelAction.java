@@ -1,6 +1,7 @@
 package com.ntsky.bbs.web.webwork.action.level;
 
 import com.ntsky.bbs.domain.Level;
+import com.ntsky.bbs.util.memory.LevelSingleton;
 import com.opensymphony.xwork.ModelDriven;
 
 public class EditLevelAction extends LevelActionSupport implements ModelDriven {
@@ -29,6 +30,7 @@ public class EditLevelAction extends LevelActionSupport implements ModelDriven {
 		level.setDescription(this.getParameter("description"));
 		level.setIcon(this.getParameter("icon"));
 		levelService.saveLevel(level);
+		LevelSingleton.getInstance().setLevels(levelService.findLevels());
 		return SUCCESS;
 	}
 

@@ -70,7 +70,7 @@ return true;
         <ul>
         <li>积分：<span class="f-red2">${user.money}</span> 分</li>
         <li>发表主题：<span class="f-red2">${user.totalTopic}</span> 篇</li>
-        <li>等级：<span class="f-red2">${RoleSingleton.getInstance().getRole(user.roles).name}</span></li>
+        <li>等级：<span class="f-red2">${user.level.name?if_exists}</span></li>
          <!--<li>已用积分：<span class="f-red2">50</span> 分</li>
         <li>冻结积分：<span class="f-red2">0</span> 分</li>
        <li>魅力值：<span class="f-red2">0</span> 分</li>

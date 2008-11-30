@@ -196,7 +196,9 @@ xmlns="http://www.w3.org/1999/xhtml">
         <div class="uinL">
         <img width="95" height="95" src="${user.face}"/>
           <ul class="smilies">
+          
             <li><img width="100%" src="${base}/skins/default/level/${role.icon}" alt="等级图标"/></li>
+         
           </ul>
         </div>
         <ul class="uinM">
@@ -205,7 +207,7 @@ xmlns="http://www.w3.org/1999/xhtml">
           <li>文  章：${user.totalTopic}</li>
           <li>积  分：${user.money}</li>
           <li>注册时间：${user.registerTime?string("yyyy年MM月dd日 HH:mm:ss")}</li>
-          
+          <li>等  级:${user.level.name?if_exists}</li>
         </ul>
         <div class="uinR">
           <!--<ul class="action2">
@@ -305,13 +307,16 @@ xmlns="http://www.w3.org/1999/xhtml">
         <li class="upic"><img width="95" height="95" src="${user.face}"/></li>
         <li>
           <ul class="smilies">
+             
              <li><img width="100%" src="${base}/skins/default/level/${role.icon}" alt="等级图标"/></li>
+            
           </ul>
         </li>
           <li>身  份：${role.name}</li>
           <li>文  章：${user.totalTopic}</li>
           <li>积  分：${user.money}</li>
           <li>注册时间：${user.registerTime?string("yyyy年MM月dd日 HH:mm:ss")}</li>
+          <li>等  级:${user.level.name?if_exists}</li>
           
       </ul>
       <div class="context">

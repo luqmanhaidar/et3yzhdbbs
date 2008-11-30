@@ -1,7 +1,10 @@
 package com.ntsky.bbs.domain;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
+
+import com.ntsky.bbs.util.memory.LevelSingleton;
 
 public class User extends Entity{
 
@@ -36,6 +39,8 @@ public class User extends Entity{
 	private int totalPost;
 	private int onlineTime;
 	private String alias;
+	
+	private Level level;
 	
 	//头像
 	private UserFace userFace;
@@ -248,5 +253,25 @@ public class User extends Entity{
 	}
 	public void setAlias(String alias) {
 		this.alias = alias;
+	}
+	public Level getLevel() {
+		List levels=LevelSingleton.getInstance().getLevels();
+		Iterator it=levels.iterator();
+		
+		Level temp=new Level();
+		
+		while(it.hasNext()){
+			Level t=(Level)it.next();
+			if(this.money>=t.getMoney()){
+				temp=t;
+			}else{
+				break;
+			}			
+		}		
+		
+		return temp;
+	}
+	public void setLevel(Level level) {
+		this.level = level;
 	}		
 }

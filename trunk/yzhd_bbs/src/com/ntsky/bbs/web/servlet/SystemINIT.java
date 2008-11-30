@@ -17,8 +17,8 @@ import com.ntsky.bbs.Symbols;
 import com.ntsky.bbs.domain.Forum;
 import com.ntsky.bbs.service.AnnouncementService;
 import com.ntsky.bbs.service.ForumService;
+import com.ntsky.bbs.service.LevelService;
 import com.ntsky.bbs.service.RoleService;
-import com.ntsky.bbs.service.UserService;
 import com.ntsky.bbs.service.XmlDataService;
 import com.ntsky.bbs.util.AdvertisementUtil;
 import com.ntsky.bbs.util.Application;
@@ -31,7 +31,7 @@ import com.ntsky.bbs.util.config.ResourceConfig;
 import com.ntsky.bbs.util.config.SystemConfig;
 import com.ntsky.bbs.util.memory.BadwordSingleton;
 import com.ntsky.bbs.util.memory.ForumSingleton;
-import com.ntsky.bbs.util.memory.StarUserSingleton;
+import com.ntsky.bbs.util.memory.LevelSingleton;
 import com.ntsky.bbs.web.schedule.IndexTimer;
 import com.ntsky.bbs.xml.EmailHandler;
 import com.ntsky.bbs.xml.SecurityHandler;
@@ -95,6 +95,8 @@ public class SystemINIT extends HttpServlet {
 			// 7、启动定时器
 			//startTimer();
 			
+			
+			
 		} catch (Exception exception) {
 			logger.error("初始化失败，请检查配置信息");
 			logger.error("Init Application has error.", exception);
@@ -103,6 +105,8 @@ public class SystemINIT extends HttpServlet {
 		}
 		
     }
+    
+
     
     /**
      * 初始化JS数据
@@ -241,6 +245,9 @@ public class SystemINIT extends HttpServlet {
 		RoleService roleService = (RoleService)getBean(getServletContext(), "roleService");
 		roleService.setRolesToMemory();
 		
+		LevelService levelService=(LevelService)getBean(getServletContext(), "levelService");
+		
+		LevelSingleton.getInstance().setLevels(levelService.findLevels());
 		
     }
     
