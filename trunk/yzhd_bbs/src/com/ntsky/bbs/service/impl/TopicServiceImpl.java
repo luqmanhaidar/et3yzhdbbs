@@ -113,7 +113,7 @@ public class TopicServiceImpl extends BaseServiceImpl implements TopicService{
 				PollResult pollResult = null;
 				for (int i = 0; i < pollResultArray.length; i++) {
 					pollResult = (PollResult)pollResultArray[i];
-					pollResult.setPollId(poll.getId().intValue());
+					//pollResult.setPollId(poll.getId().intValue());
 					//pollResult.setPoll(poll);
 					poll.addPollResult(pollResult);
 					pollResultDAO.save(pollResult);

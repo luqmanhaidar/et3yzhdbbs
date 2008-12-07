@@ -1,36 +1,28 @@
 package com.ntsky.bbs.web.webwork.action.topic;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 
-import javax.servlet.http.HttpServletRequest;
-
-import com.opensymphony.xwork.ModelDriven;
-import com.opensymphony.xwork.Preparable;
-
-import com.ntsky.framework.util.HttpUtil;
-import com.ntsky.framework.util.DateUtil;
-import com.ntsky.framework.util.StringUtil;
-import com.ntsky.framework.util.lumaqq.IPSeeker;
-
 import com.ntsky.bbs.Symbols;
 import com.ntsky.bbs.domain.Forum;
-import com.ntsky.bbs.domain.Post;
 import com.ntsky.bbs.domain.Poll;
 import com.ntsky.bbs.domain.PollResult;
+import com.ntsky.bbs.domain.Post;
 import com.ntsky.bbs.domain.Topic;
+import com.ntsky.bbs.exception.ActionException;
+import com.ntsky.bbs.exception.ServiceException;
 import com.ntsky.bbs.service.XmlDataService;
 import com.ntsky.bbs.util.BeanUtil;
 import com.ntsky.bbs.util.WebworkUtil;
-import com.ntsky.bbs.util.memory.RoleSingleton;
 import com.ntsky.bbs.util.memory.ForumSingleton;
+import com.ntsky.bbs.util.memory.RoleSingleton;
 import com.ntsky.bbs.xml.bean.Badword;
-import com.ntsky.bbs.exception.ActionException;
-import com.ntsky.bbs.exception.ServiceException;
+import com.ntsky.framework.util.HttpUtil;
+import com.opensymphony.xwork.ModelDriven;
+import com.opensymphony.xwork.Preparable;
 
 /**
  * 创建主题信息Action
@@ -49,6 +41,8 @@ public class CreateTopicAction extends TopicActionSupport implements ModelDriven
 	private Map propertyMap;
 	private int topicId;
 	private int forumId;
+	
+	private List ballotOptionNum=new ArrayList();
 
 	public void setForumId(int forumId) {
 		this.forumId = forumId;
@@ -78,7 +72,6 @@ public class CreateTopicAction extends TopicActionSupport implements ModelDriven
 			//System.out.println(forum.getIsAdmin());
 			String roles=RoleSingleton.getInstance().getRoleIdByName(super.getSessionUser().getUsername());
 			if(forum.getIsAdmin()==1){
-				//System.out.println(roles);
 				if(roles.equals("1")){
 					
 				}else{
@@ -86,7 +79,6 @@ public class CreateTopicAction extends TopicActionSupport implements ModelDriven
 				}
 			}
 			if(forum.getIsMasters()==1){
-				//System.out.println(roles);
 				if(roles.equals("1") || roles.equals("2") || roles.equals("3")){
 					
 				}else{
@@ -108,6 +100,8 @@ public class CreateTopicAction extends TopicActionSupport implements ModelDriven
 			firstPost.setUserId(getSessionUser().getId().intValue());
 			firstPost.setUsername(getSessionUser().getUsername());
 			topic.setUsername(getSessionUser().getUsername());
+			
+			
 			if(topic.getIsVote() == 1){
 				poll = new Poll();
 				poll.setContent(super.getParameter("pollContent"));
@@ -118,23 +112,29 @@ public class CreateTopicAction extends TopicActionSupport implements ModelDriven
 					//logger.info("投票选项数: " + optionNum);
 				}				
 				//List list = new ArrayList();
-				Set set = new HashSet();
+				Set set = new LinkedHashSet();
 				for (int i = 0; i < optionNum; i++) {
 					pollResult = new PollResult();
-					optionId = getIntParameter("optionId"+String.valueOf(i+1));
-					optionText = getParameter("optionText"+String.valueOf(i+1));
-					for(int b=0;b<badwords.size();b++)
-					{
-						badword= new Badword();
-						badword = (Badword)badwords.get(b);
-						optionText =optionText.replace(badword.getOldStr(), badword.getReplaceStr());
+					
+					String indexTemp="optionText"+(i+1);
+					
+					optionText = getRequest().getParameter(indexTemp);
+					
+					if(optionText!=null&&!optionText.equals("")){
+						optionId++;
+						for(int b=0;b<badwords.size();b++)
+						{
+							badword= new Badword();
+							badword = (Badword)badwords.get(b);
+							optionText =optionText.replaceAll(badword.getOldStr(), badword.getReplaceStr());
+						}
+						if(logger.isInfoEnabled()){
+							//logger.info("投票选项信息如下: 投票编号[\""+optionId+"\"] 选项内容[\""+optionText+"\"]");
+						}
+						pollResult.setOptionId(optionId);
+						pollResult.setOptionText(optionText);
+						set.add(pollResult);
 					}
-					if(logger.isInfoEnabled()){
-						//logger.info("投票选项信息如下: 投票编号[\""+optionId+"\"] 选项内容[\""+optionText+"\"]");
-					}
-					pollResult.setOptionId(optionId);
-					pollResult.setOptionText(optionText);
-					set.add(pollResult);
 				}
 				poll.setPollResults(set);
 			}
@@ -205,6 +205,23 @@ public class CreateTopicAction extends TopicActionSupport implements ModelDriven
 		//categories = categoryService.getCategories(super.getIntParameter(Symbols.PARA_FORUM_ID));
     	categories = categoryService.getCategories(0);
         this.propertyMap = xmlDataService.select(Symbols.CONFIG_TOPIC);
+        
+        String numTempStr=(String)propertyMap.get("ballotOptionNum");
+        
+        int numTemp=0;
+        
+        if(numTempStr!=null&&!numTempStr.equals("")){
+        	try{
+        		numTemp=Integer.parseInt(numTempStr);
+        	}catch(Exception e){
+        		numTemp=0;
+        	}        	
+        }
+        
+        for(int i=0;i<numTemp;i++){
+        	ballotOptionNum.add(i);
+        }
+        
 		return SUCCESS;
 	}
 
@@ -235,6 +252,12 @@ public class CreateTopicAction extends TopicActionSupport implements ModelDriven
 	public void setPropertyMap(Map propertyMap) {
 		
 			this.propertyMap=propertyMap;
+	}
+	public List getBallotOptionNum() {
+		return ballotOptionNum;
+	}
+	public void setBallotOptionNum(List ballotOptionNum) {
+		this.ballotOptionNum = ballotOptionNum;
 	}
 	
 }

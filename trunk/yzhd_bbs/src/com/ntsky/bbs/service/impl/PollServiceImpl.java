@@ -58,5 +58,14 @@ public class PollServiceImpl implements PollService{
 			throw new ServiceException(daoException.getMessage());
 		}
 	}
+
+	public void saveOrUpdatePoll(Poll poll) throws ServiceException {
+		try{
+			pollDAO.saveOrUpdate(poll);
+		}
+		catch(DAOException daoException){
+			throw new ServiceException(daoException.getMessage());
+		}
+	}
 	
 }

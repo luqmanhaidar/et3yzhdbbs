@@ -31,4 +31,6 @@ public interface PollService {
 	 */
 	public Poll findPoll(int topicId) throws ServiceException ;
 	
+	public void saveOrUpdatePoll(Poll poll) throws ServiceException ;
+	
 }
