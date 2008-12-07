@@ -22,9 +22,7 @@
    <div id="poll"> 
    <table cellspacing="0" cellpadding="3" border="0" id="vote">
        <tbody>   
-    <tr>
-    	<td colspan="2">投票标题: ${poll.content}</td>
-    </tr>
+    
     <#assign totalVote = 0>
      <#list poll.pollResults as pollResult>
      	 <#assign totalVote = totalVote + pollResult.votes>

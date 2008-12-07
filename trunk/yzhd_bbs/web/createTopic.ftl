@@ -37,6 +37,22 @@
 				obj.focus();
 				return false;
 		}
+		
+		<#if isVote>
+		var prflag=false;
+		var num1=${ballotOptionNum.size()};
+		for(i=0;i<num1;i++){
+			var pollResult= document.getElementById("optionText"+(i+1)).value;
+			if(pollResult.length>0){
+			prflag=true;
+			}
+		}		
+		if(!prflag){
+			alert("投票选项不能全部为空");
+			return false;
+		}
+	</#if>
+		
 	var oEditor = FCKeditorAPI.GetInstance('content') ;
     var oDOM = oEditor.EditorDocument ;
 
@@ -69,14 +85,6 @@
 		return false;
 	}
 	
-	<#if isVote>
-		var pollContent= document.getElementById("pollContent").value;
-		if(pollContent.length<1){
-			alert("投票信息不能为空");
-			return false;
-		}
-		
-	</#if>
 	
 	}
 	
@@ -100,12 +108,17 @@
   <!-- register info begin -->
   <form name="myform" action="createTopic.action" method="post" id="createTopic" onSubmit="return onCheck();">
  <DIV id=page>
-  <div id="bbs_main">
-    <ul class="theme_ul">
-      <li>用户名： <strong>${Session["sessionUser"].username}</strong></li>
-      <li>标题：<span class="icon">
+ 
+  <div class="reply">
+<div class="tit"><#if isVote>发表投票主题<#else>发表主题</#if></div>
+
+<div class="con">
+	标题：
        <input type="text" id="title" name="title" class="t" size="30"/>
-        </span> 选择板块:
+        
+        
+        
+        选择板块:
           <#assign forums = application["frontTop"]["forums"]?if_exists>
           
           <#if forums.size()!=0>
@@ -142,9 +155,22 @@
               </#list>
             </select>
         </#if>  
-      </li>
-      <li>
-        <div class="img">图标：</div>
+</div>
+<#if isVote>
+<div class="con">
+<div class="info2">
+<ul>
+	
+	<#list ballotOptionNum as num>		
+		<li>选项${num+1}： <input type="text" class="headline" id="optionText${num+1}" name="optionText${num+1}" size="30" maxlength="100"/></li>
+		
+	</#list>
+</ul>
+</div>
+</div>
+</#if>
+<div class="con">
+    <div class="img">图标：</div>
         <div class="icon">
           <input type="radio" value="0" name="mood"/>
           无
@@ -178,99 +204,24 @@
           <img alt="代码脚本" src="images/14.gif" align="middle"/>
           <input type="radio" value="15" name="mood"/>
           <img alt="玫瑰" src="images/15.gif" align="middle"/> </div>
-      </li>
-      <li>
-        <textarea name="content" id="content" style="height:400px;width:50%;"></textarea>
-      </li>
-      <li>
-       <#if isVote>
-	  <!-- poll option begin -->
-	  <div>
-      	<div class="title">投票选项</div>
-		  <div class="content">
-			<div class="ibox">
-			  <div class="it" style="width:20%;">投票信息: * </div>
-			  <div class="iv">
-				<input type="text" name="pollContent" size="80" class="t"/>
-			  	<input type="hidden" name="optionNum" value="0" id="optionNum"/>
-			  </div>
-			</div>
-			<div id="options">
-			</div>
-			<script type="text/javascript">
-				//<![CDATA[
-				String.prototype.ReplaceAll = function (findText,repText){
-					regExp = new RegExp(findText,"g");
-					return this.replace(regExp,repText);
-				}
-				// 投票选项script
-				function Poll() {
-					this.optionArray = [];
-					this.optionHtml = "<div class=\"ibox\" id=\"option#key#\" style=\"display:block;\"><div class=\"it\" style=\"width:20%;\">选项:  </div><div class=\"iv\"><input type=\"hidden\" name=\"optionId#key#\" value=\"#key#\"/><input type=\"text\" name=\"optionText#key#\" class=\"t\" size=\"40\"/><span id=\"addButton#key#\">#addButton#</span><span id=\"deleteButton#key#\"></span></div></div>";
-					this.optionNum = 0;
-					this.addButton = "<input type=\"button\"  name=\"option#key#\" value=\"建立选项\" onClick=\"poll.addOption(eval(#key#+1));\"/>";
-					this.deleteButton = "<input type=\"button\"  name=\"deleteOption#key#\" value=\"删除\" onClick=\"poll.deleteOption(#key#);\"/>";
-				};
-				Poll.prototype.addOption = function(key) {
-					if(this.optionNum<${propertyMap["ballotOptionNum"]}){
-						// 第一条记录增加删除按钮
-						document.getElementById("addButton"+(eval(key-1))).innerHTML = "";
-						document.getElementById("deleteButton"+(eval(key-1))).innerHTML = this.deleteButton.ReplaceAll("#key#",eval(key-1));
-						// 创建第二条记录
-						this.optionArray[this.optionArray.length] = this.optionHtml.replace("#addButton#",this.addButton).ReplaceAll("#key#",key);
-						this.appendPoll(key);
-					}
-				};
-				Poll.prototype.deleteOption = function(key) {
-					if(this.optionArray.length<1){
-						alert("必须含有一个以上投票选项,删除投票选项失败!");
-					}
-					else{
-						Util.hidden("option"+key);
-					}
-					this.setOptionNum("-");
-				};
-				Poll.prototype.init = function() {
-					this.optionArray[this.optionArray.length] = this.optionHtml.replace("#addButton#",this.addButton).ReplaceAll("#key#","1");
-					this.appendPoll(1);
-				};
-				Poll.prototype.appendPoll = function(key) {
-					optionsHtml = this.optionArray[key-1];
-					document.getElementById("options").innerHTML = document.getElementById("options").innerHTML + optionsHtml;
-					this.setOptionNum("+");
-					//alert(document.getElementById("options").innerHTML);
-				};
-				Poll.prototype.setOptionNum = function( operator ){
-					if("+" == operator) {
-						this.optionNum = this.optionNum + 1;
-					}
-					else{
-						this.optionNum = this.optionNum - 1;
-					}
-					document.getElementById("optionNum").value = this.optionNum;
-				};
-				var poll = new Poll();	
-				poll.init();
-			  	//]]>
-			</script>
-			
-		  </div>
-	  </div>
-	  <!-- end poll option -->
-	  </#if>
-      </li>               			  	
-      <li>
-      <input type="hidden" name="optionNum" value="0" id="optionNum"/>
-                			  	<input type="hidden" name="pollContent" size="80" class="t"/>
-        <input  type="image" src="images/zx-b3.gif" style=" margin:0 0 0 250px; height:30px; width:90px;cursor:hand"/>
+</div>
+<div class="con" >
+  <div class="info2" >
+        <div class="editorbody">
+       <textarea name="content" id="content" style="height:400px;width:50%;"></textarea>
+        </div>
+    </div>
+</div>
+<div class="con">
+	<input type="hidden" name="optionNum" value="${ballotOptionNum.size()?if_exists}" id="optionNum"/>
+	<input type="hidden" name="pollContent" size="80" class="t"/>
+        <input  type="image" src="images/hf-b1.gif" style=" margin:0 0 0 250px; height:30px; width:90px;cursor:hand"/>
          <input type="hidden" value="${request.getParameter("isVote")?if_exists}" name="isVote"/>
-      </li>
-      
-       </form> 
-    </ul>
-  </div>
+	
+</div>
+</div>
 </DIV>
-
+</form>
   <!--底部开始-->
 <#include "includes/bottom.ftl">
 <!--底部结束-->

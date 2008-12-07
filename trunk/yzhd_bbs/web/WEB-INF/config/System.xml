@@ -63,7 +63,7 @@ This BBS version 1.0. Connect Author : <a href="mailto:noside@126.com">noside@12
 	<data id="topic">
 		<property key="minWord">2</property>
 		<property key="maxWord">3000</property>
-		<property key="ballotOptionNum">2</property>
+		<property key="ballotOptionNum">4</property>
 	</data>
 
 	<!-- 分页记录数设置 -->
