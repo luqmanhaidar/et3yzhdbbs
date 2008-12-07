@@ -3,79 +3,187 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title><#if isVote>发表投票主题<#else>发表主题</#if></title>
-<#include "includes/head.ftl">
+
+<link rel="stylesheet" href="styles/default.css" type="text/css" media="all"/>
+<link href="styles/defaulty.css" type="text/css" rel="stylesheet" />
+<link href="styles/menu.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="scripts/ntsky/validator.js"></script>
 <script type="text/javascript" src="scripts/FCKeditor/fckeditor.js"></script>
+<script type="text/javascript" src="scripts/ntsky/global.js"></script>
+<script type="text/javascript" src="scripts/ntsky/system.js"></script>
+<script type="text/javascript" src="scripts/tooltip/tooltip.js"></script>
 <script type="text/javascript">
 	//<![CDATA[
 	window.onload = function(){
-		replaceMyTextarea("content","Default",".","400");
+		replaceMyTextarea("content","Basic",".","400","650");
 	};
+	
+	function onCheck(){
+	    var obj=document.getElementById("title")
+	    var obj1=document.getElementById("content")
+	    var content= document.getElementById("content").value; 
+		var forumIdSelect = document.getElementById("forumIdSelect");
+		//alert(forumIdSelect.value);
+		document.all.myform.action="createTopic.action?forumId="+forumIdSelect.value;
+  		if(obj.value.length>50)
+		{
+				alert("标题不能超过50个字符！");
+				obj.focus();
+				return false;
+		}
+		if(obj.value.length<2)
+		{
+				alert("标题不能小于2个字符！");
+				obj.focus();
+				return false;
+		}
+	var oEditor = FCKeditorAPI.GetInstance('content') ;
+    var oDOM = oEditor.EditorDocument ;
+
+    var iLength ;
+
+    if ( document.all )		// If Internet Explorer.
+    {
+	    iLength = oDOM.body.innerText.length ;
+    }
+    else					// If Gecko.
+    {
+	    var r = oDOM.createRange() ;
+	    r.selectNodeContents( oDOM.body ) ;
+	    alert(r);
+	    iLength = r.toString().length ;
+    }
+	if(iLength==0)
+	{
+		alert("请写上内容");
+		return false;
+	}
+	if(iLength<${propertyMap["minWord"]})
+	{
+		alert("内容不能小于${propertyMap["minWord"]}个字符！");
+		return false;
+	}
+	if(iLength>${propertyMap["maxWord"]})
+	{
+		alert("内容不能大于${propertyMap["maxWord"]}个字符！");
+		return false;
+	}
+	
+	<#if isVote>
+		var pollContent= document.getElementById("pollContent").value;
+		if(pollContent.length<1){
+			alert("投票信息不能为空");
+			return false;
+		}
+		
+	</#if>
+	
+	}
+	
 	//]]>
 </script>
 </head>
 <body>
-<#include "includes/top.ftl">
+<#include "includes/header.ftl">
+<#include "includes/front_top.ftl">
   <#assign link = "">
   <#if isVote>
-   	<#assign link = "<a href=\"forum.action?forumId="+forum.id+"\" title=\""+forum.name+"\">"+forum.name+"</a> &gt; 发表投票主题">	
+   	<#assign link = " &gt; 发表投票主题">	
   <#else>
-  	<#assign link = "<a href=\"forum.action?forumId="+forum.id+"\" title=\""+forum.name+"\">"+forum.name+"</a> &gt; 发表主题">  
+  	<#assign link = " &gt; 发表主题">  
   </#if>
-  <#include "includes/quick.ftl">
+ 
+ 
+ <!-- 模版 -->
+
+ <!-- 模版 -->
   <!-- register info begin -->
-  <div class="box1 mtq">
-    <div class="title"> <#if isVote>发表投票主题<#else>发表主题</#if> </div>
-    <form action="createTopic.action" method="post" id="createTopic" onSubmit="return Validator.validate(this);">
-    <div class="content">
-      <div class="ibox">
-        <div class="it" style="width:20%;">标题: * </strong> </div>
-        <div class="iv">
-        
+  <form name="myform" action="createTopic.action" method="post" id="createTopic" onSubmit="return onCheck();">
+ <DIV id=page>
+  <div id="bbs_main">
+    <ul class="theme_ul">
+      <li>用户名： <strong>${Session["sessionUser"].username}</strong></li>
+      <li>标题：<span class="icon">
+       <input type="text" id="title" name="title" class="t" size="30"/>
+        </span> 选择板块:
+          <#assign forums = application["frontTop"]["forums"]?if_exists>
+          
+          <#if forums.size()!=0>
+			   <select name="forumId" id="forumIdSelect">
+			   		<#if req.getParameter("forumId")?exists>
+			   			<#assign fid=req.getParameter("forumId")>
+			   			<#list application["frontTop"]["forums"] as forum>
+	        				<#if forum.depth==1>
+							<optgroup label="${forum.name}"> 
+							<#else>		
+								<#if (forum.id?string)==fid>					
+								<option value="${forum.id}" selected>${forum.name}</option>
+								<#else>
+								<option value="${forum.id}" >${forum.name}</option>
+								</#if>								
+							</#if>	
+	        			</#list>
+			   		<#else>
+ 	        			<#list application["frontTop"]["forums"] as forum>
+	        				<#if forum.depth==1>
+							<optgroup label="${forum.name}"> 
+							<#else>							
+								<option value="${forum.id}">${forum.name}</option>								
+							</#if>	
+	        			</#list>
+	        		</#if>
+               </select>
+        </#if> 
+        文章类型：
         <#if categories.size()!=0>
            <select name="categoryId" id="categoryId">
-           	  <option value="0">选择分类</option>	
               <#list categories as category>
               <option value="${category.id}">${category.name}</option>
               </#list>
             </select>
-        </#if>            
-            <input type="text" name="title" class="t" size="60"/>
-        </div>
-      </div>
-      <div class="ibox" style="height:60px;">
-        <div class="it" style="width:20%;">发帖心情: *  </div>
-        <div class="iv" style="height:56px;">
-	        <div style="width:420px;line-height:150%;padding:4px 0px;">
-	        	<input type="radio" name="mood" value="1" checked/><img src="skins/default/topicmood/1.gif" align="absMiddle"/>
-	        	<input type="radio" name="mood" value="2"/><img src="skins/default/topicmood/2.gif" align="absMiddle"/>
-	        	<input type="radio" name="mood" value="3"/><img src="skins/default/topicmood/3.gif" align="absMiddle"/>
-	        	<input type="radio" name="mood" value="4"/><img src="skins/default/topicmood/4.gif" align="absMiddle"/>
-	        	<input type="radio" name="mood" value="5"/><img src="skins/default/topicmood/5.gif" align="absMiddle"/>
-	        	<input type="radio" name="mood" value="6"/><img src="skins/default/topicmood/6.gif" align="absMiddle"/>
-	        	<input type="radio" name="mood" value="7"/><img src="skins/default/topicmood/7.gif" align="absMiddle"/>
-	        	<input type="radio" name="mood" value="8"/><img src="skins/default/topicmood/8.gif" align="absMiddle"/>
-	        	<input type="radio" name="mood" value="9"/><img src="skins/default/topicmood/9.gif" align="absMiddle"/>
-	        	<input type="radio" name="mood" value="10"/><img src="skins/default/topicmood/10.gif" align="absMiddle"/>
-	        	<input type="radio" name="mood" value="11"/><img src="skins/default/topicmood/11.gif" align="absMiddle"/>
-	        	<input type="radio" name="mood" value="12"/><img src="skins/default/topicmood/12.gif" align="absMiddle"/>
-	        	<input type="radio" name="mood" value="13"/><img src="skins/default/topicmood/13.gif" align="absMiddle"/>
-	        	<input type="radio" name="mood" value="14"/><img src="skins/default/topicmood/14.gif" align="absMiddle"/>
-	        	<input type="radio" name="mood" value="15"/><img src="skins/default/topicmood/15.gif" align="absMiddle"/>
-	        	<input type="radio" name="mood" value="16"/><img src="skins/default/topicmood/16.gif" align="absMiddle"/>
-	        	<input type="radio" name="mood" value="17"/><img src="skins/default/topicmood/17.gif" align="absMiddle"/>
-	        	<input type="radio" name="mood" value="18"/><img src="skins/default/topicmood/18.gif" align="absMiddle"/>	        	
-			</div>
-        </div>
-      </div>
-      <div class="ibox" style="height:408px;">
-        <div class="it" style="width:20%;">内容: *  </div>
-        <div class="iv" style="height:400px; width:76%">
-          <textarea name="content" id="content" style="height:400px;width:100%;"></textarea>
-        </div>
-      </div>
-      </div>
-      <#if isVote>
+        </#if>  
+      </li>
+      <li>
+        <div class="img">图标：</div>
+        <div class="icon">
+          <input type="radio" value="0" name="mood"/>
+          无
+          <input type="radio" value="1" name="mood"/>
+          <img width="18" height="16" alt="求助" src="images/1.gif" align="middle"/>
+          <input type="radio" value="2" name="mood"/>
+          <img width="16" height="15" alt="示好" src="images/2.gif" align="middle"/>
+          <input type="radio" checked="checked" value="3" name="mood"/>
+          <img alt="贡献" src="images/3.gif" align="middle"/>
+          <input type="radio" value="4" name="mood"/>
+          <img alt="音乐" src="images/4.gif" align="middle"/>
+          <input type="radio" value="5" name="mood"/>
+          <img alt="光碟" src="images/5.gif" align="middle"/>
+          <input type="radio" value="6" name="face"/>
+          <img alt="游戏" src="images/6.gif" align="middle"/>
+          <input type="radio" value="7" name="mood"/>
+          <img alt="照片" src="images/7.gif" align="middle"/><br/>
+          <input type="radio" value="8" name="mood"/>
+          <img alt="诈唬" src="images/8.gif" align="middle"/>
+          <input type="radio" value="9" name="mood"/>
+          <img alt="播放" src="images/9.gif" align="middle"/>
+          <input type="radio" value="10" name="mood"/>
+          <img alt="点火" src="images/10.gif" align="middle"/>
+          <input type="radio" value="11" name="mood"/>
+          <img alt="体育" src="images/11.gif" align="middle"/>
+          <input type="radio" value="12" name="mood"/>
+          <img alt="提示" src="images/12.gif" align="middle"/>
+          <input type="radio" value="13" name="mood"/>
+          <img alt="阳光" src="images/13.gif" align="middle"/>
+          <input type="radio" value="14" name="mood"/>
+          <img alt="代码脚本" src="images/14.gif" align="middle"/>
+          <input type="radio" value="15" name="mood"/>
+          <img alt="玫瑰" src="images/15.gif" align="middle"/> </div>
+      </li>
+      <li>
+        <textarea name="content" id="content" style="height:400px;width:50%;"></textarea>
+      </li>
+      <li>
+       <#if isVote>
 	  <!-- poll option begin -->
 	  <div>
       	<div class="title">投票选项</div>
@@ -98,18 +206,20 @@
 				// 投票选项script
 				function Poll() {
 					this.optionArray = [];
-					this.optionHtml = "<div class=\"ibox\" id=\"option#key#\" style=\"display:block;\"><div class=\"it\" style=\"width:20%;\">选项: * </div><div class=\"iv\"><input type=\"hidden\" name=\"optionId#key#\" value=\"#key#\"/><input type=\"text\" name=\"optionText#key#\" class=\"t\" size=\"40\"/><span id=\"addButton#key#\">#addButton#</span><span id=\"deleteButton#key#\"></span></div></div>";
+					this.optionHtml = "<div class=\"ibox\" id=\"option#key#\" style=\"display:block;\"><div class=\"it\" style=\"width:20%;\">选项:  </div><div class=\"iv\"><input type=\"hidden\" name=\"optionId#key#\" value=\"#key#\"/><input type=\"text\" name=\"optionText#key#\" class=\"t\" size=\"40\"/><span id=\"addButton#key#\">#addButton#</span><span id=\"deleteButton#key#\"></span></div></div>";
 					this.optionNum = 0;
-					this.addButton = "<input type=\"button\" class=\"tb\" name=\"option#key#\" value=\"建立选项\" onClick=\"poll.addOption(eval(#key#+1));\"/>";
-					this.deleteButton = "<input type=\"button\" class=\"tb\" name=\"deleteOption#key#\" value=\"删除\" onClick=\"poll.deleteOption(#key#);\"/>";
+					this.addButton = "<input type=\"button\"  name=\"option#key#\" value=\"建立选项\" onClick=\"poll.addOption(eval(#key#+1));\"/>";
+					this.deleteButton = "<input type=\"button\"  name=\"deleteOption#key#\" value=\"删除\" onClick=\"poll.deleteOption(#key#);\"/>";
 				};
 				Poll.prototype.addOption = function(key) {
-					// 第一条记录增加删除按钮
-					document.getElementById("addButton"+(eval(key-1))).innerHTML = "";
-					document.getElementById("deleteButton"+(eval(key-1))).innerHTML = this.deleteButton.ReplaceAll("#key#",eval(key-1));
-					// 创建第二条记录
-					this.optionArray[this.optionArray.length] = this.optionHtml.replace("#addButton#",this.addButton).ReplaceAll("#key#",key);
-					this.appendPoll(key);
+					if(this.optionNum<${propertyMap["ballotOptionNum"]}){
+						// 第一条记录增加删除按钮
+						document.getElementById("addButton"+(eval(key-1))).innerHTML = "";
+						document.getElementById("deleteButton"+(eval(key-1))).innerHTML = this.deleteButton.ReplaceAll("#key#",eval(key-1));
+						// 创建第二条记录
+						this.optionArray[this.optionArray.length] = this.optionHtml.replace("#addButton#",this.addButton).ReplaceAll("#key#",key);
+						this.appendPoll(key);
+					}
 				};
 				Poll.prototype.deleteOption = function(key) {
 					if(this.optionArray.length<1){
@@ -147,19 +257,22 @@
 		  </div>
 	  </div>
 	  <!-- end poll option -->
-	  </#if>      
-      <div class="box3" style="text-align:center">
-        <div>
-          <input type="hidden" value="${request.getParameter("isVote")?if_exists}" name="isVote"/>
-          <input type="hidden" value="${request.getParameter("forumId")}" name="forumId"/>
-          <input type="submit" value="<#if isVote>发表投票主题<#else>发表主题</#if>" name="agree" class="b"/>
-          <input type="button" value="预览主题" name="preview" class="b" onClick="Util.popupWindow('common/process.jsp','createTopic','common/preview.jsp','500','300');"/>
-          <input onclick="history.back(-1)" type="reset" value="返回"  class="b"/>
-        </div>
-      </div>
-    </form>
+	  </#if>
+      </li>               			  	
+      <li>
+      <input type="hidden" name="optionNum" value="0" id="optionNum"/>
+                			  	<input type="hidden" name="pollContent" size="80" class="t"/>
+        <input  type="image" src="images/zx-b3.gif" style=" margin:0 0 0 250px; height:30px; width:90px;cursor:hand"/>
+         <input type="hidden" value="${request.getParameter("isVote")?if_exists}" name="isVote"/>
+      </li>
+      
+       </form> 
+    </ul>
   </div>
-  <!-- end #post info -->
-<#include "includes/footer.ftl">
+</DIV>
+
+  <!--底部开始-->
+<#include "includes/bottom.ftl">
+<!--底部结束-->
 </body>
 </html>

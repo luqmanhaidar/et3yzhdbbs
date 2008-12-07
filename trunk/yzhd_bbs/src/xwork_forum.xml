@@ -30,7 +30,7 @@
 			<interceptor-ref name="commonStack"/>
 			<interceptor-ref name="userSession"/>
 			<interceptor-ref name="basicStack"/>
-			<result name="success">/createTopic_common.ftl</result>
+			<result name="success">/createTopic.ftl</result>
 		</action>	
 		<action name="createTopic"
 				class="com.ntsky.bbs.web.webwork.action.topic.CreateTopicAction">
