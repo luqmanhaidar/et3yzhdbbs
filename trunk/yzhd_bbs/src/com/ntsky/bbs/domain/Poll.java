@@ -1,7 +1,7 @@
 package com.ntsky.bbs.domain;
 
 import java.util.Date;
-import java.util.List;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
@@ -18,7 +18,7 @@ public class Poll extends Entity{
 	private String content;
 	private Date dateCreated;
 	
-	private Set pollResults;	
+	private Set pollResults=new LinkedHashSet();	
 	public Set getPollResults() {
 		return pollResults;
 	}

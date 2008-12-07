@@ -12,7 +12,7 @@ import java.util.Date;
  */
 public class PollResult extends Entity{
 
-	private int pollId;
+	
 	private int optionId;
 	private String optionText;
 	private int votes; // 得票数
@@ -37,12 +37,7 @@ public class PollResult extends Entity{
 	public void setOptionText(String optionText) {
 		this.optionText = optionText;
 	}
-	public int getPollId() {
-		return pollId;
-	}
-	public void setPollId(int pollId) {
-		this.pollId = pollId;
-	}
+
 	public int getVotes() {
 		return votes;
 	}

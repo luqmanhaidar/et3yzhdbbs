@@ -10,7 +10,7 @@
 		<property name="content" column="content" not-null="true"/>
 		<property name="dateCreated" column="date_created" not-null="true"/>
 	
-		<set name="pollResults" table="ntsky_t_poll_result" order-by="id asc" lazy="false" inverse="true"> 
+		<set name="pollResults" table="ntsky_t_poll_result" order-by="id asc" lazy="false" cascade="all"> 
             <key column="poll_id"/> 
             <one-to-many class="PollResult"/> 
         </set>
