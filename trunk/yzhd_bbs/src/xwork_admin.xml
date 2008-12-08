@@ -165,7 +165,7 @@
 		<action name="logout"
 				class="com.ntsky.bbs.web.webwork.action.admin.LogoutAction">
 			<interceptor-ref name="adminBasicStack"/>
-			<result name="success" type="redirect">/index.action</result>
+			<result name="success" type="redirect">/admin/login.jsp</result>
 		</action>		
 		<action name="admins" class="com.ntsky.bbs.web.webwork.action.admin.AdminsAction">
 			<interceptor-ref name="adminBasicStack"/>
