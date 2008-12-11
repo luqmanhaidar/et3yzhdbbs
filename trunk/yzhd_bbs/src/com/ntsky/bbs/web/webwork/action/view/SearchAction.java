@@ -24,6 +24,7 @@ import com.ntsky.bbs.exception.ActionException;
 import com.ntsky.bbs.exception.ServiceException;
 import com.ntsky.bbs.util.config.SystemConfig;
 import com.ntsky.bbs.util.memory.ForumSingleton;
+import com.ntsky.bbs.util.memory.RoleSingleton;
 import com.ntsky.bbs.util.page.Pagination;
 import com.ntsky.bbs.util.page.QueryResult;
 import com.ntsky.bbs.web.webwork.action.view.ViewActionSupport;
@@ -78,7 +79,20 @@ public class SearchAction extends ViewActionSupport {
 		Map orderMap = new TreeMap();
 		orderMap.put(sort,order);
 		try{
-			QueryResult queryResult = topicService.searchTopics(forumId, type, keyword, time, way, orderMap, new Pagination(getPaginationStart(),SystemConfig.getInstance().getIntPropertyValue(Symbols.PAGINATION,Symbols.PAGINATION_TOPIC)),status);
+			QueryResult queryResult;
+			if(getSessionUser()==null || getSessionUser().getUsername().equals("guest"))
+			{
+				queryResult = topicService.searchTopics(forumId, type, keyword, time, way, orderMap, new Pagination(getPaginationStart(),SystemConfig.getInstance().getIntPropertyValue(Symbols.PAGINATION,Symbols.PAGINATION_TOPIC)),2,0);
+			}
+			else
+			{
+				String roles=RoleSingleton.getInstance().getRoleIdByName(super.getSessionUser().getUsername());
+				if(roles.equals("1")||roles.equals("2")||roles.equals("3")){
+					queryResult = topicService.searchTopics(forumId, type, keyword, time, way, orderMap, new Pagination(getPaginationStart(),SystemConfig.getInstance().getIntPropertyValue(Symbols.PAGINATION,Symbols.PAGINATION_TOPIC)),2,1);
+				}else{
+					queryResult = topicService.searchTopics(forumId, type, keyword, time, way, orderMap, new Pagination(getPaginationStart(),SystemConfig.getInstance().getIntPropertyValue(Symbols.PAGINATION,Symbols.PAGINATION_TOPIC)),2,0);
+				}
+			}
 			topics = queryResult.getItems();
 			setPagination(queryResult.getPagination());
 		}

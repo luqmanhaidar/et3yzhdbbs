@@ -29,6 +29,12 @@
                column="category_id" 
                class="Category"/>
 		
+	   <many-to-one name="forum"
+	  	      insert="false" 
+               update="false" 
+               column="forum_id" 
+               class="Forum"/>               
+		
 	
 		<!-- <set name="posts" table="ntsky_post" order-by="id asc" lazy="false" inverse="true"> 
             <key column="topic_id"/> 

@@ -110,13 +110,18 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 	 * @return
 	 * @throws DAOException
 	 */
-	public QueryResult searchTopics (int forumId, String type, String keyword, String timePoint, String way, Map orderMap, Pagination pagination,int status) throws DAOException {
+	public QueryResult searchTopics (int forumId, String type, String keyword, String timePoint, String way, Map orderMap, Pagination pagination,int status,int isMaster) throws DAOException {
 		try{
 			DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Topic.class); 
 			if(forumId != 0){
 				detachedCriteria.add(Restrictions.eq("forumId",new Integer(forumId)));
 			}
+			detachedCriteria.createAlias("forum", "forum");
 			detachedCriteria.add(Restrictions.like(type,"%"+keyword+"%"));
+			//过滤只有管理员才能看到的主题
+			if(isMaster==0){
+				detachedCriteria.add(Restrictions.eq("forum.isMasters", 0));
+			}
 			if(!("".equals(timePoint))){
 				if("after".equals(way)){
 					detachedCriteria.add(Restrictions.gt("dateCreated",timePoint));
@@ -125,7 +130,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 					detachedCriteria.add(Restrictions.lt("dateCreated",timePoint));
 				}
 			}
-			System.out.println(status);
+			//System.out.println(status);
 			//if(status==0)
 			//{
 			//	detachedCriteria.add(Restrictions.eq("status",new Integer(0)));

@@ -134,7 +134,7 @@ public interface TopicService extends BaseService{
 	 * @return
 	 * @throws ServiceException
 	 */
-	public QueryResult searchTopics(int forumId, String type, String keyword, int time, String way, Map orderMap, Pagination pagination,int status) throws ServiceException;
+	public QueryResult searchTopics(int forumId, String type, String keyword, int time, String way, Map orderMap, Pagination pagination,int status,int isMaster) throws ServiceException;
 	
 	/**
 	 * 更新主题是否被删除状态

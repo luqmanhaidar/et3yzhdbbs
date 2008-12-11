@@ -82,7 +82,7 @@ public interface TopicDAO extends BaseDAO{
 	 * @return
 	 * @throws DAOException
 	 */
-	public QueryResult searchTopics (int forumId, String type, String keyword, String timePoint, String way, Map orderMap,Pagination pagination,int status ) throws DAOException;	
+	public QueryResult searchTopics (int forumId, String type, String keyword, String timePoint, String way, Map orderMap,Pagination pagination,int status,int isMaster) throws DAOException;	
 	
 	/**
 	 * 根据论坛编号查找制定数目的主题

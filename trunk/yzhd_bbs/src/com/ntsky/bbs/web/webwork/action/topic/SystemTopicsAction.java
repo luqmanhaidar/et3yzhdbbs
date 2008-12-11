@@ -131,7 +131,7 @@ public class SystemTopicsAction extends TopicActionSupport {
 			// 主题数据
 			Map orderMap = new TreeMap();
 			orderMap.put(sort,order);
-			QueryResult queryResult = topicService.searchTopics(forumId, type, keyword, time, way, orderMap, new Pagination(getPaginationStart(),SystemConfig.getInstance().getIntPropertyValue(Symbols.PAGINATION,Symbols.PAGINATION_TOPIC)),2);
+			QueryResult queryResult = topicService.searchTopics(forumId, type, keyword, time, way, orderMap, new Pagination(getPaginationStart(),SystemConfig.getInstance().getIntPropertyValue(Symbols.PAGINATION,Symbols.PAGINATION_TOPIC)),2,1);
 			setTopics(queryResult.getItems());
 			setPagination(queryResult.getPagination());
 			

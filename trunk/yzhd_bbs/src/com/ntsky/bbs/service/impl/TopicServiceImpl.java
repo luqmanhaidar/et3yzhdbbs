@@ -399,7 +399,7 @@ public class TopicServiceImpl extends BaseServiceImpl implements TopicService{
 	 * @return
 	 * @throws ServiceException
 	 */
-	public QueryResult searchTopics(int forumId, String type, String keyword, int time, String way, Map orderMap, Pagination pagination,int status) throws ServiceException{
+	public QueryResult searchTopics(int forumId, String type, String keyword, int time, String way, Map orderMap, Pagination pagination,int status,int isMaster) throws ServiceException{
 		try{
 			String wayTime = null;
 			if(time == 0){
@@ -408,7 +408,7 @@ public class TopicServiceImpl extends BaseServiceImpl implements TopicService{
 			else{
 				wayTime = DateUtil.getBeforeDate(DateUtil.getDate(),time);
 			}
-			return topicDAO.searchTopics(forumId,type,keyword,wayTime,way,orderMap,pagination,status);
+			return topicDAO.searchTopics(forumId,type,keyword,wayTime,way,orderMap,pagination,status,isMaster);
 		}
 		catch(DAOException daoException){
 			throw new ServiceException(daoException.getMessage());
