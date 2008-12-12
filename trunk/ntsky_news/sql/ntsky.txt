@@ -1,0 +1,130 @@
+drop database ntsky;
+create database ntsky;
+use ntsky;
+create table NEWSAdmin(userName varchar(20) NOT NULL,
+                      passWd varchar(20) NOT NULL,
+                      purview int not null,
+                      lastLogin datetime,
+                      lastLoginIp varchar(20),
+                      primary key(username),
+                      );
+
+create table NEWSClass(classId int NOT NULL,
+                      content varchar(20) NOT NULL,
+                      primary key(classid),
+                      );
+
+create table NEWSKind(kindId int NOT NULL auto_increment,
+                     content varchar(255) NOT NULL,
+                     classId int NOT NULL,
+                     primary key(kindId),                       
+                     );
+
+create table NEWS(newsId int NOT NULL auto_increment,
+                      classId int NOT NULL,
+                      kindId int NOT NULL,
+                      myOther int NOT NULL,
+                      headTitle varchar(255) NOT NULL,
+                      content text NOT NULL,
+                      connect varchar(255),
+                      author varchar(20) NOT NULL,
+                      editor varchar(20),
+                      newsFrom varchar(40),
+                      top int,
+                      newsTime varchar(20),
+                      hits int default 0,
+                      state int default 0,
+                      tag int NOT NULL,                      
+                      primary key(newsId),
+                      );
+
+create table NEWSReply(replyId int not null auto_increment,
+                      newsId int not null,
+                      user varchar(20),
+                      content varchar(100),
+                      replyTime varchar(20),
+                      primary key(replyId),
+                      );
+
+create table NEWSUsr(userName varchar(20) NOT NULL,
+                      passWd varchar(20) NOT NULL,
+                      sex int,
+                      question varchar(255),
+                      answer varchar(255),
+                      emailAddr varchar(50),
+                      qq varchar(10),
+                      http varchar(30),
+                      purview int default 1,
+                      regTime varchar(20), 
+                      primary key(userName),
+                      );
+
+create table NEWSPopedom(gradeId int not null,
+                      grade varchar(20),
+                      primary key(gradeId),
+                      );
+
+CREATE TABLE NOTEAdmin (adminName char(20) NOT NULL,
+                      adminPasswd char(20) NOT NULL,
+                      PRIMARY KEY(adminName)
+                      );
+
+create table NOTEGuest(noteId int NOT NULL auto_increment,
+			userName char(20) NOT NULL,
+			sex int NOT NUll,
+			email char(50),
+			qq char(9),
+			url char(50),
+			headTitle text NOT NULL,
+			content text NOT NULL,
+			image text,
+                        noteTime varchar(20),
+			primary key(noteId)
+			);
+
+CREATE TABLE NOTEReply (replyId int not null auto_increment,
+                        noteId int(11) NOT NULL,
+                        content text,
+                        replyTime varchar(20),
+                        primary key(replyId)
+                        );
+
+INSERT INTO NEWSAdmin(userName,passWd,purview) VALUES('ntsky123','ntsky123',0);
+insert into NOTEAdmin(adminName,adminPasswd) values('ntsky123','ntsky123');
+
+
+create table NEWSCommon(counter int not null,
+                    ip varchar(20) not null
+                    );
+insert into NEWSCommon(counter,ip) values(1,'127.0.0.1');
+
+
+insert into NEWSClass(classId,content) values(1,'linux入门');
+insert into NEWSClass(classId,content) values(2,'服务器配置');
+insert into NEWSClass(classId,content) values(3,'应用开发');
+insert into NEWSClass(classId,content) values(4,'数据库应用');
+INSERT INTO NEWSClass(classId,content) VALUES(5,'系统安全');
+
+insert into NEWSKind(kindId,content,classId) values(1,'linux教程',1);
+insert into NEWSKind(kindId,content,classId) values(2,'学习笔记',1);
+insert into NEWSKind(kindId,content,classId) values(3,'windows',2);
+insert into NEWSKind(kindId,content,classId) values(4,'linux',2);
+insert into NEWSKind(kindId,content,classId) values(5,'unix',2);
+insert into NEWSKind(kindId,content,classId) values(6,'jsp&servlet',3);
+insert into NEWSKind(kindId,content,classId) values(7,'java',3);
+insert into NEWSKind(kindId,content,classId) values(8,'xml',3);
+insert into NEWSKind(kindId,content,classId) values(9,'delphi',3);
+insert into NEWSKind(kindId,content,classId) values(10,'.net',3);
+insert into NEWSKind(kindId,content,classId) values(11,'oracle',4);
+insert into NEWSKind(kindId,content,classId) values(12,'mysql',4);
+insert into NEWSKind(kindId,content,classId) values(13,'mssql',4);
+insert into NEWSKind(kindId,content,classId) values(14,'安全防护',5);
+insert into NEWSKind(kindId,content,classId) values(15,'漏洞攻击',5);
+
+
+insert into NEWSPopedom(gradeId,grade) values(3,'金牌会员');
+insert into NEWSPopedom(gradeId,grade) values(2,'银牌会员');
+insert into NEWSPopedom(gradeId,grade) values(1,'普通会员');
+
+
+
