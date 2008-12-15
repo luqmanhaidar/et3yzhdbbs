@@ -31,7 +31,15 @@
 			out.print("window.close();");
 		}
 	%>
-
+	function checkUpload(){
+		var uploadFile = document.getElementById("file");
+		if(uploadFile.value==""){
+			alert("请选择上传文件！");
+			return false;
+		}else{
+			return true;
+		}
+	}
 	//]]>
 </script>
 </head>
@@ -46,14 +54,14 @@
 %>
 <div class="box1">
   <div class="title"> 图片上传 </div>
-	<form action="<%=request.getContextPath()%>/common/system-<%if("uploadLogo".equals(action)){%>doUploadLogo.jsp<%}else{%>doUploadImage.jsp<%}%>" method="post" onSubmit="return Validator.Validate(this,2)" enctype="multipart/form-data">
+	<form action="<%=request.getContextPath()%>/common/system-<%if("uploadLogo".equals(action)){%>doUploadLogo.jsp<%}else{%>doUploadImage.jsp<%}%>" method="post" onSubmit="return checkUpload()" enctype="multipart/form-data">
     <input type="hidden" value="<%=element%>" name="element"/>
 	<input type="hidden" value="<%=preview%>" name="preview"/>
     <div class="content">
       <div class="ibox">
         <div class="it">选择图片: * </div>
         <div class="iv">
-          <input name="file" type="file" class="t" value="" style="padding:0px; "/>
+          <input id="file" name="file" type="file" class="t" value="" style="padding:0px; "/>
           <span class="red">选择上传的图片</span> </div>
       </div>
     </div>

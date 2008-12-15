@@ -176,4 +176,11 @@ public interface UserDAO extends BaseDAO{
 	
 	public List findStarUser(int num) throws DAOException;
 	
+	/**
+	 * 验证是否存在这个用户
+	 * @return
+	 * @throws DAOException
+	 */
+	public boolean hasThisUserByName(String username) throws DAOException;
+	
 }

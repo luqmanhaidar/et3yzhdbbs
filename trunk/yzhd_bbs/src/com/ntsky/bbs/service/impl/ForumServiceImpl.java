@@ -126,6 +126,8 @@ public class ForumServiceImpl extends BaseServiceImpl implements ForumService{
 			// 当前最大编号为父类下的子类的最大编号+1
 			forum.setDisplayOrder(displayOrder+1);
 		}
+		
+		validateForum(forum);
 		forum.setDateCreated(new Date());
 		// 保存论坛信息到数据库
 		try{
@@ -160,6 +162,7 @@ public class ForumServiceImpl extends BaseServiceImpl implements ForumService{
 	public void editForum(Forum forum) throws ServiceException {
 		Forum tempForum = null;
 		try{
+			validateForum(forum);
 			tempForum = forumDAO.findForum(forum.getId().intValue());
 			tempForum.setName(forum.getName());
 			tempForum.setDisplayOrder(forum.getDisplayOrder());
@@ -192,6 +195,21 @@ public class ForumServiceImpl extends BaseServiceImpl implements ForumService{
 		} catch (DAOException daoException) {
 			throw new ServiceException("更新论坛版块[" + forum.getName() + "]发生错误.");
 		}
+	}
+	
+	private void validateForum(Forum forum){
+		String masters=forum.getMasters();
+		String[] oldMasters=StringUtil.splitStringToArray(masters, ",");
+		String newMasters="";
+		for(int i=0;i<oldMasters.length;i++){
+			if(userDAO.hasThisUserByName(oldMasters[i])){
+				newMasters=newMasters+","+oldMasters[i];
+			}		
+		}
+		if(newMasters.length()>0){
+			newMasters=newMasters.substring(1,newMasters.length());
+		}
+		forum.setMasters(newMasters);
 	}
 	
 	/**

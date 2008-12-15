@@ -14,7 +14,12 @@
 					</#if>
 						<td>
 							<li>
-								<a class="black_1" href="topic.action?topicId=${topic.id}">${topic.getAutoTitle(13)}</a>
+								<a class="black_1" href="topic.action?topicId=${topic.id}"
+								title=
+"主题：${topic.title}
+发帖用户：${topic.username?if_exists}
+${topic.lastPostTime?string("yyyy-MM-dd HH:mm:ss")}">				
+								${topic.getAutoTitle(13)}</a>
 							</li>
 				    	</td>
 				    <#if newc==1>
@@ -44,7 +49,12 @@
 					</#if>
 						<td>
 							<li>
-								<a class="black_1" href="topic.action?topicId=${topic.id}">${topic.shortTitle}</a>
+								<a class="black_1" href="topic.action?topicId=${topic.id}"
+								title=
+"主题：${topic.title}
+发帖用户：${topic.username?if_exists}
+${topic.lastPostTime?string("yyyy-MM-dd HH:mm:ss")}">				
+								${topic.getAutoTitle(13)}</a>
 							</li>
 				    	</td>
 				    <#if newc==1>

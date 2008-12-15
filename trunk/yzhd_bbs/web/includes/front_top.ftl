@@ -17,7 +17,21 @@
                 <li><A href="forum.action?forumId=${forum.id}" target=_blank>${forum.name}</A> </li>
             </#if>
             </#if>
-			</#list>             
+			</#list>
+			<li class="heng2_li">用户中心</li>
+			 <#if Session["sessionUser"]?exists>
+			 	<li><a href="myTopics.action">发表的主题</a></li>
+			 	<li><a href="myRef.action">参与的主题</a></li>
+			 	<li><a href="myGift-page.action?username=${Session["sessionUser"].username}">我的积分</a></li>
+			 	<li><a href="editUser-info.action">个人设置</a></li>
+			 	<li><a href="writeMessage-page.action">短信息</a></li>
+			 	<li><a href="myFavorites.action">收藏夹</a></li>
+			 	<li><a href="">忘记密码</a></li>
+			 	<li><a href="logout.action">退出登录</a></li>
+			 <#else>
+				<li><a href="login.action">登录</a></li>
+				<li><a href="signup-page.action">注册</a></li>
+			 </#if>          
               </ul></td>
           </tr>
         </table>

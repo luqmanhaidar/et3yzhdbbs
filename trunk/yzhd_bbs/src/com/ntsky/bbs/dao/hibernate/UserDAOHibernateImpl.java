@@ -393,5 +393,14 @@ public class UserDAOHibernateImpl extends BaseDAOHibernateImpl implements UserDA
 		}
 		return stars;
 	}
+
+	public boolean hasThisUserByName(String username) throws DAOException {
+		User user=this.findUser(username);
+		if(user==null){
+			return false;
+		}else{
+			return true;
+		}
+	}
 	
 }
