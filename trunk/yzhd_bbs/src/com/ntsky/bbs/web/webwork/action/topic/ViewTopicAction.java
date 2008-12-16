@@ -157,7 +157,7 @@ public class ViewTopicAction extends TopicActionSupport {
 			logger.info("查询主题 ['"+topicId+"'] 的信息.");
 		}
 		// ---------- 权限 ------------
-		if(super.isAccess("canViewTopic")==0){
+		if(super.isAccess("canViewTopic")==0 || super.isAccess("canViewForum")==0){
 			return NO_PERMISSION;
 		}
 		try{

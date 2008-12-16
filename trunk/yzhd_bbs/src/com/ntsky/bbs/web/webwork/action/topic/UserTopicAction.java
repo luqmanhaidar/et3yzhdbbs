@@ -2,10 +2,14 @@ package com.ntsky.bbs.web.webwork.action.topic;
 
 import java.util.List;
 
+import org.springframework.web.servlet.support.RequestContext;
+
 import com.ntsky.bbs.exception.ActionException;
 import com.ntsky.bbs.exception.ServiceException;
 import com.ntsky.bbs.util.page.Pagination;
 import com.ntsky.bbs.util.page.QueryResult;
+import com.ntsky.framework.upload.Request;
+import com.opensymphony.webwork.ServletActionContext;
 /**
  * 管理员列表主题
  *  
@@ -45,7 +49,8 @@ public class UserTopicAction extends TopicActionSupport {
 
 
 		try{
-			QueryResult queryResult =topicService.findTopicsByUser(getParameter("username"), new Pagination(getIntParameter("start")));
+			String username =new String(getParameter("username").getBytes("iso-8859-1"));
+			QueryResult queryResult =topicService.findTopicsByUser(username, new Pagination(getIntParameter("start")));
 			setTopics(queryResult.getItems());
 			setPagination(queryResult.getPagination());
 

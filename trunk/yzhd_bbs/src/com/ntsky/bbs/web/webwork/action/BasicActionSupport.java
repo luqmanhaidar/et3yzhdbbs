@@ -57,6 +57,7 @@ public abstract class BasicActionSupport extends ActionSupport {
 	
 	// 编号
 	protected int id;
+	protected HttpServletRequest request = getRequest();
 	public void setId(int id){
 		this.id = id;
 	}

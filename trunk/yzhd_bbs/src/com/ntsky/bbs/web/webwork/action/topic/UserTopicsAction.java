@@ -1,22 +1,16 @@
 package com.ntsky.bbs.web.webwork.action.topic;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import com.opensymphony.xwork.Preparable;
-
 import com.ntsky.bbs.Symbols;
-import com.ntsky.bbs.domain.Announcement;
-import com.ntsky.bbs.domain.Forum;
-import com.ntsky.bbs.domain.Help;
 import com.ntsky.bbs.exception.ActionException;
 import com.ntsky.bbs.exception.ServiceException;
-import com.ntsky.bbs.util.page.Pagination;
-import com.ntsky.bbs.util.page.QueryResult;
 import com.ntsky.bbs.util.config.SystemConfig;
 import com.ntsky.bbs.util.memory.ForumSingleton;
+import com.ntsky.bbs.util.page.Pagination;
+import com.ntsky.bbs.util.page.QueryResult;
 /**
  * 用户发表的主题列表
  *  
@@ -75,7 +69,7 @@ public class UserTopicsAction extends TopicActionSupport {
 			QueryResult queryResult = topicService.getUserTopics(super.getSessionUser().getUsername(),forumId,super.getWd(),orderMap,new Pagination(getPaginationStart(),SystemConfig.getInstance().getIntPropertyValue(Symbols.PAGINATION,Symbols.PAGINATION_TOPIC)));
 			setTopics(queryResult.getItems());
 			setPagination(queryResult.getPagination());
-			System.out.println("fdafadsfdsafads  "+topics.size());
+			//System.out.println("fdafadsfdsafads  "+topics.size());
 			// 全部论坛
 			setForums(ForumSingleton.getInstance().getForums());
 			
