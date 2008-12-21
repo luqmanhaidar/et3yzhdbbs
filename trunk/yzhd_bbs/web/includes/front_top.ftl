@@ -14,7 +14,7 @@
             	<li class="heng2_li">${forum.name}</li>
             <#else>		
   			<#if forum.depth==2>
-                <li><A href="forum.action?forumId=${forum.id}" target=_blank>${forum.name}</A> </li>
+                <li><A href="forum.action?forumId=${forum.id}" target=_blank>${forum.name}</A></li>
             </#if>
             </#if>
 			</#list>
@@ -38,7 +38,7 @@
         </span> </a>
          <#if forum?exists>
         <span>→</span>
-        <a href="forum.action?forumId=${forum.id}">${forum.name}</a>
+        <a href="forum.action?forumId=${forum.id}">${forum.name}</a>&nbsp;&nbsp;本版版主：<font color="#000000"> <#if forum.masters="">暂无版主<#else><!--<#list forum.masters?split(",") as master><b style="color:black" onClick="window.open('user.action?username=${URLEncoder.encode(master)}')" style="cursor:hand">${master},</b></#list>--></#if>${forum.masters}</font>
         </#if>
          >> 欢迎您 
     		<#if Session["sessionUser"]?exists>

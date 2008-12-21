@@ -38,7 +38,6 @@ public class EditUserAction extends UserActionSupport implements ModelDriven,Ses
 			System.out.println("dsfdsfds"+user.getFace());
 			userService.editUser(user);
 			setActionMessage("修改[' "+username+" ']的资料成功");
-			
 			// 修改资料成功后，重新设置用户Session
 			super.setUserSession(session, userService.getUser(getSessionUser().getId()));
 		}

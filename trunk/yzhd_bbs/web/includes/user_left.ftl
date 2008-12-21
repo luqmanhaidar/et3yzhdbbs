@@ -33,10 +33,10 @@
      </#if>
      <#if item=6>
        <LI class=b2><A class=red_4   
-  href="writeMessage-page.action">短信息</A> 
+  href="myMessages.action">短信息</A> 
      <#else>
   <LI class=b1><A class=grey_1  
-  href="writeMessage-page.action">短信息</A> 
+  href="myMessages.action">短信息</A> 
   </#if>
   <#if item=7>
   <LI class=b2><A class=red_4 

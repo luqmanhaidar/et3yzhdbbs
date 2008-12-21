@@ -46,8 +46,12 @@ function __doPostBack(eventTarget, eventArgument) {
         theForm.__EVENTARGUMENT.value = eventArgument;
         theForm.submit();
     }
+
 }
 //]]>
+	window.onload = function(){
+		 	document.getElementById("viewFace").src =document.getElementById("hiddenFace").value;
+		}
 </SCRIPT>
       <SCRIPT src="images/WebResource.axd" type=text/javascript></SCRIPT>
       <SCRIPT src="images/WebResource(1).axd" type=text/javascript></SCRIPT>
@@ -130,7 +134,13 @@ return true;
 				else{
 				    face.src = imagenum.value;
 				}
-				document.getElementById("hiddenFace").value =face.src; 
+				if( imagenum.value.length <3 ){ 
+				    document.getElementById("hiddenFace").value = "images/face/"+imagenum.value+".gif";
+				}
+				else{
+				    document.getElementById("hiddenFace").value = imagenum.value;
+				}
+				//document.getElementById("hiddenFace").value =face.src; 
 			}
 		</script>
 							<input type="hidden" name="face" value="${user.face?if_exists}" id="hiddenFace"/>

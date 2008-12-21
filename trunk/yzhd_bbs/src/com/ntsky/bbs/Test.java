@@ -16,7 +16,7 @@ public class Test {
 		}
 		
 		String abc = "aaa";
-		
+		abc.substring(0, abc.length()-1);
 		
 		String aa = "123";
 		System.out.println(aa.split(":")[0]);
