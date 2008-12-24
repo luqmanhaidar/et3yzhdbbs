@@ -1,8 +1,4 @@
-/*
-	project: internet broadcast template
-	author: luka cvrk (www.solucija.com) 
-	
-*/
+
    
 /* default styles */
 body { padding: 5px 0 0 0; margin: 0; font: .7em Tahoma, Arial, sans-serif; line-height: 1.7em; background: #fff url(images/bg.gif) repeat-x; color: #454545; }
@@ -18,9 +14,22 @@ img { border: 0; }
 
 /* layout */
 #content { margin: 10px auto; width: 960px; }
-#logo { margin: 0 0 10px 0; }
+#header { margin:0 auto}
+#logo { margin: 0 0 10px 0; float:left }
 #slogan { font-size: 0.9em; margin: 0 0 10px 2px; padding: 0; color: #808080; background: #fff; }
-#top_info { line-height: 27px; float: right; color: #808080; background: #fff; margin: 12px 5px 7px 0; text-align: right; height: 74px; }
+#top_banner { 
+	float:left;
+	width:580px;
+	background: #f4f4f4;
+	color: #808080;	
+	padding: 15px;
+	margin: 0 0 15px 15px;
+}
+#top_info { 
+	float: right;
+	color: #808080;
+	margin: 0;
+}
 
 /* round blue login button */
 #loginbutton a { text-decoration: none; width: 24px; padding: 7px 12px; margin: 0 0 0 8px; height: 28px; background: #fff url(images/lb.gif) no-repeat; color: #000; }
@@ -49,28 +58,35 @@ img { border: 0; }
 	#tablist .key { text-decoration: underline; }
 
 /* main menu topics */
-#topics {
+#menu {
 	clear: left;
 	float: left;
 	width: 640px;
-	background: #B0D0DC url(images/topicsbg.gif) repeat-x left bottom;
 	padding: 8px 5px;
 	margin: 0 0 5px 0;
 	color: #fff;
 	height: 59px;
 }
-	#topics li a { background-image: url(images/bullet.gif); background-repeat: no-repeat; background-position: center left;  padding: 0 0 0 12px; }
+
+#menu_des{ 
+	clear:left;
+	float:left;
+	background: #B0D0DC url(images/topicsbg.gif) repeat-x left bottom;
+	padding: 5px 15px 5px 15px;
+	width:640px;
+}
 
 /* main menu search */
 #search {
+clear:right;
 	float: right;
 	text-align: right;
 	background: #fff url(images/searchbg.gif) no-repeat;
 	color: #000;
-	padding: 32px 20px 12px 20px;
+	
 	min-height: 32px; /* FF height */
 	height: 25px;	/* IE height */
-	width: 270px;
+	
 }
 	/* search form styling */
 	form, form p { margin: 0; padding: 0; line-height: 25px; }
@@ -108,7 +124,7 @@ img { border: 0; }
 			height: 150px;
 			margin: 0 15px 10px 0;
 		}
-	.left_box {
+	.ads {
 		background: #f4f4f4;
 		color: #808080;
 		border-top: 1px dotted #ccc;
