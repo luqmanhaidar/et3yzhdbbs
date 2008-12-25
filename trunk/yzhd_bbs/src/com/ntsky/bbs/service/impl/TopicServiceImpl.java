@@ -282,7 +282,10 @@ public class TopicServiceImpl extends BaseServiceImpl implements TopicService{
 	 */	
 	public Topic getTopic(int topicId) throws ServiceException {
 		try{
-			return topicDAO.findTopic(topicId);
+			Topic tmp=topicDAO.findTopic(topicId);			
+			tmp.setAlias(userDAO.findUser(tmp.getUsername()).getAlias());
+			return tmp;
+			
 		}
 		catch(DAOException de){
 			throw new ServiceException("查找主题topicId ['"+topicId+"'] 发生错误.");
@@ -426,15 +429,16 @@ public class TopicServiceImpl extends BaseServiceImpl implements TopicService{
 	 */
 	public QueryResult getTopics(int forumId, Map orderMap, Pagination pagination) throws ServiceException{
 		try{
-			return topicDAO.findTopics(forumId,orderMap,pagination);
-			/*List topics = queryResult.getItems();
+			//return topicDAO.findTopics(forumId,orderMap,pagination);
+			QueryResult qr=topicDAO.findTopics(forumId,orderMap,pagination);
+			List topics = qr.getItems();
 			Object[] topicArray = topics.toArray();
 			Topic topic = null;
 			for (int i = 0; i < topicArray.length; i++) {
 				topic = (Topic)topicArray[i];
-				topic.setLastPost(postDAO.findPost(topic.getLastPostId()));
+				topic.setAlias(userDAO.findUser(topic.getUsername()).getAlias());
 			}
-			return queryResult;*/
+			return qr;
 		}
 		catch(DAOException daoException){
 			throw new ServiceException(daoException.getMessage());

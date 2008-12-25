@@ -16,6 +16,17 @@ public class Post extends Entity{
 	private int editCount;
 	
 	private Topic topic;
+	private String alias;
+	public String getAlias() {		
+		if("".equals(alias)){
+			return username;
+		}else{
+			return alias;
+		}
+	}
+	public void setAlias(String alias) {
+		this.alias = alias;
+	}
 	
 	public Topic getTopic() {
 		return topic;

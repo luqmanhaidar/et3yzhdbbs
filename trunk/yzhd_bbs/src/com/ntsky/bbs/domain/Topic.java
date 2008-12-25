@@ -24,6 +24,18 @@ public class Topic extends Entity{
 	private String content;
 	private Category category;
 	
+	private String alias;
+	public String getAlias() {		
+		if("".equals(alias)){
+			return username;
+		}else{
+			return alias;
+		}
+	}
+	public void setAlias(String alias) {
+		this.alias = alias;
+	}
+	
 	private String firstPicPath;
 	
 	private int cntPost;//回复次数

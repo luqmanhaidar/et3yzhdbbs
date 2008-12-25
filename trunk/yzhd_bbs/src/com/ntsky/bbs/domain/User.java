@@ -248,8 +248,8 @@ public class User extends Entity{
 		this.indexTopics = indexTopics;
 	}
 
-	public String getAlias() {
-		if(alias.equals("")){
+	public String getAlias() {		
+		if("".equals(alias)){
 			return username;
 		}else{
 			return alias;
