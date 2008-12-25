@@ -249,7 +249,11 @@ public class User extends Entity{
 	}
 
 	public String getAlias() {
-		return alias;
+		if(alias.equals("")){
+			return username;
+		}else{
+			return alias;
+		}
 	}
 	public void setAlias(String alias) {
 		this.alias = alias;
