@@ -98,7 +98,7 @@
 				
 				<li class="subject">
 				<a anyid="0" target="_blank" href="topic.action?topicId=${topic.id}">				
-				${topic.title}				
+				[${topic.category.name}]${topic.title}				
 				</a>
 				</li>
 				

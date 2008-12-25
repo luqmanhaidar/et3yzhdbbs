@@ -170,7 +170,7 @@ public class ViewTopicAction extends TopicActionSupport {
 			// 主题
 			topic = topicService.getTopic(topicId);
 
-
+//System.out.println(topic.getCategory());
 
 			if(topic.getIsDelete()!=1)
 			{

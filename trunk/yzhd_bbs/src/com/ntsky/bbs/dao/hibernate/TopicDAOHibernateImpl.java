@@ -37,7 +37,7 @@ import com.ntsky.bbs.util.page.QueryResult;
  * @version $Revision: 1.28 $ $Date: 2008/10/26 16:41:30 $
  */
 public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements TopicDAO {
-	
+
 	/**
 	 * 取得制定论坛的贴子
 	 * 
@@ -70,7 +70,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			throw new DAOException("列表主题发生错误");
 		}
 	}
-	
+
 	/**
 	 * 取得用户发表的帖子 
 	 * @param username 用户名
@@ -97,7 +97,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			throw new DAOException("列表主题发生错误");
 		}
 	}
-	
+
 	/**
 	 * 检索帖子
 	 * @param forumId 论坛编号
@@ -117,6 +117,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 				detachedCriteria.add(Restrictions.eq("forumId",new Integer(forumId)));
 			}
 			detachedCriteria.createAlias("forum", "forum");
+			detachedCriteria.createAlias("category", "category");
 			detachedCriteria.add(Restrictions.like(type,"%"+keyword+"%"));
 			//过滤只有管理员才能看到的主题
 			if(isMaster==0){
@@ -146,7 +147,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			throw new DAOException("列表主题发生错误");
 		}
 	}
-	
+
 	/**
 	 * 取得制定论坛的贴子
 	 * 
@@ -168,7 +169,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 		}
 
 	}	
-	
+
 	/**
 	 * 根据主题编号查找主题信息
 	 * 
@@ -188,7 +189,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			throw new DAOException("取得 topicId(" +topicId+ ") 对应的帮助信息发生错误");
 		}
 	}
-	
+
 	/**
 	 * 根据主题编号查找主题信息
 	 * @param topicId 主题编号
@@ -205,7 +206,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			throw new DAOException("取得 topicId(" +topicId+ ") 对应的帮助信息发生错误");
 		}
 	}
-	
+
 	/**
 	 * 根据主题论坛版块编号删除主题
 	 * 
@@ -221,7 +222,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			throw new DAOException("根据主题论坛版块编号forumId(" +forumId+ ")删除对应的帖子信息发生错误.");
 		}
 	}
-	
+
 	/**
 	 * 更新贴子浏览次数
 	 *  
@@ -236,7 +237,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			throw new DAOException("增加贴子topicId(" +topicId+ ")被浏览次数失败.");
 		}
 	}	
-	
+
 	/**
 	 * 更新主题是否被删除状态
 	 *
@@ -270,7 +271,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			throw new DAOException("更新主题是否被置顶发生错误.");
 		}
 	}
-	
+
 	/**
 	 * 更改主题所属论坛
 	 * 
@@ -286,7 +287,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			throw new DAOException("更改主题所属论坛发生错误.");
 		}		
 	}
-	
+
 	/**
 	 * 更新主题状态
 	 *
@@ -303,7 +304,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			throw new DAOException("更新主题状态发生错误.");
 		}
 	}
-	
+
 	/**
 	 * 物理删除主题(不可恢复)
 	 * @param topicId
@@ -317,7 +318,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			throw new DAOException("物理删除主题(删除后不可恢复)发生错误.");
 		}
 	}
-	
+
 	/**
 	 * 将主题丢到垃圾箱
 	 * @param topicId 主题编号
@@ -331,7 +332,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			throw new DAOException("将主题删除,丢到垃圾箱....");
 		}
 	}
-	
+
 	/**
 	 * 取得主题总数
 	 * @return
@@ -341,11 +342,11 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 		try{
 			return (Integer)super.findByAggregate("select count(t.id) from Topic as t where t.isDelete=0");
 		}
- 		catch(DAOException daoException){
+		catch(DAOException daoException){
 			throw new DAOException("统计贴子总数失败.");
 		}
 	}
-	
+
 	/**
 	 * 根据ForumId统计主题总数
 	 * @param forums
@@ -367,11 +368,11 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			}
 			return (Integer)super.findByAggregate("select count(t.id) from Topic as t where ("+forumEnum+") and t.isDelete=0");
 		}
- 		catch(DAOException daoException){
+		catch(DAOException daoException){
 			throw new DAOException("统计贴子总数失败.");
 		}		
 	}	
-	
+
 	/**
 	 * 根据论坛编号查找制定数目的主题
 	 * @param forumId 论坛编号
@@ -391,8 +392,8 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			throw new DAOException("根据论坛编号查找制定数目的主题失败");
 		}
 	}
-	
-	
+
+
 	/**
 	 * 根据论坛编号查找制定数目的主题
 	 * @param forumId 论坛编号
@@ -412,7 +413,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			throw new DAOException("根据论坛编号查找制定数目的主题失败");
 		}
 	}
-	
+
 	/**
 	 * 移动主题
 	 *
@@ -428,7 +429,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			throw new DAOException("根据论坛编号查找制定数目的主题失败");
 		}
 	}
-	
+
 	/**
 	 * 取得最新发表的帖子
 	 * @param forumId 论坛编号 forumId 0 全部论坛查找
@@ -450,7 +451,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			throw new DAOException("列表最新发表的帖子失败");
 		}		
 	}
-	
+
 	/**
 	 * 取得最新回复的帖子
 	 * @param forumId 论坛编号 forumId 0 全部论坛查找
@@ -484,57 +485,15 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			String sSql="";
 			if(forumId ==0){
 				sSql="SELECT b.id,b.title,(select count(*) from ntsky_t_post a where a.topic_id=b.id and a.date_created between DATE_ADD(now(), Interval -1 day) and now()) as cnt_post "+
-					"FROM ntsky_t_topic b where b.is_delete=0 order by cnt_post desc limit "+num+"";							
+				"FROM ntsky_t_topic b where b.is_delete=0 order by cnt_post desc limit "+num+"";							
 			}else{
 				sSql="SELECT b.id,b.title,(select count(*) from ntsky_t_post a where a.topic_id=b.id and a.date_created between DATE_ADD(now(), Interval -1 day) and now()) as cnt_post "+
-					"FROM ntsky_t_topic b where b.forum_id="+forumId+" and b.is_delete=0 order by cnt_post desc limit "+num+"";				
+				"FROM ntsky_t_topic b where b.forum_id="+forumId+" and b.is_delete=0 order by cnt_post desc limit "+num+"";				
 			}			
 			st = con.createStatement();//这样就够了
 			rs = st.executeQuery(sSql);
 			//return rs;我们也一定不要做return rs的事情，我们把提取出来的东西放在List里面
-			
-			//当rs有下一位
-			while(rs.next()){
-				topic =new Topic();
-				topic.setId(Long.parseLong(rs.getString("id")));
-				topic.setTitle(rs.getString("title"));
-				topic.setCntPost(Integer.parseInt(rs.getString("cnt_post")));	
-				list.add(topic);
-			}
-			//con.close();它这里说不能达到的代码，就是说，如果try到某个地方死了，这个连接就不关闭了，不安全了
-		}
-		catch(Exception exception){
-			logger.error(exception.getMessage());
-		}finally{
-			try {
-				con.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return list;	
-	}
-	
-	public List getWeekTopics(int forumId,int num){
-		JDBCManager jdbcManager=new JDBCManager();
-		Connection con=null;//这些东西提在try外面
-		List list=null;
-		Topic topic = null;
-		try{
-			list=new ArrayList();
-			con=jdbcManager.getConnection();
-			String sSql="";
-			if(forumId ==0){
-				sSql="SELECT b.id,b.title,(select count(*) from ntsky_t_post a where a.topic_id=b.id and a.date_created between DATE_ADD(now(), Interval -7 day) and now()) as cnt_post "+
-					"FROM ntsky_t_topic b where b.is_delete=0 order by cnt_post desc limit "+num+"";							
-			}else{
-				sSql="SELECT b.id,b.title,(select count(*) from ntsky_t_post a where a.topic_id=b.id and a.date_created between DATE_ADD(now(), Interval -7 day) and now()) as cnt_post "+
-					"FROM ntsky_t_topic b where b.forum_id="+forumId+" and  b.is_delete=0 order by cnt_post desc limit "+num+"";				
-			}			
-			st = con.createStatement();//这样就够了
-			rs = st.executeQuery(sSql);
-			//return rs;我们也一定不要做return rs的事情，我们把提取出来的东西放在List里面
-			
+
 			//当rs有下一位
 			while(rs.next()){
 				topic =new Topic();
@@ -557,8 +516,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 		return list;	
 	}
 
-	
-	public List getHotTopics(int forumId,int num){
+	public List getWeekTopics(int forumId,int num){
 		JDBCManager jdbcManager=new JDBCManager();
 		Connection con=null;//这些东西提在try外面
 		List list=null;
@@ -568,16 +526,16 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			con=jdbcManager.getConnection();
 			String sSql="";
 			if(forumId ==0){
-				sSql="SELECT b.id,b.title,(select count(*) from ntsky_t_post a where a.topic_id=b.id) as cnt_post "+
-					"FROM ntsky_t_topic b where b.is_delete=0 order by cnt_post desc limit "+num+"";							
+				sSql="SELECT b.id,b.title,(select count(*) from ntsky_t_post a where a.topic_id=b.id and a.date_created between DATE_ADD(now(), Interval -7 day) and now()) as cnt_post "+
+				"FROM ntsky_t_topic b where b.is_delete=0 order by cnt_post desc limit "+num+"";							
 			}else{
-				sSql="SELECT b.id,b.title,(select count(*) from ntsky_t_post a where a.topic_id=b.id) as cnt_post "+
-					"FROM ntsky_t_topic b where b.forum_id="+forumId+" and  b.is_delete=0 order by cnt_post desc limit "+num+"";				
+				sSql="SELECT b.id,b.title,(select count(*) from ntsky_t_post a where a.topic_id=b.id and a.date_created between DATE_ADD(now(), Interval -7 day) and now()) as cnt_post "+
+				"FROM ntsky_t_topic b where b.forum_id="+forumId+" and  b.is_delete=0 order by cnt_post desc limit "+num+"";				
 			}			
 			st = con.createStatement();//这样就够了
 			rs = st.executeQuery(sSql);
 			//return rs;我们也一定不要做return rs的事情，我们把提取出来的东西放在List里面
-			
+
 			//当rs有下一位
 			while(rs.next()){
 				topic =new Topic();
@@ -599,7 +557,50 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 		}
 		return list;	
 	}
-	
+
+
+	public List getHotTopics(int forumId,int num){
+		JDBCManager jdbcManager=new JDBCManager();
+		Connection con=null;//这些东西提在try外面
+		List list=null;
+		Topic topic = null;
+		try{
+			list=new ArrayList();
+			con=jdbcManager.getConnection();
+			String sSql="";
+			if(forumId ==0){
+				sSql="SELECT b.id,b.title,(select count(*) from ntsky_t_post a where a.topic_id=b.id) as cnt_post "+
+				"FROM ntsky_t_topic b where b.is_delete=0 order by cnt_post desc limit "+num+"";							
+			}else{
+				sSql="SELECT b.id,b.title,(select count(*) from ntsky_t_post a where a.topic_id=b.id) as cnt_post "+
+				"FROM ntsky_t_topic b where b.forum_id="+forumId+" and  b.is_delete=0 order by cnt_post desc limit "+num+"";				
+			}			
+			st = con.createStatement();//这样就够了
+			rs = st.executeQuery(sSql);
+			//return rs;我们也一定不要做return rs的事情，我们把提取出来的东西放在List里面
+
+			//当rs有下一位
+			while(rs.next()){
+				topic =new Topic();
+				topic.setId(Long.parseLong(rs.getString("id")));
+				topic.setTitle(rs.getString("title"));
+				topic.setCntPost(Integer.parseInt(rs.getString("cnt_post")));	
+				list.add(topic);
+			}
+			//con.close();它这里说不能达到的代码，就是说，如果try到某个地方死了，这个连接就不关闭了，不安全了
+		}
+		catch(Exception exception){
+			logger.error(exception.getMessage());
+		}finally{
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return list;	
+	}
+
 	public List getGoodTopics(int forumId, int num) {
 		try{
 			DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Topic.class); 
@@ -624,29 +625,29 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 		.addOrder(Order.desc("dateCreated"))
 		.setMaxResults(num)
 		.list();
-		
+
 		for(int i=0;i<topics.size();i++){
 			Topic topic=(Topic)topics.get(i);
 			Forum forum=(Forum)this.getHibernateTemplate().find("from Forum where id="+topic.getForumId()).get(0);
 			topic.setForum(forum);
 		}
-		
+
 		return topics;
 	}
-	
+
 	public Topic getRandomTopics(int forumId) {
 		JDBCManager jdbcManager=new JDBCManager();
 		Connection con=null;//这些东西提在try外面
-		
+
 		Topic topic = null;
 		try{
-			
+
 			con=jdbcManager.getConnection();
 			String sSql="";
 			if(forumId ==0){
 				sSql="select * from (SELECT a.forum_id,a.id,a.topic_id,b.title,a.content,(select count(*) as pm from ntsky_t_post c "+
-					"where a.id>c.id and c.topic_id =b.id) as pm FROM ntsky_t_topic b,ntsky_t_post a where b.is_delete=0 and "+
-					"b.id=a.topic_id order by a.topic_id,b.id) t where t.pm=0 and t.content like '%<img%' order by rand() limit 1";							
+				"where a.id>c.id and c.topic_id =b.id) as pm FROM ntsky_t_topic b,ntsky_t_post a where b.is_delete=0 and "+
+				"b.id=a.topic_id order by a.topic_id,b.id) t where t.pm=0 and t.content like '%<img%' order by rand() limit 1";							
 			}else{
 				sSql="select * from (SELECT a.forum_id,a.id,a.topic_id,b.title,a.content,(select count(*) as pm from ntsky_t_post c "+
 				"where a.id>c.id and c.topic_id =b.id) as pm FROM ntsky_t_topic b,ntsky_t_post a where b.is_delete=0 and "+
@@ -655,7 +656,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			st = con.createStatement();//这样就够了
 			rs = st.executeQuery(sSql);
 			//return rs;我们也一定不要做return rs的事情，我们把提取出来的东西放在List里面
-			
+
 			//当rs有下一位
 			if(rs.next()){
 				topic =new Topic();
@@ -667,10 +668,10 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 					if(cont[i].trim().indexOf("<img")!=-1){
 						content=cont[i+7];
 					}
-					
+
 				}
 				topic.setContent(content);
-				
+
 			}
 			//con.close();它这里说不能达到的代码，就是说，如果try到某个地方死了，这个连接就不关闭了，不安全了
 		}
@@ -691,9 +692,9 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 		title=title.replaceAll("[，。“”：‘？?,.!！]", "");
 		int length=title.length();
 		String temp[]=new String[length-1];
-		
+
 		String sql="from Topic where isDelete=0 ";
-				
+
 		for(int i=2;i<=length;i++){
 			temp[i-2]=title.substring(i-2, i);
 			if(i==2){
@@ -702,16 +703,16 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 				sql=sql+" or title like '%"+temp[i-2]+"%'";
 			}			
 		}
-		
+
 		sql=sql+") order by id desc";
-		
+
 		Query query=this.getSession().createQuery(sql);
 		query.setMaxResults(num);
 		topics=query.list();
-		
+
 		return topics;
 	}
-	
+
 	/*public List getWeekTopics(int forumId,int num){
 		Connection con=null;//这些东西提在try外面
 		System.out.println("=============");
@@ -734,7 +735,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			System.out.println("=============3");
 			//con.commit();
 			//return rs;我们也一定不要做return rs的事情，我们把提取出来的东西放在List里面
-			
+
 			//当rs有下一位
 			while(rs.next()){
 				//rs.getString("xxx");
@@ -745,7 +746,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 				topic.setTitle(rs.getString(2));
 				topic.setCntPost(rs.getInt(3));
 				list.add(topic);		
-				
+
 			}	
 			return list;
 			//con.close();它这里说不能达到的代码，就是说，如果try到某个地方死了，这个连接就不关闭了，不安全了
@@ -760,7 +761,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 				e.printStackTrace();
 			}
 		}
-			
+
 	}*/
 	public QueryResult getReferTopics(int userId,int num,Pagination pagination){
 		JDBCManager jdbcManager=new JDBCManager();
@@ -778,10 +779,10 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			st = con.createStatement();//这样就够了
 			stList = con.createStatement();//这样就够了
 			count="select count(*) as cnt from (SELECT b.*,(select count(*) from ntsky_t_post a where a.topic_id=b.id and a.user_id="+userId+") as cnt_post"+
-				 " FROM ntsky_t_topic b where b.is_delete=0 order by b.last_post_time desc) t where t.cnt_post>0";							
-			
+			" FROM ntsky_t_topic b where b.is_delete=0 order by b.last_post_time desc) t where t.cnt_post>0";							
+
 			sSql="select * from (SELECT b.*,(select count(*) from ntsky_t_post a where a.topic_id=b.id and a.user_id="+userId+") as cnt_post"+
-				 " FROM ntsky_t_topic b where b.is_delete=0 order by b.last_post_time desc) t where t.cnt_post>0 limit "+pagination.getStart()+","+pagination.getRange()+"";							
+			" FROM ntsky_t_topic b where b.is_delete=0 order by b.last_post_time desc) t where t.cnt_post>0 limit "+pagination.getStart()+","+pagination.getRange()+"";							
 
 			rs = st.executeQuery(count);
 			rs.next();
@@ -792,7 +793,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			//logger.debug("检索的起始位置@@@@@@@@sSql:"+sSql);
 			rsList = stList.executeQuery(sSql);
 			//return rs;我们也一定不要做return rs的事情，我们把提取出来的东西放在List里面
-			
+
 			//当rs有下一位
 			while(rsList.next()){
 				topic =new Topic();
@@ -810,7 +811,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 				topic.setLastPostTime(sdf.parse(rsList.getString("last_post_time")));
 				list.add(topic);
 			}
-			
+
 
 			pagination.setTotalRecord(totalRecord);
 			//con.close();它这里说不能达到的代码，就是说，如果try到某个地方死了，这个连接就不关闭了，不安全了
@@ -841,5 +842,19 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 		catch(DAOException de){
 			throw new DAOException("列表主题发生错误");
 		}
+	}
+
+	@Override
+	public void doIsStatus(int topicId, int status) throws DAOException {
+		// TODO Auto-generated method stub
+
+		try{
+			super.executeHsql("update Topic set status="+status+" where id='"+topicId+"'");
+		}
+		catch(DAOException daoException){
+			throw new DAOException("将主题删除,丢到垃圾箱....");
+		}
+
+
 	}
 }

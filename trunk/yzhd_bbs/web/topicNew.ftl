@@ -178,7 +178,7 @@ xmlns="http://www.w3.org/1999/xhtml">
 				     	</#switch>
 				     </#if>
 		      </#switch>
-          ${topic.title} </div>
+              [${category.name}]${topic.title} </div>
         <span>阅读[${topic.views?int}] 回复[${topic.replies?int}]</span> </h2>
         <#if start!=0>
   			</div>

@@ -215,4 +215,6 @@ public interface TopicDAO extends BaseDAO{
 	public List getInterfixTopics(String title,int num);
 	
 	public QueryResult findTopicsByUser(String username, Pagination pagination) throws DAOException;
+	
+	public void doIsStatus(int topicId,int status) throws DAOException;
 }

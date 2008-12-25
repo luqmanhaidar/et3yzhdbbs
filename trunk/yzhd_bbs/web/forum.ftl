@@ -113,7 +113,7 @@
 "主题：${topic.title}
 发帖用户：${topic.username?if_exists}
 ${topic.lastPostTime?string("yyyy-MM-dd HH:mm:ss")}">				
-				[${categoryService.getCategory(topic.categoryId).name}]${topic.title}				
+				[${CategoryService.getCategory(topic.categoryId).name}]${topic.title}				
 				</a>
 				</li>
 				

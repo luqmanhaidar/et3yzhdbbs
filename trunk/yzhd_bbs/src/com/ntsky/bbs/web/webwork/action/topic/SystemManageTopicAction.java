@@ -190,4 +190,14 @@ public class SystemManageTopicAction extends TopicActionSupport {
 	    return SUCCESS;
     }
 	
+	public String doIsStatus() throws Exception {
+		try{
+			topicService.doIsStatus(topicId, status);
+		}
+		catch(ServiceException se){
+			throw new ActionException(se);
+		}
+		return SUCCESS;
+	}
+	
 }

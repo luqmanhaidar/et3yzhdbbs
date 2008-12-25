@@ -230,4 +230,6 @@ public interface TopicService extends BaseService{
 	
 	public QueryResult findTopicsByUser(String username,Pagination pagination) throws ServiceException;
 	
+	public void doIsStatus(int topicId,int status) throws ServiceException; 
+	
 }

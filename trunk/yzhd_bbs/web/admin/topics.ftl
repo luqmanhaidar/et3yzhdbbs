@@ -79,7 +79,7 @@
 		    <div class="lbox1" style="padding:0px;">
 		      <div class="lrbox" style="width:300px; ">
 		        <div class="d" style="width:90px;"><#if topic.username!=GUEST><a href="../user.action?username=${URLEncoder.encode(topic.username?if_exists)}" target="_blank">${topic.username?if_exists}</a><#else>${topic.username?if_exists}</#if></div>
-		        <div class="d" style="width:50px;"><#if topic.status =1>是<#else>否</#if></div>
+		        <div class="d" style="width:50px;"><#if topic.status=1><input type="button" name="" class="tb" value="是" onClick="location.href='manageTopics!isStatus.action?topicId=${topic.id}&amp;status=0&amp;start=${start}'"/><#else><input type="button" name="" class="tb" value="否" onClick="location.href='manageTopics!isStatus.action?topicId=${topic.id}&amp;status=1&amp;start=${start}'"/></#if></div>
 		        <div class="d" style="width:50px;"><#if topic.isTop =1>固顶</#if><#if topic.isTop =2>总固顶</#if><#if topic.isTop =0>没固顶</#if></div>
 		        <div class="d" style="width:50px;">${topic.replies?int}</div>
 		        <div class="d" style="width:50px;">${topic.views}</div>

@@ -214,7 +214,7 @@
 		<action name="manageTopics"
 				class="com.ntsky.bbs.web.webwork.action.topic.SystemManageTopicAction">
 			<interceptor-ref name="adminDefaultStack"/>
-			<result name="success" type="redirect">/admin/topics.action</result>
+			<result name="success" type="redirect">/admin/topics.action?start=${start}</result>
 		</action>
 		<!-- ++++++++++ topic +++++++++/ -->
 		

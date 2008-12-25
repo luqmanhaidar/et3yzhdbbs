@@ -665,4 +665,15 @@ public class TopicServiceImpl extends BaseServiceImpl implements TopicService{
 			throw new ServiceException(daoException.getMessage());
 		}
 	}
+
+	@Override
+	public void doIsStatus(int topicId, int status) throws ServiceException {
+		// TODO Auto-generated method stub
+		try{
+			 topicDAO.doIsStatus(topicId, status);
+		}
+		catch(DAOException daoException){
+			throw new ServiceException(daoException.getMessage());
+		}
+	}
 }
