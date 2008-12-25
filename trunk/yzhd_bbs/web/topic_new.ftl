@@ -7,7 +7,7 @@
 <META content=0pQ+dy/Dy5827YQVNUpbjdHOSOZ8W3mhWELbvwp4sAI= name=verify-v1>
 <META content="MSHTML 6.00.6000.16705" name=GENERATOR>
 <head>
-<title>${application["seo"]["title"]}:${forum.name} — ${topic.title}</title>
+<title>${application["basic"]["bbsName"]?if_exists} - ${forum.name} - ${topic.title}</title>
 <link rel="stylesheet" href="styles/default.css" type="text/css" media="all"/>
 <script type="text/javascript" src="scripts/ntsky/validator.js"></script>
 <script type="text/javascript" src="scripts/FCKeditor/fckeditor.js"></script>	

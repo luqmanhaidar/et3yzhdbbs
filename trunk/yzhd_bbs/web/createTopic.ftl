@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title><#if isVote>发表投票主题<#else>发表主题</#if></title>
+<title>${application["basic"]["bbsName"]?if_exists}-<#if isVote>发表投票主题<#else>发表主题</#if></title>
 
 <link rel="stylesheet" href="styles/default.css" type="text/css" media="all"/>
 <link href="styles/defaulty.css" type="text/css" rel="stylesheet" />
@@ -25,9 +25,9 @@
 		var forumIdSelect = document.getElementById("forumIdSelect");
 		//alert(forumIdSelect.value);
 		document.all.myform.action="createTopic.action?forumId="+forumIdSelect.value;
-  		if(obj.value.length>50)
+  		if(obj.value.length>25)
 		{
-				alert("标题不能超过50个字符！");
+				alert("标题不能超过25个字符！");
 				obj.focus();
 				return false;
 		}

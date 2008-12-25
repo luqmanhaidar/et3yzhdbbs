@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>${application["seo"]["title"]}:${forum.name} — ${topic.title}</title>
+<title>${application["basic"]["bbsName"]?if_exists} - ${forum.name} - ${topic.title}</title>
 <#include "includes/head.ftl">
 <script type="text/javascript" src="scripts/ntsky/validator.js"></script>
 <script type="text/javascript" src="scripts/FCKeditor/fckeditor.js"></script>	

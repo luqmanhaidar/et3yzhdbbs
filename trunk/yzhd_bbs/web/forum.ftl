@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>帖子列表</title>
+<title>${application["basic"]["bbsName"]?if_exists}-帖子列表</title>
 
 <script type="text/javascript" src="scripts/menu/menu.js"></script>
 <link href="styles/defaulty.css" type="text/css" rel="stylesheet" />

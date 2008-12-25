@@ -1251,7 +1251,7 @@ float:left;
 .prompt{ width:530px; margin:10px auto 10px auto;}
 /* ÂÛÌ³´¦²Ëµ¥ */
 .navlink a,.navlink span{display:block;float:left; color:#000; margin:0 1px;}
-.heng2{display:block;line-height:20px;height:20px;width:30px;text-decoration:none;position:relative;overflow:hidden; z-index:9999999999;}
+.heng2{display:block;line-height:20px;height:20px;text-decoration:none;position:relative;overflow:hidden; z-index:9999999999;}
 .action2 .heng2 span table li{padding:0}
 .heng2:hover{color:#0085c7;overflow:visible;}
 .heng2 span{display:block;position:absolute;left:0px;top:18px;width:120px;}

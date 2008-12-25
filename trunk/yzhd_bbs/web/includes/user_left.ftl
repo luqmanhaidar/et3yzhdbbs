@@ -47,7 +47,7 @@
   </#if>
   <LI class=b1><A class=grey_1 
   href="" 
-  target='_blank'>忘记密码</A> 
+  target='_blank'>修改密码</A> 
   <LI class=b1><A class=grey_1 
   href="logout.action">退出</A> 
   </LI></UL></DIV>

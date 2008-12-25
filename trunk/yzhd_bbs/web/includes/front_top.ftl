@@ -5,7 +5,7 @@
 <title>论坛板块</title>
 <div id="nav">
 	<div class="con1">
-	 <DIV class=navlink><A href="#" target=_blank>首页</A> <span>→</span> <A href="#" target=_blank>社区</A> <span>→</span> <A href="index.action" class="heng2" style="margin-top:3px;">论坛<span>
+	 <DIV class=navlink><A href="#" target=_blank>首页</A> <span>→</span> <A href="index.action" class="heng2" style="margin-top:3px;">${application["basic"]["bbsName"]?if_exists}<span>
         <table>
           <tr>
             <td><ul>

@@ -4,7 +4,7 @@
 <HTML 
 xmlns="http://www.w3.org/1999/xhtml">
 <HEAD>
-<TITLE>${application["seo"]["title"]}:${forum.name} — ${topic.title}</TITLE>
+<TITLE>${application["basic"]["bbsName"]?if_exists} - ${forum.name} - ${topic.title}</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=utf-8">
 <link href="styles/defaulty.css" type="text/css" rel="stylesheet" />
 <link href="styles/menu.css" type="text/css" rel="stylesheet" />
