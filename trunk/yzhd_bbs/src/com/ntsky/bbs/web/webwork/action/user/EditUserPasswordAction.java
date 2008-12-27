@@ -40,6 +40,7 @@ public class EditUserPasswordAction extends UserActionSupport {
 	 * 
 	 */
 	public String execute() throws Exception {
+		super.setWarnMessage(null);
 		if(logger.isInfoEnabled()){
 			logger.info("修改用户密码");
 		}

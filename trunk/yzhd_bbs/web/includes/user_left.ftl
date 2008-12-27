@@ -45,9 +45,11 @@
   <LI class=b1><A class=grey_1
   href="myFavorites.action">收藏夹</A> 
   </#if>
-  <LI class=b1><A class=grey_1 
-  href="" 
-  target='_blank'>修改密码</A> 
+  <#if item=8>
+  <LI class=b2><A class=red_4 href="editPassword-page.action">修改密码</A> 
+  <#else>
+  <LI class=b1><A class=grey_1 href="editPassword-page.action">修改密码</A> 
+  </#if>
   <LI class=b1><A class=grey_1 
   href="logout.action">退出</A> 
   </LI></UL></DIV>

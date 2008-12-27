@@ -26,7 +26,7 @@
 			 	<li><a href="editUser-info.action">个人设置</a></li>
 			 	<li><a href="writeMessage-page.action">短信息</a></li>
 			 	<li><a href="myFavorites.action">收藏夹</a></li>
-			 	<li><a href="">忘记密码</a></li>
+			 	<li><a href="editPassword-page.action">修改密码</a></li>
 			 	<li><a href="logout.action">退出登录</a></li>
 			 <#else>
 				<li><a href="login.action">登录</a></li>

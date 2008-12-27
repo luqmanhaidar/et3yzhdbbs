@@ -78,7 +78,7 @@
 			<interceptor-ref name="commonStack"/>
 			<interceptor-ref name="userSession"/>
 			<interceptor-ref name="basicStack"/>
-			<result name="success">/editPassword.ftl</result>
+			<result name="success">/editPassword2.ftl</result>
 		</action>
 		<action name="editUser-page"
 				class="com.ntsky.bbs.web.webwork.action.user.EditUserAction" method="edit">
@@ -120,8 +120,8 @@
 			<interceptor-ref name="commonStack"/>
 			<interceptor-ref name="userSession"/>
 			<interceptor-ref name="basicStack"/>
-			<result name="input">/editPassword.ftl</result>
-			<result name="success">/editPassword.ftl</result>
+			<result name="input">/editPassword2.ftl</result>
+			<result name="success">/editPassword2.ftl</result>
 		</action>		
 		<action name="popup-face"
 				class="com.ntsky.bbs.web.webwork.action.user.ViewUserFaceAction">

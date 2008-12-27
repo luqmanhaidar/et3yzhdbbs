@@ -143,9 +143,7 @@ return true;
 											<input type="text" class="bd1" disabled="disabled"
 												id="txtPass" readonly="readonly" value="****************"
 												name="txtPass" />
-											<a target="_blank" href="#"><span class="f-red1">
-													我的账户</span>
-											</a>
+											
 										</td>
 									</tr>
 									<tr>
