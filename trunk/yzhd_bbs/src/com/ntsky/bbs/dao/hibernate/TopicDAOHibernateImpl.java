@@ -843,8 +843,7 @@ public class TopicDAOHibernateImpl extends BaseDAOHibernateImpl implements Topic
 			throw new DAOException("列表主题发生错误");
 		}
 	}
-
-	@Override
+	
 	public void doIsStatus(int topicId, int status) throws DAOException {
 		// TODO Auto-generated method stub
 

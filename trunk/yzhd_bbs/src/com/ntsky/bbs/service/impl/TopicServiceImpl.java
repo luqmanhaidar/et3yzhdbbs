@@ -666,7 +666,7 @@ public class TopicServiceImpl extends BaseServiceImpl implements TopicService{
 		}
 	}
 
-	@Override
+
 	public void doIsStatus(int topicId, int status) throws ServiceException {
 		// TODO Auto-generated method stub
 		try{
