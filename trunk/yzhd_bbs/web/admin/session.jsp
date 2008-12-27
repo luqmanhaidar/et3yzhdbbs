@@ -20,6 +20,8 @@
 			Admin admin = adminService.getAdmin(username);
 			if (admin == null) {
 				out.print("<script>alert(\"非法登录或登录超时\");top.location.href=\""+request.getContextPath()+"/admin/login.jsp\"</script>");
+			}else{
+				session.setAttribute(Symbols.SESSION_ADMIN,admin);
 			} 
 		}	
 	}	
