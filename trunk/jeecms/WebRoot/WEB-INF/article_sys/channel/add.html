@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<#include "/WEB-INF/cms_sys/head.ftl"/>
+</head>
+<body>
+<div class="body-box">
+<div class="rhead">
+	<div class="rpos">当前位置： 文章系统 - 栏目管理 - 添加</div>
+	<form class="ropt" method="post">
+		<input type="submit" value="返回列表" onclick="this.form.action='Com_list.do?pid=${pid!}';"/>
+	</form>
+	<div class="clear"></div>
+</div>
+<@p.form action="Com_save">
+<@p.td label="模型">${model.name}</@p.td><@p.tr/>
+<@p.td label="上级栏目">${(parent.name)!'顶级栏目'}</@p.td><@p.tr/>
+<@p.text label="名称" name="bean.name" />
+<#if itemMap['path']??>
+<@p.text label=itemMap['path'].label name="bean.path" />
+</#if>
+<#if itemMap['outerUrl']??>
+<@p.text label=itemMap['outerUrl'].label name="bean.outerUrl" size="50"/>
+</#if>
+<#if itemMap['tplIndex']??>
+<@p.select label=itemMap['tplIndex'].label name="bean.tplIndex" list=tplChannlList headerKey="" headerValue="使用默认模板"/>
+</#if>
+<#if itemMap['tplContent']??>
+<@p.select label=itemMap['tplContent'].label name="bean.tplContent" list=tplContentList headerKey="" headerValue="使用默认模板"/>
+</#if>
+<#if itemMap['title']??>
+<@p.text label=itemMap['title'].label name="bean.title" size="60"/>
+</#if>
+<#if itemMap['keywords']??>
+<@p.text label=itemMap['keywords'].label name="bean.keywords" size="60"/>
+</#if>
+<#if itemMap['description']??>
+<@p.text label=itemMap['description'].label name="bean.description" size="60"/>
+</#if>
+<#if itemMap['priority']??>
+<@p.text label=itemMap['priority'].label name="bean.priority" size="12" value="10"/>
+</#if>
+<#if itemMap['contributeLevel']??>
+<@p.text label=itemMap['contributeLevel'].label name="bean.contributeLevel" size="12" value="1000" help="会员组级别>=该值的会员均可投稿。"/>
+</#if>
+<#if itemMap['display']??>
+<@p.radio label=itemMap['display'].label name="bean.display" list={'true':'是', 'false':'否'} value="true"/>
+</#if>
+<#if itemMap['paramData']??>
+<@p.td label=itemMap['paramData'].label noHeight="true" help="多个栏目共享同一模板时，可以通过栏目数据实现栏目页个性化" helpPosition="3">
+数据1：<@p.text name="bean.param1" size="12"/> &nbsp;
+数据2：<@p.text name="bean.param2" size="12"/> &nbsp;
+数据3：<@p.text name="bean.param3" size="12"/>
+</@p.td><@p.tr/>
+</#if>
+<@p.td>
+<input type="hidden" name="pid" value="${pid!}"/>
+<input type="hidden" name="bean.parent.id" value="${pid!}"/>
+<input type="hidden" name="bean.model.id" value="${modelId}"/>
+<@p.submit value="保存"/> &nbsp; <@p.reset value="重置"/></@p.td>
+</@p.form>
+</div>
+</body>
+</html>

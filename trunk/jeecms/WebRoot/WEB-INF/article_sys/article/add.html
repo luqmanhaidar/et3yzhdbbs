@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<#include "/WEB-INF/article_sys/head.ftl"/>
+<script type="text/javascript">
+var attrMap = {};
+<#list artiCtgList as attr>
+attrMap['${attr.id}'] = [${attr.imgWidth},${attr.imgHeight}];
+</#list>
+function attrChange(id) {
+	$('#zoomWidth').val(attrMap[id][0]);
+	$('#zoomHeight').val(attrMap[id][1]);
+}
+function upload() {
+	if($('#uploadFile').val()=='') {
+		alert('请选择要上传的图片');
+		return;
+	}
+	var f = $('#submitForm');
+	var oaction = f.attr('action');
+	var oenctype = f.attr('enctype');
+	var otarget = f.attr('target');
+	f.attr('action','${base}/admin/core/common/UploadImg.do');
+	f.attr('encoding','multipart/form-data');
+	f.attr('target','hiddenIframe');
+	f.submit();
+	f.attr('action',oaction);
+	f.attr('encoding',oenctype);
+	f.attr('target',otarget);
+}
+function imgCut() {
+	if($('#uploadImgPath').val()=='') {
+		alert("请先上传图片，再剪裁");
+		return;
+	}
+	var url = "${base}/admin/core/common/ImgAreaSelect.do?imgSrcRoot=${web.uploadUrl}&imgSrcPath="
+		+$("#uploadImgPath").val()+"&zoomWidth="+$("#zoomWidth").val()+"&zoomHeight="+$("#zoomHeight").val();
+	window.open(url,"imgcut","height=550, width=1000, top=0, left=0, toolbar=no, menubar=no, scrollbars=auto, resizable=yes,location=no, status=no");
+}
+function clearImg() {
+	$('#uploadImgPath').val("");
+	$('#preImg').attr("src","");
+}
+</script>
+</head>
+<body>
+<div class="body-box">
+<div class="rhead">
+	<div class="rpos">当前位置： 文章系统 - 文章管理 - 添加</div>
+	<form class="ropt" method="post">
+		<input type="submit" value="返回列表" onclick="this.form.action='Com_list.do?chnlId=${chnlId}';"/>
+	</form>
+	<div class="clear"></div>
+</div>
+<@p.form id="submitForm" labelWidth="12" action="Com_save">
+<@p.td colspan="1" width="50" label="所属栏目">${chnl.name}</@p.td>
+<@p.select colspan="1" width="50" label="文章属性" name="bean.ctg.id" onchange="attrChange(this.value);" list=artiCtgList listKey="id" listValue="nameWithComment"/>
+<@p.tr/>
+<@p.text colspan="2" label="标题" name="bean.title" size="80" noValue="true"/><@p.tr/>
+<@p.text colspan="1" label="简短标题" name="bean.shortTitle" width="50" size="35" class="pn-fruler" noValue="true" help="在文章列表中显示，不填写则显示完整标题" helpPosition="3"/>
+<@p.td label="标题颜色" width="50" help="在文章列表中的样式" helpPosition="3">
+<select name="bean.titleColor" onchange="this.blur();">
+	<option value="">--默认--</option>
+	<#list ["#000000","#FFFFFF","#FF0000","#FFFF00","#00FF00","#00FFFF","#0000FF","#FF00FF","#808080","#C0C0C0","#800000","#808000","#008000","#008080","#000080","#800080"] as c>
+	<option value="${c}" style="background-color:${c}"></option>
+	</#list>
+</select>
+<@p.checkbox name="bean.bold" value="true" labelFor="加粗"/></@p.td><@p.tr/>
+<@p.textarea colspan="2" label="内容概要" name="bean.description" cols="80" rows="3" noValue="true"/><@p.tr/>
+<@p.text colspan="2" label="Tag标签" name="bean.tags" size="35" noValue="true" help="用,分割"/><@p.tr/>
+<#--
+<@p.radio colspan="1" width="30" label="是否推荐" name="bean.recommend" list={'true':'是', 'false':'否'} value="false"/>
+<@p.td label="指定模板" colspan="1">
+<@p.select name="bean.tplPage.id" list="tplPageList" listKey="id" listValue="name" headerKey="" headerValue="默认模板" />
+&nbsp;&nbsp;&nbsp;&nbsp;访问控制：<@p.select name="bean.guestGroup.id" list="groupList" listKey="id" listValue="name" headerKey="" headerValue="不受限制" />
+</@p.td><@p.tr/>
+-->
+<@p.text colspan="1" width="50" label="来源" name="bean.origin" />
+<@p.text colspan="1" width="50" label="作者" name="bean.author" /><@p.tr/>
+<@p.radio colspan="1" width="50" label="是否草稿" name="bean.draft" list={'true':'是', 'false':'否'} value="false"/>
+<@p.radio colspan="1" width="50" label="是否推荐" name="bean.recommend" list={'true':'是', 'false':'否'} value="false"/><@p.tr/>
+<@p.editor colspan="2" label="内容" height="200" name="bean.content" noHeight="true" noValue="true"/><@p.tr/>
+<@p.td label="缩略图" colspan="1" width="50" noHeight="true">
+<@p.text id="uploadImgPath" name="bean.titleImg" readonly="readonly" size="24"/> <input type="button" value="剪裁" onclick="imgCut();"/> <input type="button" value="清空" onclick="clearImg();"/><br/>
+<input type="file" id="uploadFile" name="uploadFile" size="20"/> <input type="button" value="上传" onclick="upload();"/><br/>
+上传是否压缩图片：<input type="checkbox" name="zoom" value="true" checked="checked" onclick="return;$('#zoomOut').toggle();"/>&nbsp;
+<span id="zoomOut">宽：<input type="text" id="zoomWidth" name="zoomWidth" value="${artiCtgList[0].imgWidth}" size="3"/> 高：<input type="text" id="zoomHeight" name="zoomHeight" value="${artiCtgList[0].imgHeight}" size="3"/></span>
+<iframe name="hiddenIframe" frameborder="0" border="0" style="display:none;width:0px;height:0px;"></iframe>
+</@p.td><@p.td colspan="1" width="50">
+<img id="preImg" alt="预览区" srcRoot="${web.uploadUrl}" style="width:100px;height:70px;background-color:#CCCCCC;border:1px solid #333"/>
+</@p.td><@p.tr/>
+<@p.text colspan="1" width="50" label="发布时间" name="bean.releaseDate" noValue="true" help="格式为“年-月-日”，不填为当前时间" helpPosition="3"/>
+<@p.text colspan="1" width="50" label="外部链接" name="bean.outerUrl" size="30" noValue="true" help="链接直接使用该URL" helpPosition="3"/><@p.tr/>
+<@p.td label="栏目数据" colspan="2">
+数据1：<@p.text name="bean.param1" size="12"/> &nbsp;
+数据2：<@p.text name="bean.param2" size="12"/> &nbsp;
+数据3：<@p.text name="bean.param3" size="12"/> &nbsp;
+</@p.td><@p.tr/>
+<@p.td colspan="2">
+<input type="hidden" name="chnlId" value="${chnlId}"/>
+<input type="hidden" name="bean.channel.id" value="${chnlId}"/>
+<@p.submit value="保存"/> &nbsp; <@p.reset value="重置"/></@p.td>
+</@p.form>
+<#include "/WEB-INF/common/alert_message.ftl" />
+</div>
+</body>
+</html>
