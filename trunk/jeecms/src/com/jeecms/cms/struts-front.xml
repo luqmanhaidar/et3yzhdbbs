@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!--JEECMS前台页面-->
+	<package name="cms.front.page" namespace="/jeedynamic/jeecms" extends="empty-default">
+		<action name="Page" class="cms.cmsPageAct">
+			<result>${tplPath}</result>
+			<interceptor-ref name="exception"/>
+			<interceptor-ref name="chain"/>
+		</action>
+	</package>
+	<!--栏目标签-->
+	<package name="cms.front.tag" namespace="/jeecms/tag/cms" extends="tag-default">
+		<action name="ChnlList" method="chnlList" class="cms.chnlPartAct">
+			<result name="sysTpl">/WEB-INF/ftl_lib/jeecms/cms/chnl_list.ftl</result>
+			<result>${tplPath}</result>
+		</action>
+		<action name="ChnlListInner" method="chnlListInner" class="cms.chnlPartAct">
+			<result></result>
+		</action>
+	</package>
+</struts>
