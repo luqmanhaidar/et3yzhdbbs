@@ -1,0 +1,13 @@
+.img-vm{vertical-align:middle}
+.f-right{float:right}
+.f-left{float:left}
+.clear{clear:both}
+/*分页样式2，当前页链接样式*/
+.p2-crr{color:#FF0000;font-weight:bold;}
+
+/*内容样式1，下划线*/
+.c1-bline{border-bottom:#999 1px dashed;boder-top:1px;}
+
+/*/core_res/css/front.css*/
+.j-chkcode{position:absolute;display:none;top:50px;left:50px;z-index:100;border:1px solid #999999;background-color:#FFFFFF;}
+.j-chkcode img{cursor:pointer}
