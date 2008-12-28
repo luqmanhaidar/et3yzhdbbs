@@ -1,0 +1,155 @@
+INSERT INTO CORE_FUNCTION VALUES (1,NULL,'功能菜单','','','',100,1);
+INSERT INTO CORE_FUNCTION VALUES (81,1,'核心功能','/admin/cms/frame/core_main','/admin/cms/frame/core_left@/admin/cms/frame/core_right','',30,1);
+INSERT INTO CORE_FUNCTION VALUES (83,81,'用户管理','/admin/core/user/Com_list','/admin/core/user/Com_add@/admin/core/user/Com_edit@/admin/core/user/Com_update@/admin/core/user/Com_save@/admin/core/user/Com_delete','',20,1);
+INSERT INTO CORE_FUNCTION VALUES (87,81,'角色管理','/admin/core/role/Com_list','/admin/core/role/Com_add@/admin/core/role/Com_edit@/admin/core/role/Com_save@/admin/core/role/Com_update@/admin/core/role/Com_delete','',30,1);
+INSERT INTO CORE_FUNCTION VALUES (353,1,'辅助系统','/admin/cms/frame/auxiliary_main','/admin/cms/frame/auxiliary_left@/admin/cms/frame/auxiliary_right','',20,1);
+INSERT INTO CORE_FUNCTION VALUES (369,1,'模板管理','/admin/core/template/Com_main','/admin/core/template/Com_left@/admin/core/template/Com_right@/admin/core/template/Com_list@/admin/core/template/Com_Add@/admin/core/template/Com_edit@/admin/core/template/Com_save@/admin/core/template/Com_update@/admin/core/template/Com_delete@/admin/core/template/Com_createDir@/admin/core/template/ajax/update@/admin/core/template/ajax/rename@/admin/core/template/Com_solutionEdit@/admin/core/template/Com_solutionUpdate@/admin/core/template/Com_import@@/admin/core/template/Com_importSubmit@/admin/core/template/Com_export@/admin/core/template/Com_exportSubmit','',40,1);
+INSERT INTO CORE_FUNCTION VALUES (370,81,'功能菜单','/admin/core/function/Com_main','/admin/core/function/Com_list@/admin/core/function/Com_left@/admin/core/function/Com_add@/admin/core/function/Com_edit@/admin/core/function/Com_save@/admin/core/function/Com_update@/admin/core/function/Com_delete@/admin/core/function/Com_priorityUpdate','',10,1);
+INSERT INTO CORE_FUNCTION VALUES (372,81,'站点设置','/admin/core/config/Com_siteEdit','/admin/core/config/Com_siteUpdate','',50,1);
+INSERT INTO CORE_FUNCTION VALUES (373,81,'邮件设置','/admin/core/config/Com_emailEdit','/admin/core/config/Com_emailUpdate','',60,1);
+INSERT INTO CORE_FUNCTION VALUES (374,1,'资源管理','/admin/core/resource/Com_resMain','/admin/core/resource/Com_resLeft@/admin/core/resource/Com_resRight@/admin/core/resource/Com_resList@/admin/core/resource/Com_resAdd@/admin/core/resource/Com_resEdit@/admin/core/resource/Com_resSave@/admin/core/resource/Com_resUpdate@/admin/core/resource/Com_resDeleteres@/admin/core/resource/Com_resCreateDir@/admin/core/resource/ajax/resUpdate@/admin/core/resource/ajax/resRename','',50,1);
+INSERT INTO CORE_FUNCTION VALUES (375,353,'留言类别','/admin/auxiliary/msg_ctg/Com_list','/admin/auxiliary/msg_ctg/Com_add@/admin/auxiliary/msg_ctg/Com_edit@/admin/auxiliary/msg_ctg/Com_save@/admin/auxiliary/msg_ctg/Com_update@/admin/auxiliary/msg_ctg/Com_delete','',100,1);
+INSERT INTO CORE_FUNCTION VALUES (376,353,'留言内容','/admin/auxiliary/msg/Com_list','/admin/auxiliary/msg/Com_add@/admin/auxiliary/msg/Com_edit@/admin/auxiliary/msg/Com_save@/admin/auxiliary/msg/Com_update@/admin/auxiliary/msg/Com_delete','',100,1);
+INSERT INTO CORE_FUNCTION VALUES (377,353,'辅助系统设置','/admin/auxiliary/config/Com_configEdit','','',90,1);
+INSERT INTO CORE_FUNCTION VALUES (378,1,'JEECMS','/admin/cms/Com_index','/admin/cms/Com_main@/admin/cms/Com_left@/admin/cms/Com_right','包括jeecms会员、管理员、配置等功能。',10,1);
+INSERT INTO CORE_FUNCTION VALUES (379,378,'管理员管理','/admin/cms/admin/Com_list','/admin/cms/admin/Com_add@/admin/cms/admin/Com_edit@/admin/cms/admin/Com_save@/admin/cms/admin/Com_update@/admin/cms/admin/Com_delete','',50,1);
+INSERT INTO CORE_FUNCTION VALUES (382,378,'文章栏目','/admin/article/channel/Com_main','/admin/article/channel/Com_left@/admin/article/channel/Com_right@/admin/article/channel/Com_list@/admin/article/channel/Com_add@/admin/article/channel/Com_edit@/admin/article/channel/Com_save@/admin/article/channel/Com_update@/admin/article/channel/Com_delete@/admin/article/channel/Com_priorityUpdate','',20,1);
+INSERT INTO CORE_FUNCTION VALUES (383,378,'文章内容','/admin/article/article/Com_main','/admin/article/article/Com_left@/admin/article/article/Com_right@/admin/article/article/Com_list@/admin/article/article/Com_add@/admin/article/article/Com_edit@/admin/article/article/Com_save@/admin/article/article/Com_update@/admin/article/article/Com_delete','',30,1);
+INSERT INTO CORE_FUNCTION VALUES (384,378,'网站配置','/admin/cms/frame/config_main','/admin/cms/frame/config_left@/admin/cms/frame/config_right@/admin/cms/config/Com_configEdit@/admin/cms/config/Com_configUpdate','',40,1);
+INSERT INTO CORE_FUNCTION VALUES (385,378,'栏目模型','/admin/article/chnl_model/Com_list','/admin/article/chnl_model/Com_add@/admin/article/chnl_model/Com_edit@/admin/article/chnl_model/Com_save@/admin/article/chnl_model/Com_update@/admin/article/chnl_model/Com_delete@/admin/article/chnl_model/Com_priorityUpdate','',10,1);
+INSERT INTO CORE_FUNCTION VALUES (386,353,'投票管理','/admin/auxiliary/vote_topic/Com_list','/admin/auxiliary/vote_topic/Com_add@/admin/auxiliary/vote_topic/Com_save@/admin/auxiliary/vote_topic/Com_edit@/admin/auxiliary/vote_topic/Com_update@/admin/auxiliary/vote_topic/Com_delete','',100,1);
+INSERT INTO CORE_FUNCTION VALUES (387,378,'文章属性','/admin/article/ctg/Com_list','/admin/article/ctg/Com_add@/admin/article/ctg/Com_edit@/admin/article/ctg/Com_save@/admin/article/ctg/Com_update@/admin/article/ctg/Com_delete','',25,1);
+INSERT INTO CORE_FUNCTION VALUES (388,81,'图片处理','','/admin/core/common/UploadImg@/admin/core/common/ImgAreaSelect@/admin/core/common/ImgCut','图片上传、图片剪裁',100,1);
+
+INSERT INTO CORE_ROLE VALUES (1,'超级管理员','拥有系统最高权限');
+
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,1);
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,81);
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,83);
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,87);
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,353);
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,369);
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,370);
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,372);
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,373);
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,374);
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,375);
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,376);
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,377);
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,378);
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,379);
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,382);
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,383);
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,384);
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,385);
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,386);
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,387);
+INSERT INTO CORE_ROLE_FUNCTION VALUES (1,388);
+
+INSERT INTO CORE_WEBSITE (WEBSITE_ID, DOMAIN, NAME, RES_PATH, CONTEXT_PATH, PORT, CURRENT_SYSTEM) VALUES (1,'localhost','JEECMS演示网站','jeecms_com_www','/JeeCms',8080,'jeecms');
+INSERT INTO CORE_USER (USER_ID, LOGIN_NAME, PASSWORD, CREATE_TIME) VALUES (1,'admin','54f0087a24066298b3f912ae29770134','2008-08-08');
+INSERT INTO CORE_ADMIN (ADMIN_ID, WEBSITE_ID, USER_ID, CREATE_TIME) VALUES (1,1,1,'2008-8-8');
+INSERT INTO CORE_MEMBER (MEMBER_ID, WEBSITE_ID, USER_ID, CREATE_TIME) VALUES(1,1,1,'2008-8-8');
+INSERT INTO CMS_CONFIG (CONFIG_ID) VALUES(1);
+INSERT INTO AUXI_CONFIG (CONFIG_ID) VALUES(1);
+INSERT INTO CMS_ADMIN (ADMIN_ID, WEBSITE_ID) VALUES (1,1);
+INSERT INTO CMS_MEMBER_GROUP (GROUP_ID, WEBSITE_ID, NAME) VALUES(1,1,'普通会员');
+INSERT INTO CMS_MEMBER (MEMBER_ID, WEBSITE_ID, GROUP_ID) VALUES (1,1,1);
+
+INSERT INTO CORE_ADMIN_ROLE VALUES (1,1);
+
+INSERT INTO CORE_TPL_SOLUTION VALUES(1,'article','default');
+INSERT INTO CORE_TPL_SOLUTION VALUES(1,'auxiliary','default');
+INSERT INTO CORE_TPL_SOLUTION VALUES(1,'cms_common','default');
+INSERT INTO CORE_TPL_SOLUTION VALUES(1,'cms_member','default');
+INSERT INTO CORE_TPL_SOLUTION VALUES(1,'picture','default');
+INSERT INTO CORE_TPL_SOLUTION VALUES(1,'forum','default');
+INSERT INTO CORE_TPL_SOLUTION VALUES(1,'download','default');
+INSERT INTO CORE_TPL_SOLUTION VALUES(1,'shop','default');
+
+INSERT INTO ARTI_CTG (WEBSITE_ID,LABEL,NAME,IMG_WIDTH,IMG_HEIGHT) VALUES(1,'1','普通',139,94);
+INSERT INTO ARTI_CTG (WEBSITE_ID,LABEL,NAME,IMG_WIDTH,IMG_HEIGHT) VALUES(1,'2','图文',139,94);
+INSERT INTO ARTI_CTG (WEBSITE_ID,LABEL,NAME,IMG_WIDTH,IMG_HEIGHT) VALUES(1,'3','焦点',296,200);
+INSERT INTO ARTI_CTG (WEBSITE_ID,LABEL,NAME,IMG_WIDTH,IMG_HEIGHT) VALUES(1,'4','头条',100,68);
+INSERT INTO ARTI_CTG (WEBSITE_ID,LABEL,NAME,IMG_WIDTH,IMG_HEIGHT) VALUES(1,'5','滚动',139,94);
+
+INSERT INTO AUXI_MSG_CTG (MSGCTG_ID,WEBSITE_ID,NAME) VALUES(1,1,'普通留言');
+
+INSERT INTO CMS_CHNL_MODEL (MODEL_ID,WEBSITE_ID,SYS_TYPE,NAME,TPL_PREFIX_CHANNEL,TPL_PREFIX_CONTENT,HAS_CHILD,SHORT_NAME,CONFIG_ID) VALUES (2,1,'article','文章模型','channel','content',1,'文章',1);
+INSERT INTO CMS_CHNL_MODEL (MODEL_ID,WEBSITE_ID,SYS_TYPE,NAME,TPL_PREFIX_CHANNEL,TPL_PREFIX_CONTENT,HAS_CHILD,SHORT_NAME,CONFIG_ID) VALUES (7,1,'article','单页模型','alone','',0,'单页',1);
+INSERT INTO CMS_CHNL_MODEL (MODEL_ID,WEBSITE_ID,SYS_TYPE,NAME,TPL_PREFIX_CHANNEL,TPL_PREFIX_CONTENT,HAS_CHILD,SHORT_NAME,CONFIG_ID) VALUES (8,1,'article','跳转模型','','',0,'跳转',1);
+INSERT INTO CMS_CHNL_MODEL (MODEL_ID,WEBSITE_ID,SYS_TYPE,NAME,TPL_PREFIX_CHANNEL,TPL_PREFIX_CONTENT,HAS_CHILD,SHORT_NAME,CONFIG_ID) VALUES (9,1,'article','首页模型','index','',1,'首页',1);
+
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (1,2,'title','title',NULL,NULL,1,4);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (2,2,'priority','排列顺序',NULL,NULL,1,7);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (3,2,'keywords','keywords',NULL,NULL,1,5);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (4,2,'description','description',NULL,NULL,1,6);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (15,2,'tplIndex','栏目页模板',NULL,NULL,1,2);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (16,2,'tplContent','内容页模板',NULL,NULL,1,3);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (17,2,'contributeLevel','允许投稿级别',NULL,NULL,1,8);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (18,2,'paramData','栏目数据',NULL,NULL,1,10);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (43,2,'display','是否显示',NULL,NULL,1,9);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (45,7,'tplIndex','单页模板',NULL,NULL,1,2);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (46,7,'tplContent','内容页模板',NULL,NULL,0,3);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (47,7,'title','title',NULL,NULL,1,4);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (48,7,'keywords','keywords',NULL,NULL,1,5);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (49,7,'description','description',NULL,NULL,1,6);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (50,7,'priority','排列顺序',NULL,NULL,1,7);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (51,7,'contributeLevel','允许投稿级别',NULL,NULL,0,8);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (52,7,'display','是否显示',NULL,NULL,1,9);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (53,7,'paramData','栏目数据',NULL,NULL,1,10);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (54,8,'tplIndex','栏目页模板',NULL,NULL,0,3);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (55,8,'tplContent','内容页模板',NULL,NULL,0,4);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (56,8,'title','title',NULL,NULL,0,5);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (57,8,'keywords','keywords',NULL,NULL,0,6);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (58,8,'description','description',NULL,NULL,0,7);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (59,8,'priority','排列顺序',NULL,NULL,1,8);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (60,8,'contributeLevel','允许投稿级别',NULL,NULL,0,9);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (61,8,'display','是否显示',NULL,NULL,1,10);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (62,8,'paramData','栏目数据',NULL,NULL,0,11);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (63,9,'tplIndex','首页模板',NULL,NULL,1,2);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (64,9,'tplContent','内容页模板',NULL,NULL,0,3);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (65,9,'title','title',NULL,NULL,1,4);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (66,9,'keywords','keywords',NULL,NULL,1,5);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (67,9,'description','description',NULL,NULL,1,6);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (68,9,'priority','排列顺序',NULL,NULL,0,7);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (69,9,'contributeLevel','允许投稿级别',NULL,NULL,0,8);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (70,9,'display','是否显示',NULL,NULL,0,9);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (71,9,'paramData','栏目数据',NULL,NULL,1,10);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (72,9,'path','访问路径',NULL,NULL,1,0);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (73,8,'path','访问路径',NULL,NULL,0,1);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (74,7,'path','访问路径',NULL,NULL,1,0);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (75,2,'path','访问路径',NULL,NULL,1,0);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (76,8,'outerUrl','外部链接',NULL,NULL,1,2);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (77,2,'outerUrl','外部链接',NULL,NULL,0,1);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (78,7,'outerUrl','外部链接',NULL,NULL,0,1);
+INSERT INTO CMS_CHNL_MODEL_ITEM (MITEM_ID,MODEL_ID,NAME,LABEL,HELP,INPUT_TYPE,IS_CHECKED,PRIORITY) VALUES (79,9,'outerUrl','外部链接',NULL,NULL,0,1);
+
+INSERT INTO CMS_CHANNEL VALUES (1,1,NULL,9,'article','main','首页',NULL,'',NULL,'JEECMS演示站','JEECMS演示站','JEECMS演示站',4,0,'2008-12-24',NULL,2147483647,100,1,1,'','','');
+INSERT INTO CMS_CHANNEL VALUES (2,1,1,2,'article','notice','最新公告',NULL,'','','最新公告','最新公告','最新公告',0,0,'2008-12-24',NULL,1000,10,1,0,'','','');
+INSERT INTO CMS_CHANNEL VALUES (3,1,1,2,'article','gnxw','国内新闻',NULL,'/article/default/channel_level2.html','','国内新闻','国内新闻','国内新闻',4,0,'2008-12-24',NULL,1000,10,1,1,'','','');
+INSERT INTO CMS_CHANNEL VALUES (4,1,1,2,'article','gwxw','国外新闻',NULL,'','','国外新闻','国外新闻','国外新闻',0,0,'2008-12-24',NULL,1000,10,1,1,'','','');
+INSERT INTO CMS_CHANNEL VALUES (5,1,3,2,'article','shxw','社会新闻',NULL,'','','社会新闻','社会新闻','社会新闻',2,0,'2008-12-24',NULL,1000,10,1,1,'','','');
+INSERT INTO CMS_CHANNEL VALUES (6,1,3,2,'article','tyxw','体育新闻',NULL,'','','体育新闻','体育新闻','体育新闻',0,0,'2008-12-24',NULL,1000,10,1,1,'','','');
+INSERT INTO CMS_CHANNEL VALUES (7,1,3,2,'article','ylxw','娱乐新闻',NULL,'','','娱乐新闻','娱乐新闻','娱乐新闻',0,0,'2008-12-24',NULL,1000,10,1,1,'','','');
+INSERT INTO CMS_CHANNEL VALUES (8,1,1,7,'article','about','关于我们',NULL,'/article/default/alone_about.html',NULL,'关于我们','关于我们','关于我们',0,0,'2008-12-24',NULL,2147483647,10,0,0,'','','');
+INSERT INTO CMS_CHANNEL VALUES (9,1,1,8,'article',NULL,'留言板',NULL,NULL,NULL,NULL,NULL,NULL,0,0,'2008-12-24','/jeecms/Guestbook.jspx',2147483647,10,0,1,NULL,NULL,NULL);
+
+INSERT INTO VOTE_TOPIC VALUES (1,1,'你是从哪儿得知本站的？','了解用户的来源',0,NULL,NULL,24,1,0,0,1,1,0);
+
+INSERT INTO VOTE_ITEM VALUES (1,1,'朋友介绍',NULL,0,1);
+INSERT INTO VOTE_ITEM VALUES (2,1,'门户网站的搜索引擎',NULL,0,2);
+INSERT INTO VOTE_ITEM VALUES (3,1,'Google或百度搜索',NULL,0,3);
+INSERT INTO VOTE_ITEM VALUES (4,1,'别的网站上的链接',NULL,0,4);
+INSERT INTO VOTE_ITEM VALUES (5,1,'其它途径',NULL,0,5);
+
+
+INSERT INTO ARTI_ARTICLE VALUES (1,1,1,2,NULL,NULL,3,NULL,NULL,NULL,1,'诺基亚携手美国ETS创考试英语学习新方式','诺基亚携手美国ETS创考试英语学习新方式','','','诺基亚携手美国ETS创考试英语学习新方式','','nc138','','2008-12-24 16:23:29','2008-12-24 15:24:16',NULL,NULL,13,0,'2008-12-24','',NULL,2,NULL,NULL,NULL,0,0,0,0,1,0,0,'','','');
+INSERT INTO ARTI_ARTICLE VALUES (2,1,5,3,1,NULL,2,NULL,NULL,NULL,1,'JEECMS v2.1 beta版发布公告','JEECMS v2.1 beta版发布公告','#FF0000','','在JEECMS网友们的热切期盼和JEECMS开发人员的不懈努力下，JEECMS v2.1 beta版今天正式发布了!','','JEECMS','','2008-12-24 16:34:05','2008-12-24 15:46:19',NULL,NULL,3,0,'2008-12-24','',NULL,1,NULL,NULL,NULL,0,1,0,1,1,0,0,'','','');
+INSERT INTO ARTI_ARTICLE VALUES (3,1,5,4,2,NULL,2,NULL,NULL,NULL,1,'JEECMS全体开发人员祝大家圣诞快乐！','JEECMS全体开发人员祝大家圣诞快乐！','','','JEECMS全体开发人员祝大家圣诞快乐！','','JEECMS','','2008-12-24 15:51:17','2008-12-24 15:50:41',NULL,NULL,3,0,'2008-12-24','',NULL,1,NULL,NULL,NULL,0,0,0,0,1,0,0,'','','');
+INSERT INTO ARTI_ARTICLE VALUES (4,1,2,5,3,NULL,4,NULL,NULL,NULL,1,'阿尔卑斯山脉浓厚的晨雾','阿尔卑斯山','','/article/image/2008_4/12_24/nbaafp3p1f9f.jpg','阿尔卑斯山脉浓厚的晨雾','','163','','2008-12-24 15:58:49','2008-12-24 15:58:49',NULL,NULL,2,0,'2008-12-24','',NULL,1,NULL,NULL,NULL,1,0,0,0,1,0,0,'','','');
+INSERT INTO ARTI_ARTICLE VALUES (5,1,2,6,4,NULL,4,NULL,NULL,NULL,1,'一年一度的Brandenburg圣诞老人游行上的参与者们','圣诞老人游行','','/article/image/2008_4/12_24/dfecfp3p8pyv.jpg','一年一度的Brandenburg圣诞老人游行上的参与者们','','163','','2008-12-24 16:04:25','2008-12-24 16:04:25',NULL,NULL,2,0,'2008-12-24','',NULL,1,NULL,NULL,NULL,1,0,0,0,1,0,0,'','','');
+INSERT INTO ARTI_ARTICLE VALUES (6,1,2,7,5,NULL,6,NULL,NULL,NULL,1,'晒晒你见过的礼仪小姐训练','礼仪小姐训练','','/article/image/2008_4/12_24/z521fp3pe4dl.jpg','晒晒你见过的礼仪小姐训练','','163','','2008-12-24 16:15:29','2008-12-24 16:08:12',NULL,NULL,4,0,'2008-12-24','',NULL,1,NULL,NULL,NULL,1,0,0,0,1,0,0,'','','');
+INSERT INTO ARTI_ARTICLE VALUES (7,1,2,8,6,NULL,5,NULL,NULL,NULL,1,'晒晒你见过的美女交警','美女交警','','/article/image/2008_4/12_24/om60fp3phsh8.jpg','晒晒你见过的美女交警','','网易','','2008-12-24 16:14:59','2008-12-24 16:13:14',NULL,NULL,4,0,'2008-12-24','',NULL,2,NULL,NULL,NULL,1,0,0,0,1,0,0,'','','');
+INSERT INTO ARTI_ARTICLE VALUES (8,1,3,9,7,NULL,4,NULL,NULL,NULL,1,'驻阿英军头戴圣诞帽与塔利班交火','驻阿英军头戴圣诞帽与塔利班交火','','/article/image/2008_4/12_24/fpadfp3pt95z.jpg','驻阿英军头戴圣诞帽与塔利班交火','','网易','','2008-12-24 16:22:12','2008-12-24 16:20:04',NULL,NULL,1,0,'2008-12-24','',NULL,1,NULL,NULL,NULL,1,0,0,0,1,0,0,'','','');
+INSERT INTO ARTI_ARTICLE VALUES (9,1,3,NULL,8,NULL,7,NULL,NULL,NULL,1,'周迅:圣诞跟李大齐雪中漫步','明星圣诞爆料 周迅与男友雪中漫步','','/article/image/2008_4/12_24/6lipfp3q39mz.jpg','明星圣诞爆料 周迅与男友雪中漫步 ','','korvrn','网易','2008-12-24 16:34:28','2008-12-24 16:29:41',NULL,NULL,1,0,'2008-12-24','',NULL,1,NULL,NULL,NULL,1,0,0,1,1,0,0,'','','');
