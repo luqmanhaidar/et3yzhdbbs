@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<#include "/WEB-INF/cms_sys/head.ftl"/>
+</head>
+<body>
+<div class="body-box">
+<div class="rhead">
+	<div class="rpos">当前位置： 首页 - 系统设置</div>
+	<div class="clear"></div>
+</div>
+<@p.form action="Com_configUpdate" validate="false">
+<@p.radio label="评论是否需要审核" name="bean.commentNeedCheck" list={'true':'是','false':'否'}/>
+<@p.text label="内容审核次数" name="bean.checkCount" size="20" help="内容的审核次数，如文章。为0则无需审核"/>
+<@p.td><@p.submit value="保存"/> &nbsp; <@p.reset value="重置" /></@p.td>
+</@p.form>
+<#include "/WEB-INF/common/alert_message.ftl" />
+</div>
+</body>
+</html>

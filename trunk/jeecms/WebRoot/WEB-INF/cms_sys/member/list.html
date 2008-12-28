@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>系统管理-会员列表</title>
+<@s.head/>
+</head>
+<body>
+<div class="body-box">
+<@p.navigation title="系统管理&nbsp;&gt;&gt;&nbsp;会员列表"/>
+<@p.table 
+  cols=[{"label":"ID","name":"row.id"},
+        {"label":"名称","name":"row.name"}
+       ]
+  rowIndex=false  width="100%"
+  normalOperate=[{"action":"Com_edit","name":"修改"},
+                 {"action":"Com_delete","name":"删除","confirm":"您确定删除吗？"}
+                ]
+  batchOperate=[{"action":"Com_delete","name":"删除","confirm":"您确定删除吗？"}
+               ]
+/>
+<#include "/WEB-INF/common/alert_message.ftl" />
+</div>
+</body>
+</html>

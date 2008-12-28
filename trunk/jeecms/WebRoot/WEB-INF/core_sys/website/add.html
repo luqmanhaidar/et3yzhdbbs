@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<#include "/WEB-INF/core_sys/head.ftl"/>
+</head>
+<body>
+<div class="body-box">
+<div class="rhead">
+	<div class="rpos">当前位置： 核心功能 - 站点添加</div>
+	<form class="ropt">
+		<input type="submit" value="返回列表" onclick="this.form.action='Com_list.do';"/>
+	</form>
+	<div class="clear"></div>
+</div>
+<@p.form action="Com_save">
+<@p.text label="网站名称" name="bean.name" />
+<@p.text label="网站简称" name="bean.shortName" />
+<@p.text label="网站域名" name="bean.domain" />
+<@p.text label="根域名" name="bean.baseDomain" />
+<@p.select label="父级站点" name="bean.parent.id" list=parentList listKey="id" listValue="name" headerKey="" headerValue="无" />
+<@p.select label="联合会员" name="bean.united.id" list=unitedList listKey="id" listValue="name" headerKey="" headerValue="无" />
+<@p.text label="端口号" name="bean.port" />
+<@p.text label="部署路径" name="bean.contextPath" />
+<@p.text label="资源路径" name="bean.resPath" />
+<@p.text label="资源域名" name="bean.resDomain" />
+<@p.text label="默认系统" name="bean.currentSystem" />
+<@p.radio label="是否关闭" name="bean.close" list={'true':'是', 'false':'否'} value="false"/>
+<@p.td><@p.submit value="保存"/> &nbsp; <@p.reset value="重置" /></@p.td>
+</@p.form>
+</div>
+</body>
+</html>

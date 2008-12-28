@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<#include "/WEB-INF/cms_sys/head.ftl"/>
+</head>
+<body>
+<div class="body-box">
+<div class="rhead">
+	<div class="rpos">当前位置： 核心功能 - 管理员管理 - 添加</div>
+	<form class="ropt" method="post">
+		<input type="submit" value="返回列表" onclick="this.form.action='Com_list.do';"/>
+	</form>
+	<div class="clear"></div>
+</div>
+<@p.form action="Com_save">
+<@p.text label="登录名" name="bean.admin.user.loginName" />
+<@p.td label="创建新用户">
+	<@p.checkbox name="newUser" value="true" checked="checked" onclick="$('#pwd').toggle();"/>
+	<span id="pwd">密码：<@p.password name="bean.admin.user.password"/></span>
+	<span class="pn-fhelp">创建新用户请输入密码，已存在用户请不要勾选</span>
+</@p.td><@p.tr/>
+<@p.text label="审核级别" name="bean.checkRight" value="0" help="0为录入员，内容不用审核时所有管理员都可为0"/>
+<@p.checkboxlist label="角色" name="roles.id" list=roleList listKey="id" listValue="name"/>
+<@p.radio label="禁用" name="bean.admin.disabled" list={"true":"是","false":"否"} value="false"/>
+<@p.td><@p.submit value="保存"/> &nbsp; <@p.reset value="重置"/></@p.td>
+</@p.form>
+</div>
+</body>
+</html>

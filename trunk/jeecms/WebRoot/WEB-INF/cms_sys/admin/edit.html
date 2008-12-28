@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<#include "/WEB-INF/cms_sys/head.ftl"/>
+</head>
+<body>
+<div class="body-box">
+<div class="rhead">
+	<div class="rpos">当前位置： 核心功能 - 管理员管理 - 修改</div>
+	<form class="ropt" method="post">
+		<input type="button" value="返回列表" onclick="history.back();"/>
+	</form>
+	<div class="clear"></div>
+</div>
+<@p.form action="Com_update">
+<@p.text label="登录名" name="bean.loginName" disabled="disabled"/>
+<@p.text label="审核级别" name="bean.checkRight" help="0为录入员，内容不用审核时所有管理员都可为0"/>
+<@p.checkboxlist label="角色" name="roles.id" valueList=stack.findValue("bean.admin.roles.{id}") list=roleList listKey="id" listValue="name"/>
+<@p.radio label="禁用" name="bean.admin.disabled" list={"true":"是","false":"否"}/>
+<@p.td><@p.hidden name="bean.id"/><@p.hidden name="bean.admin.id"/><@p.submit value="保存"/> &nbsp; <@p.reset value="重置"/></@p.td>
+</@p.form>
+</div>
+</body>
+</html>
