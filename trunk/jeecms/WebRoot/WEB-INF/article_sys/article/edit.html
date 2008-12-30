@@ -63,7 +63,7 @@ $(function(){
 <select name="bean.titleColor" onchange="this.blur();">
 	<option value="">--д╛хо--</option>
 	<#list ["#000000","#FFFFFF","#FF0000","#FFFF00","#00FF00","#00FFFF","#0000FF","#FF00FF","#808080","#C0C0C0","#800000","#808000","#008000","#008080","#000080","#800080"] as c>
-	<option value="${c}" style="background-color:${c}"<#if (bean.titleColor)! == c> selected="selected"</#if>></option>
+	<option value="${c}" style="background-color:${c}"<#if (bean.titleColor)! == c> selected="selected"</#if> ></option>
 	</#list>
 </select>
 <@p.checkbox name="bean.bold" value="true" labelFor="╪с╢ж"/></@p.td><@p.tr/>

@@ -57,7 +57,7 @@ function getLine(num) {
 名称：<input type="text" name="modelItems[${item_index}].name" value="${item.name}"/> &nbsp;
 标题：<input type="text" name="modelItems[${item_index}].label" value="${item.label!}"/> &nbsp;
 排序：<input type="text" name="modelItems[${item_index}].priority" value="${item.priority}" size="3"/> &nbsp;
-显示：<input type="checkbox" name="modelItems[${item_index}].checked" value="true"<#if item.checked> checked="checked"</#if>/> &nbsp;
+显示：<input type="checkbox" name="modelItems[${item_index}].checked" value="true"<#if item.checked> checked="checked"</#if> /> &nbsp;
 <input type="button" value="删除" onclick="$('#dy_${item_index}').remove();"/>
 </div>
 </#list>
