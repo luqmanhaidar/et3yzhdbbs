@@ -1,6 +1,5 @@
 package com.ntsky.bbs.service.impl;
 
-import java.sql.ResultSet;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;

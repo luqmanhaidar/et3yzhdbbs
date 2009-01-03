@@ -49,15 +49,16 @@ public class FavoriteTopicDAOHibernateImpl extends BaseDAOHibernateImpl implemen
 			stList = con.createStatement();//这样就够了
 			count="select count(*) as cnt from ntsky_t_topic a,ntsky_t_user b,ntsky_t_user_favorite_topic c where a.id=c.topic_id and b.id=c.user_id and c.user_id="+userId+" and a.is_delete=0 order by a.date_created";							
 			
-			sSql="select c.id as fav_id,a.* from ntsky_t_topic a,ntsky_t_user b,ntsky_t_user_favorite_topic c where a.id=c.topic_id and b.id=c.user_id and c.user_id="+userId+" and a.is_delete=0 order by a.date_created";							
+			sSql="select c.id as fav_id,a.* from ntsky_t_topic a,ntsky_t_user b,ntsky_t_user_favorite_topic c where a.id=c.topic_id and b.id=c.user_id and c.user_id="+userId+" and a.is_delete=0 order by a.date_created limit "+pagination.getStart()+","+pagination.getRange()+"";							
 
 			rs = st.executeQuery(count);
 			rs.next();
+			System.out.println("检索的起始位置@@@@@pagination.getRange():"+pagination.getRange());
 			int totalRecord=rs.getInt("cnt");
-			//logger.debug("检索的起始位置@@totalRecord:"+totalRecord);
-			//logger.debug("检索的起始位置@@@@pagination.getStart():"+pagination.getStart());
-			//logger.debug("检索的起始位置@@@@@pagination.getRange():"+pagination.getRange());
-			//logger.debug("检索的起始位置@@@@@@@@sSql:"+sSql);
+			logger.debug("检索的起始位置@@totalRecord:"+totalRecord);
+			logger.debug("检索的起始位置@@@@pagination.getStart():"+pagination.getStart());
+			logger.debug("检索的起始位置@@@@@pagination.getRange():"+pagination.getRange());
+			logger.debug("检索的起始位置@@@@@@@@sSql:"+sSql);
 			rsList = stList.executeQuery(sSql);
 			//return rs;我们也一定不要做return rs的事情，我们把提取出来的东西放在List里面
 			

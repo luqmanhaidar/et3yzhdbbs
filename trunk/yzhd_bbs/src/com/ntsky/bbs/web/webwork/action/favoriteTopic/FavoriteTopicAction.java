@@ -1,8 +1,10 @@
 package com.ntsky.bbs.web.webwork.action.favoriteTopic;
 import java.util.List;
 
+import com.ntsky.bbs.Symbols;
 import com.ntsky.bbs.exception.ActionException;
 import com.ntsky.bbs.exception.ServiceException;
+import com.ntsky.bbs.util.config.SystemConfig;
 import com.ntsky.bbs.util.page.Pagination;
 import com.ntsky.bbs.domain.*;
 import com.ntsky.bbs.util.page.QueryResult;
@@ -68,7 +70,7 @@ public class FavoriteTopicAction extends FavoriteTopicActionSupport{
 
 		try{
 
-			QueryResult queryResult = favoriteTopicService.getFavoriteTopics(super.getSessionUser().getId().intValue(), new Pagination(getIntParameter("start")));
+			QueryResult queryResult = favoriteTopicService.getFavoriteTopics(super.getSessionUser().getId().intValue(),new Pagination(getPaginationStart(),SystemConfig.getInstance().getIntPropertyValue(Symbols.PAGINATION,Symbols.PAGINATION_TOPIC)));
 			setFavoriteTopic(queryResult.getItems());
 			setPagination(queryResult.getPagination());	
 			
