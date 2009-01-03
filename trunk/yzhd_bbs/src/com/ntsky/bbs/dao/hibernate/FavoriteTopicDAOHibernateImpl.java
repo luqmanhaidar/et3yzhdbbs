@@ -53,12 +53,12 @@ public class FavoriteTopicDAOHibernateImpl extends BaseDAOHibernateImpl implemen
 
 			rs = st.executeQuery(count);
 			rs.next();
-			System.out.println("检索的起始位置@@@@@pagination.getRange():"+pagination.getRange());
+//			System.out.println("检索的起始位置@@@@@pagination.getRange():"+pagination.getRange());
 			int totalRecord=rs.getInt("cnt");
-			logger.debug("检索的起始位置@@totalRecord:"+totalRecord);
-			logger.debug("检索的起始位置@@@@pagination.getStart():"+pagination.getStart());
-			logger.debug("检索的起始位置@@@@@pagination.getRange():"+pagination.getRange());
-			logger.debug("检索的起始位置@@@@@@@@sSql:"+sSql);
+//			logger.debug("检索的起始位置@@totalRecord:"+totalRecord);
+//			logger.debug("检索的起始位置@@@@pagination.getStart():"+pagination.getStart());
+//			logger.debug("检索的起始位置@@@@@pagination.getRange():"+pagination.getRange());
+//			logger.debug("检索的起始位置@@@@@@@@sSql:"+sSql);
 			rsList = stList.executeQuery(sSql);
 			//return rs;我们也一定不要做return rs的事情，我们把提取出来的东西放在List里面
 			
