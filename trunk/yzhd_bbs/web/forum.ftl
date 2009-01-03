@@ -111,19 +111,19 @@
 				<a anyid="0" target="_blank" href="topic.action?topicId=${topic.id}" 
 				title=
 "主题：${topic.title}
-发帖用户：${topic.username?if_exists}
+发帖用户：${UserUtil.getAliasByUsername(topic.username)?if_exists}
 ${topic.lastPostTime?string("yyyy-MM-dd HH:mm:ss")}">				
 				[${CategoryService.getCategory(topic.categoryId).name}]${topic.title}				
 				</a>
 				</li>
 				
 				<li class="author">
-					<a href="user.action?username=${URLEncoder.encode(topic.username?if_exists)}" rel="external" title="${topic.username?if_exists}">${topic.username?if_exists}</a>
+					<a href="user.action?username=${URLEncoder.encode(topic.username?if_exists)}" rel="external" title="${UserUtil.getAliasByUsername(topic.username)?if_exists}">${UserUtil.getAliasByUsername(topic.username)?if_exists}</a>
 				</li>
 				
 				<li class="time">${topic.lastPostTime?string("yyyy-MM-dd HH:mm:ss")}</li>
 				
-				<li class="name"><a href="user.action?username=${URLEncoder.encode(topic.lastPostUser?if_exists)}" title="发帖用户： ${topic.lastPostUser}"> ${topic.lastPostUser} </a></li>
+				<li class="name"><a href="user.action?username=${URLEncoder.encode(topic.lastPostUser?if_exists)}" title="发帖用户： ${UserUtil.getAliasByUsername(topic.lastPostUser)}"> ${UserUtil.getAliasByUsername(topic.lastPostUser)} </a></li>
 		
 		</#list>
 		

@@ -43,7 +43,7 @@ value=/wEPDwUKMTYzODkyNzA5MGRkC4QPFjibrGVyxelBTfpu8p1qLFQ= name=__VIEWSTATE>
       src="${star.face}" 
       width=95></DIV></TD>
     <TD class=wz1 vAlign=top width=90>
-      <DIV><A class=red_4 title="查看${star.username}的资料" href="user.action?username=${URLEncoder.encode(star.username)}" target="_blank">${star.username}</A></DIV>
+      <DIV><A class=red_4 title="查看${star.alias}的资料" href="user.action?username=${URLEncoder.encode(star.username)}" target="_blank">${star.alias}</A></DIV>
       
       <DIV><IMG src="images/icon22.gif" align=absMiddle> 
       <A class=blue_2 href="writeMessage-page.action?receiver=${URLEncoder.encode(star.username)}" target="_black">发送信息</A></DIV></TD>
@@ -90,7 +90,7 @@ href="forum.action?forumId=${forum.id}" target="_black">${forum.name}</A></DIV>
     <TD vAlign=top>
       <DIV class=liststyle2><UL><#list forum.indexTopic as topic> <LI><A href="topic.action?topicId=${topic.id}"  title="${topic.title}"  target=_blank>${topic.getAutoTitle(12)} </A></#list></LI></UL></DIV></TD></TR></TBODY></TABLE>
 <DIV class=bbsbz><IMG src="images/icon24.gif"> 版主：&nbsp;&nbsp;
-<#if forum.masters="">暂无版主<#else><#list forum.masters?split(",") as master><a title="查看版主${master}的资料" href="user.action?username=${URLEncoder.encode(master)}" target="_blank">${master}</a> </#list></#if>
+<#if forum.masters="">暂无版主<#else><#list forum.masters?split(",") as master><a title="查看版主${master}的资料" href="user.action?username=${URLEncoder.encode(master)}" target="_blank">${UserUtil.getAliasByUsername(master)}</a> </#list></#if>
 </DIV></DIV></DIV>
 </#list>
 

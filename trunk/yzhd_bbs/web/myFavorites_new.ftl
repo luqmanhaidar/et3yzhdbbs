@@ -117,10 +117,10 @@ return true;
 										<span>${topic.replies?int}</span> / <span>${topic.views}</span>
 									</li>
 									<li class="subject">
-										<a anyid="0" target="_blank" href="topic.action?topicId=${topic.id}" title="发贴用户:${topic.lastPostUser?if_exists} 发贴时间:${topic.lastPostTime?string("yyyy-MM-dd HH:mm:ss")}">${topic.title} <a href="javascript:Util.del('确认删除${topic.title}吗?','deleteFavorite.action?favId=${topic.favId}');"> <img border="0" title="从收藏夹删除" alt="从收藏夹删除" src="images/del.gif"/> </a>
+										<a anyid="0" target="_blank" href="topic.action?topicId=${topic.id}" title="发贴用户:${UserUtil.getAliasByUsername(topic.lastPostUser)?if_exists} 发贴时间:${topic.lastPostTime?string("yyyy-MM-dd HH:mm:ss")}">${topic.title} <a href="javascript:Util.del('确认删除${topic.title}吗?','deleteFavorite.action?favId=${topic.favId}');"> <img border="0" title="从收藏夹删除" alt="从收藏夹删除" src="images/del.gif"/> </a>
 									</li>
 									<li class="name">
-										<a title="发贴用户：${topic.lastPostUser?if_exists}" href="user.action?username=${URLEncoder.encode(topic.lastPostUser?if_exists)}">${topic.lastPostUser?if_exists}</a>
+										<a title="发贴用户：${UserUtil.getAliasByUsername(topic.lastPostUser)?if_exists}" href="user.action?username=${URLEncoder.encode(topic.lastPostUser?if_exists)}">${UserUtil.getAliasByUsername(topic.lastPostUser)?if_exists}</a>
 									</li>
 									<li class="time">
 										${topic.lastPostTime?string("yyyy-MM-dd HH:mm:ss")}

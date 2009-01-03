@@ -200,7 +200,7 @@ xmlns="http://www.w3.org/1999/xhtml">
           </ul>
         </div>
         <ul class="uinM">
-          <li><a href="user.action?username=${URLEncoder.encode(user.username)}" class="red">${user.username}</a></li>
+          <li><a href="user.action?username=${URLEncoder.encode(user.username)}" class="red">${user.alias}</a></li>
           <li>身  份：${role.name}</li>
           <li>文  章：${user.totalTopic}</li>
           <li>积  分：${user.money}</li>
@@ -290,7 +290,7 @@ xmlns="http://www.w3.org/1999/xhtml">
       </div>
       <p class="tab"><span class="nbg01">我的美丽签名</span></p>
       <p class="tabtext">${user.signature?if_exists}</p>
-      <div style="PADDING-RIGHT: 10px; FONT-SIZE: 12px; WIDTH: 746px; LINE-HEIGHT: 40px; HEIGHT: 40px; BACKGROUND-COLOR: #d8edf8; TEXT-ALIGN: right"><span class="red">${user.username}</span> 发表于 ${post.dateCreated?string("yyyy年MM月dd日 HH:mm:ss")}</div>
+      <div style="PADDING-RIGHT: 10px; FONT-SIZE: 12px; WIDTH: 746px; LINE-HEIGHT: 40px; HEIGHT: 40px; BACKGROUND-COLOR: #d8edf8; TEXT-ALIGN: right"><span class="red">${user.alias}</span> 发表于 ${post.dateCreated?string("yyyy年MM月dd日 HH:mm:ss")}</div>
     </div>
     <!---->
      <#include "includes/adDetail.ftl">
@@ -301,7 +301,7 @@ xmlns="http://www.w3.org/1999/xhtml">
     
     <div class="contener3 conbg">
       <ul class="consub">
-        <li class="uname"><a href="user.action?username=${URLEncoder.encode(user.username)}" class="red">${user.username}</a></li>
+        <li class="uname"><a href="user.action?username=${URLEncoder.encode(user.username)}" class="red">${user.alias}</a></li>
         <li class="upic"><img width="95" height="95" src="${user.face}"/></li>
         <li>
           <ul class="smilies">

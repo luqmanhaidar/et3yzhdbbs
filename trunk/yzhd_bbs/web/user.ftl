@@ -44,7 +44,7 @@
           <TD class=zl2 vAlign=top width=484>
             <UL class=info1>
               <LI>用户名：<SPAN class=b>${user.username}</SPAN> </LI>
-              <LI>昵称：<SPAN class=f-red2>${user.username}</SPAN> </LI>
+              <LI>昵称：<SPAN class=f-red2>${user.alias}</SPAN> </LI>
               <LI>性别： <#if user.sex=1><IMG src="images/zl-f.gif">男<#elseif user.sex=2>女<#else>保密</#if></LI>
               <LI>身份：<SPAN class=b>${RoleSingleton.getInstance().getRole(user.roles).name}</SPAN></LI>
               <LI>最近登录：${user.lastLoginTime} </LI>

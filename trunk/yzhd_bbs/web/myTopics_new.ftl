@@ -103,8 +103,8 @@ return true;
 		      </#switch>
    </li>
    <li class="welcome"><span>${topic.replies?int}</span> / <span>${topic.views}</span></li>
-   <li class="subject"><a anyid="0" target="_blank" href="topic.action?topicId=${topic.id}" title="发贴用户:${topic.lastPostUser?if_exists} 发贴时间:${topic.lastPostTime?string("yyyy-MM-dd HH:mm:ss")}">${topic.title}	</li>
-   <li class="name"><a title="发贴用户：${topic.lastPostUser?if_exists}" href="user.action?username=${URLEncoder.encode(topic.lastPostUser?if_exists)}">${topic.lastPostUser?if_exists}</a></li>
+   <li class="subject"><a anyid="0" target="_blank" href="topic.action?topicId=${topic.id}" title="发贴用户:${UserUtil.getAliasByUsername(topic.lastPostUser)?if_exists} 发贴时间:${topic.lastPostTime?string("yyyy-MM-dd HH:mm:ss")}">${topic.title}	</li>
+   <li class="name"><a title="发贴用户：${UserUtil.getAliasByUsername(topic.lastPostUser)?if_exists}" href="user.action?username=${URLEncoder.encode(topic.lastPostUser?if_exists)}">${UserUtil.getAliasByUsername(topic.lastPostUser)?if_exists}</a></li>
    <li class="time">${topic.lastPostTime?string("yyyy-MM-dd HH:mm:ss")}</li>
 </ul>
 </#list>

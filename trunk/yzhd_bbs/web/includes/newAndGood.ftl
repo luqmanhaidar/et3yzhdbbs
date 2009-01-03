@@ -17,7 +17,7 @@
 								<a class="black_1" href="topic.action?topicId=${topic.id}"
 								title=
 "主题：${topic.title}
-发帖用户：${topic.username?if_exists}
+发帖用户：${UserUtil.getAliasByUsername(topic.username)?if_exists}
 ${topic.lastPostTime?string("yyyy-MM-dd HH:mm:ss")}">				
 								${topic.getAutoTitle(13)}</a>
 							</li>
@@ -52,7 +52,7 @@ ${topic.lastPostTime?string("yyyy-MM-dd HH:mm:ss")}">
 								<a class="black_1" href="topic.action?topicId=${topic.id}"
 								title=
 "主题：${topic.title}
-发帖用户：${topic.username?if_exists}
+发帖用户：${UserUtil.getAliasByUsername(topic.username)?if_exists}
 ${topic.lastPostTime?string("yyyy-MM-dd HH:mm:ss")}">				
 								${topic.getAutoTitle(13)}</a>
 							</li>

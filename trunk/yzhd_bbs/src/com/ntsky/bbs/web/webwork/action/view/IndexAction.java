@@ -11,6 +11,7 @@ import com.ntsky.bbs.service.LinkService;
 import com.ntsky.bbs.service.TopicService;
 import com.ntsky.bbs.util.Application;
 import com.ntsky.bbs.util.BeanFactory;
+import com.ntsky.bbs.util.UserUtil;
 import com.ntsky.bbs.util.memory.ForumSingleton;
 import com.ntsky.bbs.util.memory.StarUserSingleton;
 
