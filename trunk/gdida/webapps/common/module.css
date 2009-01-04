@@ -1,0 +1,136 @@
+
+BODY
+{
+ font-family:????;
+ cursor:default;
+ font-size:10pt;
+}
+A:link
+{
+    color: #000000;
+    TEXT-DECORATION: none
+}
+A:hover
+{
+    COLOR: #000000;
+    TEXT-DECORATION: none
+}
+A:visited
+{  color: #000000;
+   TEXT-DECORATION: none
+}
+
+table
+{
+ font-family:????;
+ cursor:default;
+ font-size:9pt;
+}
+
+.container {
+ position:relative;
+ top:4px;
+ padding:1px;
+ padding-top:5px;
+ width:13px;
+ height:13px;
+ border:solid 1px black;
+ background-color:#ffffff;
+ }
+
+SPAN.clsCollapse
+{
+ top:3px;
+ padding-left:1px;
+ padding-top:26px;
+ overflow:hidden;
+ line-height:3px;
+ font-size:13px;
+}
+
+SPAN.clsExpand
+{
+ padding-left:1px;
+ overflow:hidden;
+ line-height:3px;
+ font-size:13px;
+ padding-top:3px;
+}
+
+SPAN.clsLeaf
+{
+ top:0px;
+ padding-left:3px;
+ overflow:hidden;
+ line-height:0px;
+ font-size:11px;
+ cursor:normal;
+}
+
+SPAN.clsLabel
+{
+
+ height:17px;
+ overflow:hidden;
+ padding-left:3px;
+ padding-top:2px;
+ border:1px solid #FFFFFF
+}
+
+SPAN.clsMouseOver
+{
+ position:relative;
+ height:17px;
+ overflow:hidden;
+ padding-left:3px;
+ padding-top:2px;
+ background-color:#CCCCCC;
+ border:1px solid #999999;
+ cursor:hand;
+}
+
+SPAN.clsMouseOut
+{
+ position:relative;
+ height:17px;
+ overflow:hidden;
+ padding-left:3px;
+ padding-top:2px;
+ background-color:#CCCCCC;
+ border:1px solid #FFFFFF;
+}
+
+SPAN.clsMouseDown
+{
+ position:relative;
+ height:17px;
+ overflow:hidden;
+ padding-left:3px;
+ padding-top:2px;
+ background-color:#999999;
+ border:1px solid #999999;
+}
+SPAN.clsCurrentHasFocus
+{
+ position:relative;
+ height:17px;
+ overflow:hidden;
+ padding-left:3px;
+ padding-top:2px;
+ background-color:#999999;
+ border:1px solid #999999;
+ cursor:hand;
+}
+
+SPAN.clsNotReady
+{
+ position:relative;
+ height:17px;
+ overflow:hidden;
+ padding-left:3px;
+ padding-top:2px;
+ background-color:#CCCCCC;
+ border:1px solid #FFFFFF;
+}
+DIV.focusColor {backgroud-color:red}
+DIV.normalColor {backgroud-color:green}
