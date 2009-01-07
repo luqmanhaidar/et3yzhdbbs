@@ -1,3 +1,15 @@
 <Context docBase="gdida" path="/" reloadable="true" source="org.eclipse.jst.j2ee.server:gdida">
 <Loader className="org.apache.catalina.loader.DevLoader" reloadable="true" debug="0"/>
+<Resource name="jdbc/gdida"
+             type="javax.sql.DataSource"
+             driverClassName="com.mysql.jdbc.Driver"
+             url="jdbc:mysql://localhost:3306/gdida"
+	           SelectMethod="cursor"
+             username="root"
+             password="root"
+             maxActive="100"
+             maxIdle="4"
+             maxWait="1000"
+             removeAbandoned="true"
+             removeAbandonedTimeout="120"/>
 </Context>
