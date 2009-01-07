@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4">
+  <display-name>gdida</display-name>
+  <welcome-file-list>
+     <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  <session-config>
+    <session-timeout>-1</session-timeout>
+  </session-config>
+  
+  <filter>
+  	<filter-name>encodingFilter</filter-name>
+  	<filter-class>com.gdie.filter.EncodingFilter</filter-class>
+  </filter>  
+  <filter-mapping>
+  	<filter-name>encodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>loginFilter</filter-name>
+  	<filter-class>com.gdie.filter.LoginFilter</filter-class>
+  </filter>  
+  <filter-mapping>
+  	<filter-name>loginFilter</filter-name>
+  	<url-pattern>/admin/*</url-pattern>
+  </filter-mapping>
+  
+  <servlet>
+    <servlet-name>log4j</servlet-name>
+    <servlet-class>com.gdie.common.log4JServlet</servlet-class>
+	<init-param>
+		<param-name>log4j</param-name>
+		<param-value>/WEB-INF/log4j.properties</param-value>
+	</init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+    
+
+</web-app>
