@@ -11,6 +11,9 @@ body {
 	margin-right: 0px;
 	margin-bottom: 0px;
 }
+form{
+ margin:0;
+}
 .yellow {color: #FFFFCC}
 .white {color: #ffffff}
 a:link {
