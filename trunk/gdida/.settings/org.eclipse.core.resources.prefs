@@ -1,5 +1,4 @@
-#Wed Jan 07 11:31:16 CST 2009
+#Wed Jan 07 11:51:46 CST 2009
 eclipse.preferences.version=1
-encoding//webapps/WEB-INF/log4j.properties=GBK
-encoding//webapps/footer.jsp=GBK
+encoding//WebRoot/WEB-INF/log4j.properties=gbk
 encoding/<project>=gbk
