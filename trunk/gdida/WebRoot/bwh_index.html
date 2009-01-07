@@ -1,0 +1,402 @@
+<%@ page buffer="none" autoFlush="true" %>
+<%@ page contentType="text/html; charset=GBK" %>
+<%@ page import="java.sql.ResultSet"%>
+<%@ page import="com.gdie.common.Page"%>
+<%@ page import="com.gdie.db.Table"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>编办</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-size: 12px;
+	color: #333333;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+-->
+</style></head>
+
+<body style="text-align:center">
+<table width="1002" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="3"><img src="images/bwh2_01.gif" width="1002" height="169" alt="" /></td>
+  </tr>
+  <tr>
+    <td height="41" colspan="3" align="center" background="images/bwh2_15.gif"><table width="800" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="140"><img src="images/bwh2_03.gif" width="79" height="41" alt="" /></td>
+        <td width="331"><img src="images/bwh2_04.gif" width="81" height="41" alt="" /></td>
+        <td width="53"><img src="images/bwh2_04.gif" width="81" height="41" alt="" /></td>
+        <td width="53"><img src="images/bwh2_04.gif" width="81" height="41" alt="" /></td>
+        <td width="53"><img src="images/bwh2_04.gif" width="81" height="41" alt="" /></td>
+        <td width="53"><img src="images/bwh2_04.gif" width="81" height="41" alt="" /></td>
+        <td width="53"><img src="images/bwh2_04.gif" width="81" height="41" alt="" /></td>
+        <td width="53"><img src="images/bwh2_04.gif" width="81" height="41" alt="" /></td>
+        <td width="53"><img src="images/bwh2_04.gif" width="81" height="41" alt="" /></td>
+        <td width="53"><img src="images/bwh2_04.gif" width="81" height="41" alt="" /></td>
+        <td width="53"><img src="images/bwh2_04.gif" width="81" height="41" alt="" /></td>
+        <td width="54"><img src="images/bwh2_04.gif" width="81" height="41" alt="" /></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td width="215" align="center" valign="top"><table width="215" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="75" align="center" valign="middle" background="images/bwh2_18.gif"><table width="184" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="26" colspan="2">&nbsp;</td>
+            </tr>
+          <tr>
+            <td><input name="textfield3" type="text" id="textfield3" style=" font-size:12px;width:88px; height:16px;" value="请输入关键字"/></td>
+            <td><img src="images/search.gif" width="55" height="21" /></td>
+          </tr>
+        </table></td>
+        </tr>
+      <tr>
+        <td align="center"><table width="88%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="20">&nbsp;</td>
+          </tr>
+          <tr>
+            <td><img src="images/bwh2_34.gif" width="190" height="48" alt="" /></td>
+          </tr>
+          <tr>
+            <td><img src="images/bwh2_37.gif" width="190" height="39" alt="" /></td>
+          </tr>
+          <tr>
+            <td><img src="images/bwh2_44.gif" width="190" height="39" alt="" /></td>
+          </tr>
+          <tr>
+            <td><img src="images/bwh2_45.gif" width="190" height="41" alt="" /></td>
+          </tr>
+          <tr>
+            <td><img src="images/bwh2_46.gif" width="190" height="40" alt="" /></td>
+          </tr>
+          <tr>
+            <td><img src="images/bwh2_51.gif" width="190" height="38" alt="" /></td>
+          </tr>
+          <tr>
+            <td><img src="images/bwh2_54.gif" width="190" height="14" alt="" /></td>
+          </tr>
+        </table></td>
+        </tr>
+      <tr>
+        <td align="center">&nbsp;</td>
+        </tr>
+      <tr>
+        <td align="center"><img src="images/bwh2_56.gif" width="190" height="55" alt="" /></td>
+        </tr>
+      <tr>
+        <td align="center">&nbsp;</td>
+        </tr>
+      <tr>
+        <td align="center"><img src="images/bwh2_59.gif" width="190" height="50" alt="" /></td>
+      </tr>
+      <tr>
+        <td align="center">&nbsp;</td>
+      </tr>
+      <tr>
+        <td align="center"><table width="81%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><img src="images/bwh2_62.gif" width="190" height="50" alt="" /></td>
+          </tr>
+          <tr>
+            <td align="center" background="images/bwh2_67.gif"><table width="90%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td><p>文字内容文字内容文字内容<br />
+                文字内容文字内容文字内容<br />
+                文字内容文字内容<br />
+                文字内容文字内容<br />
+                  <br />
+                文字内容文字内容文字内容<br />
+                文字内容</p>
+                  </td>
+              </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td><img src="images/bwh2_74.gif" width="190" height="58" alt="" /></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+    <td width="576" align="center" valign="top"><table width="575" border="0" cellspacing="0" cellpadding="6">
+      <tr>
+        <td height="27" align="left">&nbsp;&nbsp;&nbsp;&nbsp;<strong>现在的时间是：2008年8月15日 星期五</strong></td>
+      </tr>
+      <tr>
+        <td align="center"><table width="548" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="548" height="34" align="right" background="images/bwh2_26.gif">更多&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td align="center"><table width="548" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="306" height="65" background="images/bwh2_31.gif">&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="21" background="images/bwh2_38.gif">&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="21" background="images/bwh2_38.gif">&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="21" background="images/bwh2_38.gif">&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="21" background="images/bwh2_38.gif">&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="21" background="images/bwh2_38.gif">&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="21">&nbsp;</td>
+              </tr>
+            </table></td>
+            <td><img src="images/bwh2_32.gif" width="242" height="193" alt="" /></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="10" align="center"></td>
+      </tr>
+      <tr>
+        <td align="center"><table width="553" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="553" height="41" align="right" background="images/bwh2_49.gif"><table width="548" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="8" align="right"></td>
+              </tr>
+              <tr>
+                <td align="right">更多&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td width="553" height="205" align="center" valign="top" background="images/bwh2_53.gif"><table width="96%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="10" colspan="3"></td>
+                </tr>
+              <tr>
+                <td width="6%" height="40">&nbsp;</td>
+                <td width="81%" align="left">1fdfdsafdsa</td>
+                <td width="13%">2008-2-17</td>
+              </tr>
+              <tr>
+                <td height="35">&nbsp;</td>
+                <td align="left">2fdasfdsa</td>
+                <td>2008-2-17</td>
+              </tr>
+              <tr>
+                <td height="36">&nbsp;</td>
+                <td align="left">3fdsafds</td>
+                <td>2008-2-17</td>
+              </tr>
+              <tr>
+                <td height="34">&nbsp;</td>
+                <td align="left">4fdsafds</td>
+                <td>2008-2-17</td>
+              </tr>
+              <tr>
+                <td height="40">&nbsp;</td>
+                <td align="left">5fdsafdsa</td>
+                <td>2008-2-17</td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="10" align="center"></td>
+      </tr>
+      <tr>
+        <td align="center"><table width="553" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="553" height="41" align="right" background="images/bwh2_69.gif"><table width="548" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td height="8" align="right"></td>
+                </tr>
+                <tr>
+                  <td align="right">更多&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td width="553" height="205" align="center" valign="top" background="images/bwh2_53.gif"><table width="96%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td height="10" colspan="3"></td>
+                </tr>
+                <tr>
+                  <td width="6%" height="40">&nbsp;</td>
+                  <td width="81%" align="left">1fdfdsafdsa</td>
+                  <td width="13%">2008-2-17</td>
+                </tr>
+                <tr>
+                  <td height="35">&nbsp;</td>
+                  <td align="left">2fdasfdsa</td>
+                  <td>2008-2-17</td>
+                </tr>
+                <tr>
+                  <td height="36">&nbsp;</td>
+                  <td align="left">3fdsafds</td>
+                  <td>2008-2-17</td>
+                </tr>
+                <tr>
+                  <td height="34">&nbsp;</td>
+                  <td align="left">4fdsafds</td>
+                  <td>2008-2-17</td>
+                </tr>
+                <tr>
+                  <td height="40">&nbsp;</td>
+                  <td align="left">5fdsafdsa</td>
+                  <td>2008-2-17</td>
+                </tr>
+            </table></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td align="center">&nbsp;</td>
+      </tr>
+
+    </table></td>
+    <td width="260" align="center" valign="top"><table width="90%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="10" align="center">&nbsp;</td>
+      </tr>
+      <tr>
+        <td align="center"><img src="images/bwh2_23.gif" width="184" height="30" alt="" /></td>
+      </tr>
+      <tr>
+        <td height="67" align="center"><table width="184" border="0" cellpadding="0" cellspacing="0" background="images/bwh2_28.gif">
+          <tr>
+            <td height="67"><table width="184" height="50" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width="65">&nbsp;</td>
+                <td width="119"><input type="text" name="textfield" id="textfield" style="width:88px; height:12px;"/></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td><input type="password" name="textfield2" id="textfield2" style="line-height:12px; width:88px; height:12px;"/></td>
+              </tr>
+            </table></td>
+          </tr>
+          
+        </table></td>
+      </tr>
+      <tr>
+        <td height="36" align="center" valign="middle"><input style="font-size:12px" type="submit" name="button" id="button" value="登 录" /></td>
+      </tr>
+      <tr>
+        <td height="67" align="center" valign="top"><table width="190" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="107" background="images/bwh2_42.gif">&nbsp;</td>
+          </tr>
+          <tr>
+            <td><img src="images/bwh2_48.gif" width="190" height="58" alt="" /></td>
+          </tr>
+          <tr>
+            <td><img src="images/bwh2_52.gif" width="190" height="55" alt="" /></td>
+          </tr>
+          <tr>
+            <td><img src="images/bwh2_57.gif" width="190" height="56" alt="" /></td>
+          </tr>
+          <tr>
+            <td><img src="images/bwh2_60.gif" width="190" height="58" alt="" /></td>
+          </tr>
+          <tr>
+            <td height="28" background="images/bwh2_63.gif">&nbsp;</td>
+          </tr>
+
+        </table></td>
+      </tr>
+      <tr>
+        <td height="10" align="center" valign="top"></td>
+      </tr>
+      <tr>
+        <td align="center" valign="top"><table width="190" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="59" background="images/bwh2_65.gif">&nbsp;</td>
+          </tr>
+          <tr>
+            <td align="center" valign="top" background="images/bwh2_70.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="32" background="images/bwh2_72.gif">&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="32" background="images/bwh2_72.gif">&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="32" background="images/bwh2_72.gif">&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="32" background="images/bwh2_72.gif">&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="32" background="images/bwh2_72.gif">&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="32" background="images/bwh2_72.gif">&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="32" background="images/bwh2_72.gif">&nbsp;</td>
+              </tr>
+
+            </table></td>
+          </tr>
+
+          <tr>
+            <td height="20" background="images/bwh2_75.gif">&nbsp;</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td align="center" valign="top">&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td colspan="3"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="81" align="center" background="images/bwh2_79.gif"><table width="97%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="16%" rowspan="2" align="center"><img src="images/bwh2_87.gif" width="134" height="59" alt="" /></td>
+            <td width="16%" rowspan="2" align="center"><img src="images/bwh2_89.gif" width="136" height="59" alt="" /></td>
+            <td width="16%" rowspan="2" align="center"><img src="images/bwh2_91.gif" width="136" height="59" alt="" /></td>
+            <td width="16%" rowspan="2" align="center"><img src="images/bwh2_93.gif" width="136" height="59" alt="" /></td>
+            <td width="16%" rowspan="2" align="center"><img src="images/bwh2_82.gif" width="136" height="60" alt="" /></td>
+            <td width="16%" rowspan="2" align="center"><img src="images/bwh2_84.gif" width="136" height="60" alt="" /></td>
+            <td width="4%" height="28" align="center"><select style="font-size:12px" name="select" id="select">
+              <option>-- 各省编办 --</option>
+            </select>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="top"><select style="font-size:12px" name="select2" id="select2">
+              <option>-- 各市编办 --</option>
+                        </select></td>
+          </tr>
+          
+        </table></td>
+      </tr>
+      <tr>
+        <td height="74" align="center" background="images/bwh2_101.gif">广东省机构编制委员会办公室工作网站 (粤ICP备0618401号) <br />
+          <br />
+          地址：广东省广州市东风中路305号 电话：020-83133987 </td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</body>
+</html>
