@@ -22,7 +22,6 @@
 		} else {
 			out
 			.println("<script>alert('µÇÂ¼Ê§°Ü');location.href='index.jsp';</script>");
-			//response.sendRedirect(request.getContextPath() + "/admin/login.jsp");
 		}
 	}
 %>
