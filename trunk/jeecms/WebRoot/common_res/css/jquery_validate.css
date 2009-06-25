@@ -1,8 +1,0 @@
-.jq-validate-form input[type=text]{height:18px}
-.jq-validate-form input[type=password]{height:18px}
-.jq-validate-form input[type=radio]{border:none;}
-.jq-validate-form input[type=checkbox]{border:none;}
-.jq-validate-form input{border:1px solid #CCCCCC;}
-.jq-validate-form input:focus{border:1px dotted black;}
-.jq-validate-form input.error{border:1px dotted red;}
-.jq-validate-form label.error{color:red;display:none;}

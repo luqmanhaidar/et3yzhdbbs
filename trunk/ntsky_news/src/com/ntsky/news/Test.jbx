@@ -1,9 +1,0 @@
-[PropertyInfo]
-sdbo,SQLDBOperator,false,false, , ,false,<default>
-SQLDBOperator,SQLDBOperator,false,false, , ,true,<default>
-totalUser,int,false,false, , ,true,<default>
-[IconNames]
-
-
-
-

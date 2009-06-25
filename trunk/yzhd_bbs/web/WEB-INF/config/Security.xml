@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<securitys>
-	<!-- key 加密信息标示 value MD5和BASE64基础字符串,System为内置加密信息 -->
-	<security key="system"><![CDATA[A_ntsky*&_+@toblog]]></security>
-	<!-- key : 网站URL，value为加密信息 -->
-	<security key="www.chinascripts.com"><![CDATA[A_ntsky*&_+@toarticle]]></security>
-</securitys>
