@@ -15,9 +15,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <%@ include file="/commons/messages.jsp" %>
 
-<form action="${ctx}/zksoftware/Test/update.do" method="post">
+<form action="${ctx}/Test/update.do" method="post">
 	<input id="submit" name="submit" type="submit" value="提交" />
-	<input type="button" value="返回列表" onclick="window.location='${ctx}/zksoftware/Test/list.do'"/>
+	<input type="button" value="返回列表" onclick="window.location='${ctx}/Test/list.do'"/>
 	
 	<table class="formTable">
 	<%@ include file="form_include.jsp" %>
