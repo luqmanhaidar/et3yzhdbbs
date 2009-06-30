@@ -54,5 +54,6 @@
 	<classpathentry kind="lib" path="generator/lib/ojdbc14.jar"/>
 	<classpathentry kind="lib" path="generator/lib/sqljdbc.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/spring-webmvc.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/ntsky.jar"/>
 	<classpathentry kind="output" path="web/WEB-INF/classes"/>
 </classpath>

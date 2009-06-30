@@ -92,6 +92,16 @@
 	<listener>
 		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
+	
+	<servlet>
+		<servlet-name>validate</servlet-name>
+		<servlet-class>com.ntsky.framework.util.servlet.ValidateCode</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>validate</servlet-name>
+		<url-pattern>/servlet/validate.gif</url-pattern>
+	</servlet-mapping>  
 
 	<!-- springmvc 閰嶇疆 -->
 	<servlet>

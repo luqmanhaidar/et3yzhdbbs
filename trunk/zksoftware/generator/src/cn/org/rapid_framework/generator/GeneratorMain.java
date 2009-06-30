@@ -13,7 +13,7 @@ public class GeneratorMain {
 //		g.printAllTableNames();
 		
 		g.clean();
-		g.generateByTable("test");
+		g.generateByTable("t_admin");
 //		g.generateByAllTable();
 //		g.generateByClass(Blog.class);
 		
