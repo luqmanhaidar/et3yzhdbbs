@@ -3,3 +3,7 @@
 应该由myEclipse6.6产生，在我的开发环境（Eclipse3.2）中，把其移除，并添加J2EE1.4的lib，便可
 
 【2】删除了ntsky.jar包
+
+【3】建库、建表，参考
+/doc/general/sql/create.sql      建表
+/doc/general/sql/data.sql        入数据
