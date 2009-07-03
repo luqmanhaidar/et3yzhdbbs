@@ -1,0 +1,5 @@
+2009-07-03
+【1】从svn中download个项目下来后,有个未知的lib：melibrary.com.genuitec.eclipse.j2eedt.core.MYECLIPSE_JAVAEE_5_CONTAINER
+应该由myEclipse6.6产生，在我的开发环境（Eclipse3.2）中，把其移除，并添加J2EE1.4的lib，便可
+
+【2】删除了ntsky.jar包
