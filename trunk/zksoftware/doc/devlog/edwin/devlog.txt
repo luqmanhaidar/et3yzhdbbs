@@ -7,3 +7,5 @@
 【3】建库、建表，参考
 /doc/general/sql/create.sql      建表
 /doc/general/sql/data.sql        入数据
+
+【4】war不出，发现2个问题，1、需要set TOMCAT_HOME；2、需要ntsky.jar
