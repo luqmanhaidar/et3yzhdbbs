@@ -7,7 +7,7 @@
 <!-- ======================================================================= -->
 <!-- build file -->
 <!-- ======================================================================= -->
-<project name="rapid-framework" basedir="." default="war">
+<project name="zksoftware" basedir="." default="war">
 	<tstamp></tstamp>
 	<property name="version" value="v1.0.3"></property>
 	 
@@ -75,7 +75,6 @@
 			  <src refid="dirs.java.src"/>
 		</javac>
 		
-		<fail message="请先设置好copy路径"/> 
 		
 		<copy todir="${dir.dist.java}">
 			<fileset dir="src/javacommon" excludes="**/*.java"/>
@@ -97,7 +96,6 @@
 			</classpath>
 		</javac>
 		
-		<fail message="请先设置好copy路径"/> 
 		<copy todir="${dir.dist.test}">
 			<fileset dir="src/javacommon" excludes="**/*.java"/>
 			<fileset dir="src/resources" excludes="**/*.java"/>
